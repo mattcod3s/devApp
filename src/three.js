@@ -4,6 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
 import galaxyFragmentShader from './shaders/galaxy/fragment.glsl'
 import galaxyVertexShader from './shaders/galaxy/vertex.glsl'
+import * as TWEEN from 'tween.js'
 
 
 
@@ -417,6 +418,40 @@ function render() {
 
 let runCam = false
 
+const enterButton = document.getElementById('enterBtn')
+enterButton.addEventListener('click', () => {
+
+    var enterCoord = {
+        x: 0,
+        y: 4.24,
+        z: 0
+    }
+
+    var from = {
+        x: camera.position.x,
+        y: camera.position.y,
+        z: camera.position.z
+    };
+
+    var to = {
+        x: enterCoord.x,
+        y: enterCoord.y,
+        z: enterCoord.z
+    };
+    var tween = new TWEEN.Tween(from)
+        .to(to, 600)
+        .easing(TWEEN.Easing.Linear.None)
+        .onUpdate(function () {
+        camera.position.set(this.x, this.y, this.z);
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
+    })
+        .onComplete(function () {
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
+    })
+        .start();
+})
+
+
 
 /**
  * Animate
@@ -427,11 +462,11 @@ const tick = () =>
 {
     const elapsedTime = clock.getElapsedTime()
 
-    const enterButton = document.getElementById('enterBtn')
+    // const enterButton = document.getElementById('enterBtn')
     
-    enterButton.addEventListener('click', () => {
-        runCam = true
-    })
+    // enterButton.addEventListener('click', () => {
+    //     runCam = true
+    // })
 
     //Update text
     if(text !== null) {
@@ -453,14 +488,15 @@ const tick = () =>
     // Update Camera
     // camera.position.x = (cursor.x * 0.1)
     // camera.position.y = (cursor.y * 0.1) + 3
-    if(runCam === true && camera.position.y < 4.24) {
-        camera.position.y += 0.01
-    }
-    if(runCam === true && camera.position.z > 0.01) {
-        camera.position.z -= 0.02
-    }
+    // if(runCam === true && camera.position.y < 4.24) {
+    //     camera.position.y += 0.01
+    // }
+    // if(runCam === true && camera.position.z > 0.01) {
+    //     camera.position.z -= 0.02
+    // }
     
-    
+    TWEEN.update();
+
     // Update material
     material.uniforms.uTime.value = elapsedTime + 150
 
