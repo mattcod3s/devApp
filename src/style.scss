@@ -23,11 +23,12 @@ body
 #enterBtn {
     position: absolute;
     bottom: 5vh;
-    left: 42vw;
+    left: 44vw;
     z-index: 3;
-    width: 16vw;
-    height: 10vh;
-    background: rgb(220, 240, 252);
+    width: 12vw;
+    height: 7vh;
+    background: transparent;
+    border: 3px solid rgb(220, 240, 252);;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +37,7 @@ body
 
     h3 {
         font-family: 'Raleway', sans-serif;
-        color: #333;
-        font-size: 1.6rem;
+        color: rgb(220, 240, 252);;
+        font-size: 1.2rem;
     }
 }

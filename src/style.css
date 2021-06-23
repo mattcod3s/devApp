@@ -19,11 +19,12 @@ body {
 #enterBtn {
   position: absolute;
   bottom: 5vh;
-  left: 42vw;
+  left: 44vw;
   z-index: 3;
-  width: 16vw;
-  height: 10vh;
-  background: #dcf0fc;
+  width: 12vw;
+  height: 7vh;
+  background: transparent;
+  border: 3px solid #dcf0fc;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -39,7 +40,7 @@ body {
 
 #enterBtn h3 {
   font-family: 'Raleway', sans-serif;
-  color: #333;
-  font-size: 1.6rem;
+  color: #dcf0fc;
+  font-size: 1.2rem;
 }
 /*# sourceMappingURL=style.css.map */

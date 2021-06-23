@@ -114,10 +114,10 @@ const planet3DispTexture = textureLoader.load('/textures/planet32/DISP.png')
 const planet3NormTexture = textureLoader.load('/textures/planet32/NORM.jpg')
 const planet3OccTexture = textureLoader.load('/textures/planet32/OCC.jpg')
 
-const planet4ColorTexture = textureLoader.load('/textures/planet4/COLOR.jpg')
-const planet4DispTexture = textureLoader.load('/textures/planet4/DISP.png')
-const planet4NormTexture = textureLoader.load('/textures/planet4/NORM.jpg')
-const planet4OccTexture = textureLoader.load('/textures/planet4/OCC.jpg')
+// const planet4ColorTexture = textureLoader.load('/textures/planet4/COLOR.jpg')
+// const planet4DispTexture = textureLoader.load('/textures/planet4/DISP.png')
+// const planet4NormTexture = textureLoader.load('/textures/planet4/NORM.jpg')
+// const planet4OccTexture = textureLoader.load('/textures/planet4/OCC.jpg')
 
 /**
  * Galaxy
@@ -234,23 +234,23 @@ const generateGalaxy = () =>
     aboutPlanet.position.set(-1, 0, 1.6)
 
 
-    // Planet 4
-    contactPlanetGeometry = new THREE.SphereGeometry(0.07, 64, 64)
-    contactPlanetMaterial = new THREE.MeshStandardMaterial()
+    // // Planet 4
+    // contactPlanetGeometry = new THREE.SphereGeometry(0.07, 64, 64)
+    // contactPlanetMaterial = new THREE.MeshStandardMaterial()
 
-    contactPlanetMaterial.map = planet4ColorTexture
-    contactPlanetMaterial.aoMap = planet4OccTexture
-    contactPlanetMaterial.aoMapIntensity = 1
-    contactPlanetMaterial.displacementMap = planet4DispTexture
-    contactPlanetMaterial.displacementScale = 0.05
-    contactPlanetMaterial.normalMap = planet4NormTexture
+    // contactPlanetMaterial.map = planet4ColorTexture
+    // contactPlanetMaterial.aoMap = planet4OccTexture
+    // contactPlanetMaterial.aoMapIntensity = 1
+    // contactPlanetMaterial.displacementMap = planet4DispTexture
+    // contactPlanetMaterial.displacementScale = 0.05
+    // contactPlanetMaterial.normalMap = planet4NormTexture
 
-    contactPlanet = new THREE.Mesh( contactPlanetGeometry, contactPlanetMaterial )
-    contactPlanet.geometry.setAttribute('uv2', new THREE.BufferAttribute(contactPlanet.geometry.attributes.uv.array, 2))
-    contactPlanet.position.set(0, 0, -2)
+    // contactPlanet = new THREE.Mesh( contactPlanetGeometry, contactPlanetMaterial )
+    // contactPlanet.geometry.setAttribute('uv2', new THREE.BufferAttribute(contactPlanet.geometry.attributes.uv.array, 2))
+    // contactPlanet.position.set(0, 0, -2)
 
 
-    scene.add(projectPlanet, resumePlanet, aboutPlanet, contactPlanet)
+    scene.add(projectPlanet, resumePlanet, aboutPlanet/*, contactPlanet*/)
 
 
     /**
@@ -363,16 +363,23 @@ window.addEventListener('resize', () =>
  */
 // Base camera
 
+// Cursor
+const cursor = {
+    x: 0,
+    y: 0
+}
+
+window.addEventListener('mousemove', (event) => {
+    cursor.x = event.clientX / sizes.width - 0.5
+    cursor.y = event.clientY / sizes.height - 0.5
+})
+
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 0
 camera.position.y = 3
 camera.position.z = 3
 scene.add(camera)
 
-const enterButton = document.getElementById('enterBtn')
-enterButton.addEventListener('click', () => {
-    camera.position.set(0, 4.24, 0)
-})
 
 // Controls
 const controls = new OrbitControls(camera, canvas)
@@ -407,7 +414,9 @@ function render() {
     miniText.rotation.y = (pageX - 0.1) * 0.2;
     
 }
-  
+
+let runCam = false
+
 
 /**
  * Animate
@@ -418,7 +427,11 @@ const tick = () =>
 {
     const elapsedTime = clock.getElapsedTime()
 
+    const enterButton = document.getElementById('enterBtn')
     
+    enterButton.addEventListener('click', () => {
+        runCam = true
+    })
 
     //Update text
     if(text !== null) {
@@ -434,8 +447,18 @@ const tick = () =>
     aboutPlanet === null ? false : aboutPlanet.rotation.y += 0.008
     aboutPlanet === null ? false : aboutPlanet.rotation.x += 0.004
 
-    contactPlanet === null ? false : contactPlanet.rotation.y += 0.008
-    contactPlanet === null ? false : contactPlanet.rotation.x += 0.004
+    // contactPlanet === null ? false : contactPlanet.rotation.y += 0.008
+    // contactPlanet === null ? false : contactPlanet.rotation.x += 0.004
+    
+    // Update Camera
+    // camera.position.x = (cursor.x * 0.1)
+    // camera.position.y = (cursor.y * 0.1) + 3
+    if(runCam === true && camera.position.y < 4.24) {
+        camera.position.y += 0.01
+    }
+    if(runCam === true && camera.position.z > 0.01) {
+        camera.position.z -= 0.02
+    }
     
     
     // Update material
