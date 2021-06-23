@@ -6,6 +6,16 @@ import galaxyFragmentShader from './shaders/galaxy/fragment.glsl'
 import galaxyVertexShader from './shaders/galaxy/vertex.glsl'
 import * as TWEEN from 'tween.js'
 
+// Cursor
+// const cursor = {
+//     x: 0,
+//     y: 0
+// }
+
+// window.addEventListener('mousemove', (event) => {
+//     cursor.x = event.clientX / sizes.width - 0.5
+//     cursor.y = event.clientY / sizes.height - 0.5
+// })
 
 
 /**
@@ -203,6 +213,7 @@ const generateGalaxy = () =>
     projectPlanet.geometry.setAttribute('uv2', new THREE.BufferAttribute(projectPlanet.geometry.attributes.uv.array, 2))
     projectPlanet.position.set(-2.15, 0, 0)
 
+
     // Planet 2
     resumePlanetGeometry = new THREE.SphereGeometry(0.08, 64, 64)
     resumePlanetMaterial = new THREE.MeshStandardMaterial()
@@ -252,6 +263,8 @@ const generateGalaxy = () =>
 
 
     scene.add(projectPlanet, resumePlanet, aboutPlanet/*, contactPlanet*/)
+
+    rayCast()
 
 
     /**
@@ -328,6 +341,16 @@ const generateGalaxy = () =>
     scene.add(points)
 }
 
+/**
+ * RayCaster
+ */
+let rayToCast = false
+const raycaster = new THREE.Raycaster()
+const rayCast = () => {
+    rayToCast = true
+}
+
+
 gui.add(parameters, 'count').min(100).max(1000000).step(100).onFinishChange(generateGalaxy)
 gui.add(parameters, 'radius').min(0.01).max(20).step(0.01).onFinishChange(generateGalaxy)
 gui.add(parameters, 'branches').min(2).max(20).step(1).onFinishChange(generateGalaxy)
@@ -360,20 +383,13 @@ window.addEventListener('resize', () =>
 })
 
 /**
+ * Raycaster mouse coordinates
+ */
+
+/**
  * Camera
  */
 // Base camera
-
-// Cursor
-const cursor = {
-    x: 0,
-    y: 0
-}
-
-window.addEventListener('mousemove', (event) => {
-    cursor.x = event.clientX / sizes.width - 0.5
-    cursor.y = event.clientY / sizes.height - 0.5
-})
 
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 0
@@ -416,29 +432,27 @@ function render() {
     
 }
 
-let runCam = false
-
 const enterButton = document.getElementById('enterBtn')
 enterButton.addEventListener('click', () => {
 
-    var enterCoord = {
+    let enterCoord = {
         x: 0,
         y: 4.24,
-        z: 0
+        z: 0.1
     }
 
-    var from = {
+    let from = {
         x: camera.position.x,
         y: camera.position.y,
         z: camera.position.z
     };
 
-    var to = {
+    let to = {
         x: enterCoord.x,
         y: enterCoord.y,
         z: enterCoord.z
     };
-    var tween = new TWEEN.Tween(from)
+    let tween = new TWEEN.Tween(from)
         .to(to, 600)
         .easing(TWEEN.Easing.Linear.None)
         .onUpdate(function () {
@@ -462,12 +476,6 @@ const tick = () =>
 {
     const elapsedTime = clock.getElapsedTime()
 
-    // const enterButton = document.getElementById('enterBtn')
-    
-    // enterButton.addEventListener('click', () => {
-    //     runCam = true
-    // })
-
     //Update text
     if(text !== null) {
         render();
@@ -481,20 +489,28 @@ const tick = () =>
 
     aboutPlanet === null ? false : aboutPlanet.rotation.y += 0.008
     aboutPlanet === null ? false : aboutPlanet.rotation.x += 0.004
+    
+    // if(rayToCast === true) {
+    //     const rayOrigin = new THREE.Vector3(-3, 0, 0)
+    //     const rayDirection = new THREE.Vector3(10, 0, 0)
+    //     rayDirection.normalize()
+    //     raycaster.set(rayOrigin, rayDirection)
 
-    // contactPlanet === null ? false : contactPlanet.rotation.y += 0.008
-    // contactPlanet === null ? false : contactPlanet.rotation.x += 0.004
-    
-    // Update Camera
-    // camera.position.x = (cursor.x * 0.1)
-    // camera.position.y = (cursor.y * 0.1) + 3
-    // if(runCam === true && camera.position.y < 4.24) {
-    //     camera.position.y += 0.01
+    //     const objectsToTest = [projectPlanet, resumePlanet, aboutPlanet]
+    //     const intersect = raycaster.intersectObject(projectPlanet)
+    //     //console.log(intersect)
+    //     const intersects = raycaster.intersectObjects(objectsToTest)
+    //     //console.log(intersects)
+
+    //     for(const obj of objectsToTest) {
+    //         obj.material.color.set(0xffffff)
+    //     }
+
+    //     for(const int of intersects) {
+    //         int.object.material.color.set(0x0f00dc)
+    //     }
     // }
-    // if(runCam === true && camera.position.z > 0.01) {
-    //     camera.position.z -= 0.02
-    // }
-    
+
     TWEEN.update();
 
     // Update material
