@@ -264,8 +264,6 @@ const generateGalaxy = () =>
 
     scene.add(projectPlanet, resumePlanet, aboutPlanet/*, contactPlanet*/)
 
-    rayCast()
-
 
     /**
      * Geometry
@@ -385,6 +383,12 @@ window.addEventListener('resize', () =>
 /**
  * Raycaster mouse coordinates
  */
+const mouse = new THREE.Vector2()
+window.addEventListener('mousemove', (_event) => {
+    mouse.x = _event.clientX / sizes.width * 2 - 1
+    mouse.y = - (_event.clientY / sizes.height) * 2 + 1
+
+})
 
 /**
  * Camera
@@ -463,6 +467,8 @@ enterButton.addEventListener('click', () => {
         camera.lookAt(new THREE.Vector3(0, 0, 0));
     })
         .start();
+
+    rayCast()
 })
 
 
@@ -490,6 +496,7 @@ const tick = () =>
     aboutPlanet === null ? false : aboutPlanet.rotation.y += 0.008
     aboutPlanet === null ? false : aboutPlanet.rotation.x += 0.004
     
+    // OLD
     // if(rayToCast === true) {
     //     const rayOrigin = new THREE.Vector3(-3, 0, 0)
     //     const rayDirection = new THREE.Vector3(10, 0, 0)
@@ -510,6 +517,25 @@ const tick = () =>
     //         int.object.material.color.set(0x0f00dc)
     //     }
     // }
+
+    // NEW - MOUSE
+    if(rayToCast === true) {
+        raycaster.setFromCamera(mouse, camera)
+
+        const objectsToTest = [projectPlanet, resumePlanet, aboutPlanet]
+        const intersect = raycaster.intersectObject(projectPlanet)
+        //console.log(intersect)
+        const intersects = raycaster.intersectObjects(objectsToTest)
+        //console.log(intersects)
+
+        for(const obj of objectsToTest) {
+            obj.material.color.set(0xffffff)
+        }
+
+        for(const int of intersects) {
+            int.object.material.color.set('#29F500')
+        }
+    }
 
     TWEEN.update();
 
