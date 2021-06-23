@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -22,7 +23,7 @@ body {
   z-index: 3;
   width: 16vw;
   height: 10vh;
-  background: white;
+  background: #dcf0fc;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -34,5 +35,11 @@ body {
           align-items: center;
   border-radius: 100px;
   cursor: pointer;
+}
+
+#enterBtn h3 {
+  font-family: 'Raleway', sans-serif;
+  color: #333;
+  font-size: 1.6rem;
 }
 /*# sourceMappingURL=style.css.map */

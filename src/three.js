@@ -362,11 +362,17 @@ window.addEventListener('resize', () =>
  * Camera
  */
 // Base camera
+
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 0
 camera.position.y = 3
 camera.position.z = 3
 scene.add(camera)
+
+const enterButton = document.getElementById('enterBtn')
+enterButton.addEventListener('click', () => {
+    camera.position.set(0, 4.24, 0)
+})
 
 // Controls
 const controls = new OrbitControls(camera, canvas)
