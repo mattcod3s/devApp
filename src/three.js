@@ -6,6 +6,7 @@ import galaxyFragmentShader from './shaders/galaxy/fragment.glsl'
 import galaxyVertexShader from './shaders/galaxy/vertex.glsl'
 import * as TWEEN from 'tween.js'
 
+
 // Cursor
 // const cursor = {
 //     x: 0,
@@ -134,7 +135,7 @@ const planet3OccTexture = textureLoader.load('/textures/planet32/OCC.jpg')
  * Galaxy
  */
 const parameters = {}
-parameters.count = 600000
+parameters.count = 400000
 parameters.size = 0.003
 parameters.radius = 4
 parameters.branches = 5
@@ -215,7 +216,7 @@ const generateGalaxy = () =>
 
 
     // Planet 2
-    resumePlanetGeometry = new THREE.SphereGeometry(0.08, 64, 64)
+    resumePlanetGeometry = new THREE.SphereGeometry(0.15, 64, 64)
     resumePlanetMaterial = new THREE.MeshStandardMaterial()
 
     resumePlanetMaterial.map = planet2ColorTexture 
@@ -405,6 +406,7 @@ scene.add(camera)
 // Controls
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
+controls.enabled = false
 
 /**
  * Renderer
@@ -439,6 +441,8 @@ function render() {
 const enterButton = document.getElementById('enterBtn')
 enterButton.addEventListener('click', () => {
 
+    scene.remove(text, miniText)
+
     let enterCoord = {
         x: 0,
         y: 4.24,
@@ -469,7 +473,47 @@ enterButton.addEventListener('click', () => {
         .start();
 
     rayCast()
+
+    enterButton.style.opacity = '0'
+    enterButton.style.transitionDuration = '0.5s'
+    enterButton.style.pointerEvents = 'none'
 })
+
+let planetToLook = null
+
+
+const projectTween = () => {
+    const tween = new TWEEN.Tween(camera.position)
+    .to({x : -2.46, y : 0.04, z : -0.25}, 1000)
+    .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
+	.onUpdate(() => {
+		// Called after tween.js updates 'coords'.
+		// Move 'box' to the position described by 'coords' with a CSS translation.
+	})
+	.start()
+}
+
+const contactTween = () => {
+    const tween = new TWEEN.Tween(camera.position)
+    .to({x : -1.34396115787535, y : 0.0562634047638856, z : 1.750786523197392}, 1000)
+    .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
+	.onUpdate(() => {
+		// Called after tween.js updates 'coords'.
+		// Move 'box' to the position described by 'coords' with a CSS translation.
+	})
+	.start()
+}
+
+const aboutTween = () => {
+    const tween = new TWEEN.Tween(camera.position)
+    .to({x : 2.23847335632193, y : 0.0934424502899299, z : 0.38280577924257714}, 1000)
+    .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
+	.onUpdate(() => {
+		// Called after tween.js updates 'coords'.
+		// Move 'box' to the position described by 'coords' with a CSS translation.
+	})
+	.start()
+}
 
 
 
@@ -523,19 +567,42 @@ const tick = () =>
         raycaster.setFromCamera(mouse, camera)
 
         const objectsToTest = [projectPlanet, resumePlanet, aboutPlanet]
-        const intersect = raycaster.intersectObject(projectPlanet)
-        //console.log(intersect)
         const intersects = raycaster.intersectObjects(objectsToTest)
-        //console.log(intersects)
 
         for(const obj of objectsToTest) {
             obj.material.color.set(0xffffff)
+            planetToLook = null
         }
 
         for(const int of intersects) {
             int.object.material.color.set('#29F500')
+
+            if(int.object.position.x == -1 && int.object.position.z == 1.6) {
+                // console.log('contact planet')
+                document.addEventListener('click', () => {
+                    planetToLook = aboutPlanet
+                    contactTween()
+                })
+            }
+
+            if(int.object.position.x == -2.15 && int.object.position.z == 0) {
+                // console.log('project planet')
+                document.addEventListener('click', () => {
+                    planetToLook = projectPlanet
+                    projectTween()
+                })
+            }
+
+            if(int.object.position.x == 1.78 && int.object.position.z == 0) {
+                // console.log('about planet')
+               document.addEventListener('click', () => {
+                    planetToLook = resumePlanet
+                    aboutTween()
+               })
+            }
         }
     }
+
 
     TWEEN.update();
 
