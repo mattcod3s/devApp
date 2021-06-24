@@ -48,6 +48,38 @@ body {
   font-size: 1.2rem;
 }
 
+#returnBtn {
+  position: absolute;
+  top: 4vh;
+  left: 4vh;
+  z-index: 3;
+  width: 12vw;
+  height: 7vh;
+  background: transparent;
+  border: 3px solid #dcf0fc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 100px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#returnBtn h3 {
+  font-family: 'Raleway', sans-serif;
+  color: #dcf0fc;
+  font-size: 1.2rem;
+}
+
 #enterBtn {
   position: absolute;
   bottom: 5vh;
@@ -74,5 +106,186 @@ body {
   font-family: 'Raleway', sans-serif;
   color: #dcf0fc;
   font-size: 1.2rem;
+}
+
+#projectClickable {
+  position: fixed;
+  z-index: 3;
+}
+
+#projectClickable .horizontalLine {
+  position: absolute;
+  left: 23vw;
+  top: 50vh;
+  width: 100px;
+  height: 2px;
+  background: white;
+}
+
+#projectClickable .verticalLine {
+  position: absolute;
+  left: 23vw;
+  top: calc(50vh - 40px);
+  width: 2px;
+  height: 40px;
+  background: white;
+}
+
+#projectClickable #project_enter {
+  position: absolute;
+  left: 18vw;
+  top: calc(50vh - 11.5vh);
+  width: 10vw;
+  height: 6vh;
+  background: transparent;
+  border: 2px solid white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+}
+
+#projectClickable #project_enter h3 {
+  font-family: 'Raleway';
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  color: white;
+}
+
+#projectClickable #project_enter:hover {
+  background: white;
+  border: 2px solid transparent;
+}
+
+#projectClickable #project_enter:hover h3 {
+  color: #333;
+}
+
+.clickable {
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
+#aboutClickable {
+  position: fixed;
+  z-index: 3;
+}
+
+#aboutClickable .horizontalLine {
+  position: absolute;
+  left: 67vw;
+  top: 50vh;
+  width: 100px;
+  height: 2px;
+  background: white;
+}
+
+#aboutClickable .verticalLine {
+  position: absolute;
+  left: calc(67vw + 98px);
+  top: calc(50vh - 40px);
+  width: 2px;
+  height: 40px;
+  background: white;
+}
+
+#aboutClickable #about_enter {
+  position: absolute;
+  left: 69vw;
+  top: calc(50vh - 11.5vh);
+  width: 10vw;
+  height: 6vh;
+  background: transparent;
+  border: 2px solid white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+}
+
+#aboutClickable #about_enter h3 {
+  font-family: 'Raleway';
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  color: white;
+}
+
+#aboutClickable #about_enter:hover {
+  background: white;
+  border: 2px solid transparent;
+}
+
+#aboutClickable #about_enter:hover h3 {
+  color: #333;
+}
+
+#contactClickable {
+  position: fixed;
+  z-index: 3;
+}
+
+#contactClickable .horizontalLine {
+  position: absolute;
+  left: 43vw;
+  top: 74.5vh;
+  width: 100px;
+  height: 2px;
+  background: white;
+}
+
+#contactClickable #contact_enter {
+  position: absolute;
+  left: calc(43vw + 100px);
+  top: calc(74.5vh - 3vh);
+  width: 10vw;
+  height: 6vh;
+  background: transparent;
+  border: 2px solid white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+}
+
+#contactClickable #contact_enter h3 {
+  font-family: 'Raleway';
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  color: white;
+}
+
+#contactClickable #contact_enter:hover {
+  background: white;
+  border: 2px solid transparent;
+}
+
+#contactClickable #contact_enter:hover h3 {
+  color: #333;
 }
 /*# sourceMappingURL=style.css.map */

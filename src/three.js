@@ -343,15 +343,15 @@ const generateGalaxy = () =>
 /**
  * RayCaster
  */
-let rayToCast = false
-const raycaster = new THREE.Raycaster()
-const rayCast = () => {
-    rayToCast = true
-}
+// let rayToCast = false
+// const raycaster = new THREE.Raycaster()
+// const rayCast = () => {
+//     rayToCast = true
+// }
 
-const rayUncast = () => {
-    rayToCast = false
-}
+// const rayUncast = () => {
+//     rayToCast = false
+// }
 
 
 gui.add(parameters, 'count').min(100).max(1000000).step(100).onFinishChange(generateGalaxy)
@@ -388,12 +388,12 @@ window.addEventListener('resize', () =>
 /**
  * Raycaster mouse coordinates
  */
-const mouse = new THREE.Vector2()
-window.addEventListener('mousemove', (_event) => {
-    mouse.x = _event.clientX / sizes.width * 2 - 1
-    mouse.y = - (_event.clientY / sizes.height) * 2 + 1
+// const mouse = new THREE.Vector2()
+// window.addEventListener('mousemove', (_event) => {
+//     mouse.x = _event.clientX / sizes.width * 2 - 1
+//     mouse.y = - (_event.clientY / sizes.height) * 2 + 1
 
-})
+// })
 
 /**
  * Camera
@@ -443,9 +443,14 @@ function render() {
 }
 
 const exitButton = document.getElementById('exitBtn')
-
-
 exitButton.addEventListener('click', () => {
+
+    const clickables = document.querySelectorAll('.clickable')
+    for(let i = 0; i < clickables.length; i++) {
+        clickables[i].style.opacity = '0'
+        clickables[i].style.pointerEvents = 'none'
+        clickables[i].style.transitionDelay = '0s'
+    }
 
     scene.add(text, miniText)
 
@@ -464,9 +469,66 @@ exitButton.addEventListener('click', () => {
 
     exitButton.style.opacity = '0'
     exitButton.style.pointerEvents = 'none'
+    exitButton.style.transitionDelay = '0s'
 
-    rayUncast()
+    //rayUncast()
     
+})
+
+const returnButton = document.getElementById('returnBtn')
+returnButton.addEventListener('click', () => {
+
+    scene.remove(text, miniText)
+
+    const clickables = document.querySelectorAll('.clickable')
+    for(let i = 0; i < clickables.length; i++) {
+        clickables[i].style.opacity = '1'
+        clickables[i].style.pointerEvents = 'all'
+        clickables[i].style.transitionDelay = '1s'
+    }
+
+    let enterCoord = {
+        x: 0,
+        y: 4.24,
+        z: 0.1
+    }
+
+    let from = {
+        x: camera.position.x,
+        y: camera.position.y,
+        z: camera.position.z
+    };
+
+    let to = {
+        x: enterCoord.x,
+        y: enterCoord.y,
+        z: enterCoord.z
+    };
+    let tween = new TWEEN.Tween(from)
+        .to(to, 1600)
+        .easing(TWEEN.Easing.Linear.None)
+        .onUpdate(function () {
+        camera.position.set(this.x, this.y, this.z);
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
+    })
+        .onComplete(function () {
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
+    })
+        .start();
+
+    //rayCast()
+
+    enterButton.style.opacity = '0'
+    enterButton.style.transitionDuration = '0.5s'
+    enterButton.style.pointerEvents = 'none'
+
+    exitButton.style.opacity = '1'
+    exitButton.style.pointerEvents = 'all'
+    exitButton.style.transitionDelay = '1.6s'
+
+    returnButton.style.opacity = '0'
+    returnButton.style.transitionDuration = '0.5s'
+    returnButton.style.pointerEvents = 'none'
 })
 
 
@@ -474,6 +536,13 @@ const enterButton = document.getElementById('enterBtn')
 enterButton.addEventListener('click', () => {
 
     scene.remove(text, miniText)
+
+    const clickables = document.querySelectorAll('.clickable')
+    for(let i = 0; i < clickables.length; i++) {
+        clickables[i].style.opacity = '1'
+        clickables[i].style.pointerEvents = 'all'
+        clickables[i].style.transitionDelay = '1s'
+    }
 
     let enterCoord = {
         x: 0,
@@ -504,7 +573,7 @@ enterButton.addEventListener('click', () => {
     })
         .start();
 
-    rayCast()
+    //rayCast()
 
     enterButton.style.opacity = '0'
     enterButton.style.transitionDuration = '0.5s'
@@ -512,14 +581,13 @@ enterButton.addEventListener('click', () => {
 
     exitButton.style.opacity = '1'
     exitButton.style.pointerEvents = 'all'
+    exitButton.style.transitionDelay = '0s'
 })
-
-let planetToLook = null
 
 
 const projectTween = () => {
     const tween = new TWEEN.Tween(camera.position)
-    .to({x : -2.46, y : 0.04, z : -0.25}, 1000)
+    .to({x : -2.46, y : 0.04, z : -0.25}, 2000)
     .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
 	.onUpdate(() => {
 		// Called after tween.js updates 'coords'.
@@ -530,7 +598,7 @@ const projectTween = () => {
 
 const contactTween = () => {
     const tween = new TWEEN.Tween(camera.position)
-    .to({x : -1.34396115787535, y : 0.0562634047638856, z : 1.750786523197392}, 1000)
+    .to({x : -1.34396115787535, y : 0.0562634047638856, z : 1.750786523197392}, 2000)
     .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
 	.onUpdate(() => {
 		// Called after tween.js updates 'coords'.
@@ -541,7 +609,7 @@ const contactTween = () => {
 
 const aboutTween = () => {
     const tween = new TWEEN.Tween(camera.position)
-    .to({x : 2.23847335632193, y : 0.0934424502899299, z : 0.38280577924257714}, 1000)
+    .to({x : 2.23847335632193, y : 0.0934424502899299, z : 0.38280577924257714}, 2000)
     .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
 	.onUpdate(() => {
 		// Called after tween.js updates 'coords'.
@@ -550,6 +618,61 @@ const aboutTween = () => {
 	.start()
 }
 
+
+// Animate planet camera
+const projectClickable = document.getElementById('projectClickable')
+projectClickable.addEventListener('click', () => {
+    projectTween()
+
+    const clickables = document.querySelectorAll('.clickable')
+    for(let i = 0; i < clickables.length; i++) {
+        clickables[i].style.opacity = '0'
+        clickables[i].style.pointerEvents = 'none'
+        clickables[i].style.transitionDelay = '0s'
+    }
+
+    exitButton.style.opacity = '0'
+    exitButton.style.pointerEvents = 'none'
+
+    returnButton.style.opacity = '1'
+    returnButton.style.pointerEvents = 'all'
+})
+
+const aboutClickable = document.getElementById('aboutClickable')
+aboutClickable.addEventListener('click', () => {
+    aboutTween()
+
+    const clickables = document.querySelectorAll('.clickable')
+    for(let i = 0; i < clickables.length; i++) {
+        clickables[i].style.opacity = '0'
+        clickables[i].style.pointerEvents = 'none'
+        clickables[i].style.transitionDelay = '0s'
+    }
+
+    exitButton.style.opacity = '0'
+    exitButton.style.pointerEvents = 'none'
+
+    returnButton.style.opacity = '1'
+    returnButton.style.pointerEvents = 'all'
+})
+
+const contactClickable = document.getElementById('contactClickable')
+contactClickable.addEventListener('click', () => {
+    contactTween()
+
+    const clickables = document.querySelectorAll('.clickable')
+    for(let i = 0; i < clickables.length; i++) {
+        clickables[i].style.opacity = '0'
+        clickables[i].style.pointerEvents = 'none'
+        clickables[i].style.transitionDelay = '0s'
+    }
+
+    exitButton.style.opacity = '0'
+    exitButton.style.pointerEvents = 'none'
+
+    returnButton.style.opacity = '1'
+    returnButton.style.pointerEvents = 'all'
+})
 
 
 /**
@@ -598,41 +721,41 @@ const tick = () =>
     // }
 
     // NEW - MOUSE
-    if(rayToCast === true) {
-        raycaster.setFromCamera(mouse, camera)
+    // if(rayToCast === true) {
+    //     raycaster.setFromCamera(mouse, camera)
 
-        const objectsToTest = [projectPlanet, resumePlanet, aboutPlanet]
-        const intersects = raycaster.intersectObjects(objectsToTest)
+    //     const objectsToTest = [projectPlanet, resumePlanet, aboutPlanet]
+    //     const intersects = raycaster.intersectObjects(objectsToTest)
 
-        for(const obj of objectsToTest) {
-            obj.material.color.set(0xffffff)
-            planetToLook = null
+    //     for(const obj of objectsToTest) {
+    //         obj.material.color.set(0xffffff)
+    //         planetToLook = null
 
             
-        }
+    //     }
 
-        for(const int of intersects) {
+    //     for(const int of intersects) {
             
-            int.object.material.color.set('#29F500')
+    //         int.object.material.color.set('#29F500')
 
-            // if(int.object.position.x == -1 && int.object.position.z == 1.6) {
-            //     // console.log('contact planet')
-            //     document.addEventListener('click', contactTween)
-            // }
+    //         // if(int.object.position.x == -1 && int.object.position.z == 1.6) {
+    //         //     // console.log('contact planet')
+    //         //     document.addEventListener('click', contactTween)
+    //         // }
 
-            // if(int.object.position.x == -2.15 && int.object.position.z == 0) {
-            //     // console.log('project planet')
-            //     document.addEventListener('click', projectTween)
-            // }
+    //         // if(int.object.position.x == -2.15 && int.object.position.z == 0) {
+    //         //     // console.log('project planet')
+    //         //     document.addEventListener('click', projectTween)
+    //         // }
 
-            // if(int.object.position.x == 1.78 && int.object.position.z == 0) {
-            //     // console.log('about planet')
-            //    document.addEventListener('click', aboutTween)
-            // }
+    //         // if(int.object.position.x == 1.78 && int.object.position.z == 0) {
+    //         //     // console.log('about planet')
+    //         //    document.addEventListener('click', aboutTween)
+    //         // }
 
            
-        }
-    }
+    //     }
+    // }
 
     TWEEN.update();
 
