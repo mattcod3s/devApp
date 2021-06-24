@@ -20,6 +20,31 @@ body
     outline: none;
 }
 
+#exitBtn {
+    position: absolute;
+    top : 4vh;
+    left: 4vh;
+    z-index: 3;
+    width: 12vw;
+    height: 7vh;
+    background: transparent;
+    border: 3px solid rgb(220, 240, 252);;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    opacity: 0;
+    pointer-events: none;
+
+    h3 {
+        font-family: 'Raleway', sans-serif;
+        color: rgb(220, 240, 252);;
+        font-size: 1.2rem;
+    }
+}
+
 #enterBtn {
     position: absolute;
     bottom: 5vh;

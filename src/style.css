@@ -16,6 +16,38 @@ body {
   outline: none;
 }
 
+#exitBtn {
+  position: absolute;
+  top: 4vh;
+  left: 4vh;
+  z-index: 3;
+  width: 12vw;
+  height: 7vh;
+  background: transparent;
+  border: 3px solid #dcf0fc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 100px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#exitBtn h3 {
+  font-family: 'Raleway', sans-serif;
+  color: #dcf0fc;
+  font-size: 1.2rem;
+}
+
 #enterBtn {
   position: absolute;
   bottom: 5vh;

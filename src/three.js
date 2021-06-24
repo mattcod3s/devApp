@@ -349,6 +349,10 @@ const rayCast = () => {
     rayToCast = true
 }
 
+const rayUncast = () => {
+    rayToCast = false
+}
+
 
 gui.add(parameters, 'count').min(100).max(1000000).step(100).onFinishChange(generateGalaxy)
 gui.add(parameters, 'radius').min(0.01).max(20).step(0.01).onFinishChange(generateGalaxy)
@@ -438,6 +442,34 @@ function render() {
     
 }
 
+const exitButton = document.getElementById('exitBtn')
+
+
+exitButton.addEventListener('click', () => {
+
+    scene.add(text, miniText)
+
+    const tween = new TWEEN.Tween(camera.position)
+    .to({x : 0, y : 3, z : 3}, 1000)
+    .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
+	.onUpdate(() => {
+		// Called after tween.js updates 'coords'.
+		// Move 'box' to the position described by 'coords' with a CSS translation.
+	})
+	.start()
+
+    enterButton.style.opacity = '1'
+    enterButton.style.transitionDuration = '0.5s'
+    enterButton.style.pointerEvents = 'all'
+
+    exitButton.style.opacity = '0'
+    exitButton.style.pointerEvents = 'none'
+
+    rayUncast()
+    
+})
+
+
 const enterButton = document.getElementById('enterBtn')
 enterButton.addEventListener('click', () => {
 
@@ -477,6 +509,9 @@ enterButton.addEventListener('click', () => {
     enterButton.style.opacity = '0'
     enterButton.style.transitionDuration = '0.5s'
     enterButton.style.pointerEvents = 'none'
+
+    exitButton.style.opacity = '1'
+    exitButton.style.pointerEvents = 'all'
 })
 
 let planetToLook = null
@@ -572,37 +607,32 @@ const tick = () =>
         for(const obj of objectsToTest) {
             obj.material.color.set(0xffffff)
             planetToLook = null
+
+            
         }
 
         for(const int of intersects) {
+            
             int.object.material.color.set('#29F500')
 
-            if(int.object.position.x == -1 && int.object.position.z == 1.6) {
-                // console.log('contact planet')
-                document.addEventListener('click', () => {
-                    planetToLook = aboutPlanet
-                    contactTween()
-                })
-            }
+            // if(int.object.position.x == -1 && int.object.position.z == 1.6) {
+            //     // console.log('contact planet')
+            //     document.addEventListener('click', contactTween)
+            // }
 
-            if(int.object.position.x == -2.15 && int.object.position.z == 0) {
-                // console.log('project planet')
-                document.addEventListener('click', () => {
-                    planetToLook = projectPlanet
-                    projectTween()
-                })
-            }
+            // if(int.object.position.x == -2.15 && int.object.position.z == 0) {
+            //     // console.log('project planet')
+            //     document.addEventListener('click', projectTween)
+            // }
 
-            if(int.object.position.x == 1.78 && int.object.position.z == 0) {
-                // console.log('about planet')
-               document.addEventListener('click', () => {
-                    planetToLook = resumePlanet
-                    aboutTween()
-               })
-            }
+            // if(int.object.position.x == 1.78 && int.object.position.z == 0) {
+            //     // console.log('about planet')
+            //    document.addEventListener('click', aboutTween)
+            // }
+
+           
         }
     }
-
 
     TWEEN.update();
 
