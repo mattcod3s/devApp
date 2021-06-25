@@ -48,6 +48,31 @@ body
 #returnBtn {
     position: absolute;
     top : 4vh;
+    left: 5.5vh;
+    z-index: 5;
+    width: 12vw;
+    height: 7vh;
+    background: transparent;
+    border: 3px solid rgb(220, 240, 252);;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    opacity: 0;
+    pointer-events: none;
+
+    h3 {
+        font-family: 'Raleway', sans-serif;
+        color: rgb(220, 240, 252);;
+        font-size: 1.2rem;
+    }
+}
+
+#exitBtn {
+    position: absolute;
+    top : 4vh;
     left: 4vh;
     z-index: 3;
     width: 12vw;
@@ -246,4 +271,131 @@ body
             color: #333;
         }
     }
+}
+
+#project_content {
+    position: absolute;
+    width: 96vw;
+    height: 96vh;
+    margin: 2vh 2vw 2vh 2vw;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: 'none';
+    z-index: 2;
+    transition-duration: 0.5s;
+    background:rgba(26, 35, 41, 0.7);
+    border: 3px solid rgb(76, 219, 255);
+    backdrop-filter: blur(6px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    #project_selectionArea {
+        width: 47vw;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+
+        #project_selection {
+            width: 46vw;
+            height: 81vh;
+            display: flex;
+            flex-direction: column;
+
+            .selection_row {
+                width: 46vw;
+                height: 27vh;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+
+                .projectOption {
+                    width: 22vw;
+                    height: 25vh;
+                    border-radius: 4px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+
+                    .projectPic {
+                        width: 92%;
+                        height: 81%;
+                        border-radius: 3px;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        transition-duration: 0.3s;
+                        border: 3px solid transparent;
+                    }
+
+                    .activeProject {
+                        border: 3px solid rgb(76, 219, 255);
+                    }
+
+                    #project-1 {
+                        background-image: url('../static/assets/cosmocoin.png');
+                    }
+
+                    #project-2 {
+                        background-image: url('../static/assets/breffniInn.png');
+                    }
+
+                    #project-3 {
+                        background-image: url('../static/assets/mountaineerV2.0.png');
+                    }
+
+                    #project-4 {
+                        background-image: url('../static/assets/kostekpl.png');
+                    }
+
+                    #project-5 {
+                        background-image: url('../static/assets/disneyPlus.png');
+                    }
+
+                    #project-6 {
+                        background-image: url('../static/assets/mountaineerV1.0.png');
+                    }
+                }
+            }
+            
+        }
+    }
+
+    #project_stageArea {
+        width: 47vw;
+        height: 90vh;
+        background: red;
+    }
+}
+
+#about_content {
+    position: absolute;
+    width: 96vw;
+    height: 96vh;
+    margin: 2vh 2vw 2vh 2vw;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: 'none';
+    z-index: 2;
+    transition-duration: 0.5s;
+    background:rgba(26, 35, 41, 0.7);
+    border: 3px solid rgb(76, 219, 255);
+    backdrop-filter: blur(6px);
+}
+
+#contact_content {
+    position: absolute;
+    width: 96vw;
+    height: 96vh;
+    margin: 2vh 2vw 2vh 2vw;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: 'none';
+    z-index: 2;
+    transition-duration: 0.5s;
+    background:rgba(26, 35, 41, 0.7);
+    border: 3px solid rgb(76, 219, 255);
+    backdrop-filter: blur(6px);
 }

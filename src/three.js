@@ -23,7 +23,7 @@ import * as TWEEN from 'tween.js'
  * Base
  */
 // Debug
-const gui = new dat.GUI()
+// const gui = new dat.GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -183,10 +183,10 @@ const generateGalaxy = () =>
     /**
      * Black Hole
      */
-    blackHoleGeometry = new THREE.SphereGeometry(0.275, 64, 64)
+    blackHoleGeometry = new THREE.SphereGeometry(0.25, 64, 64)
     blackHoleMaterial = new THREE.MeshStandardMaterial({ color: 0x000000 })
     blackHole = new THREE.Mesh( blackHoleGeometry, blackHoleMaterial );
-    blackHole.position.set(0, -0.05, 0)
+    blackHole.position.set(0, 0, 0)
     scene.add(blackHole)
 
     /**
@@ -354,13 +354,13 @@ const generateGalaxy = () =>
 // }
 
 
-gui.add(parameters, 'count').min(100).max(1000000).step(100).onFinishChange(generateGalaxy)
-gui.add(parameters, 'radius').min(0.01).max(20).step(0.01).onFinishChange(generateGalaxy)
-gui.add(parameters, 'branches').min(2).max(20).step(1).onFinishChange(generateGalaxy)
-gui.add(parameters, 'randomness').min(0).max(2).step(0.001).onFinishChange(generateGalaxy)
-gui.add(parameters, 'randomnessPower').min(1).max(10).step(0.001).onFinishChange(generateGalaxy)
-gui.addColor(parameters, 'insideColor').onFinishChange(generateGalaxy)
-gui.addColor(parameters, 'outsideColor').onFinishChange(generateGalaxy)
+// gui.add(parameters, 'count').min(100).max(1000000).step(100).onFinishChange(generateGalaxy)
+// gui.add(parameters, 'radius').min(0.01).max(20).step(0.01).onFinishChange(generateGalaxy)
+// gui.add(parameters, 'branches').min(2).max(20).step(1).onFinishChange(generateGalaxy)
+// gui.add(parameters, 'randomness').min(0).max(2).step(0.001).onFinishChange(generateGalaxy)
+// gui.add(parameters, 'randomnessPower').min(1).max(10).step(0.001).onFinishChange(generateGalaxy)
+// gui.addColor(parameters, 'insideColor').onFinishChange(generateGalaxy)
+// gui.addColor(parameters, 'outsideColor').onFinishChange(generateGalaxy)
 
 /**
  * Sizes
@@ -484,7 +484,7 @@ returnButton.addEventListener('click', () => {
     for(let i = 0; i < clickables.length; i++) {
         clickables[i].style.opacity = '1'
         clickables[i].style.pointerEvents = 'all'
-        clickables[i].style.transitionDelay = '1s'
+        clickables[i].style.transitionDelay = '1.8s'
     }
 
     let enterCoord = {
@@ -529,13 +529,24 @@ returnButton.addEventListener('click', () => {
     returnButton.style.opacity = '0'
     returnButton.style.transitionDuration = '0.5s'
     returnButton.style.pointerEvents = 'none'
+    returnButton.style.transitionDelay = '0s'
+
+    projectContent.style.opacity = '0'
+    projectContent.style.pointerEvents = 'none'
+    projectContent.style.transitionDelay = '0s'
+
+    aboutContent.style.opacity = '0'
+    aboutContent.style.pointerEvents = 'none'
+    aboutContent.style.transitionDelay = '0s'
+
+    contactContent.style.opacity = '0'
+    contactContent.style.pointerEvents = 'none'
+    contactContent.style.transitionDelay = '0s'
 })
 
 
 const enterButton = document.getElementById('enterBtn')
 enterButton.addEventListener('click', () => {
-
-    scene.remove(text, miniText)
 
     const clickables = document.querySelectorAll('.clickable')
     for(let i = 0; i < clickables.length; i++) {
@@ -582,6 +593,8 @@ enterButton.addEventListener('click', () => {
     exitButton.style.opacity = '1'
     exitButton.style.pointerEvents = 'all'
     exitButton.style.transitionDelay = '0s'
+
+    scene.remove(text, miniText)
 })
 
 
@@ -620,6 +633,10 @@ const aboutTween = () => {
 
 
 // Animate planet camera
+const projectContent = document.getElementById('project_content')
+const aboutContent = document.getElementById('about_content')
+const contactContent = document.getElementById('contact_content')
+
 const projectClickable = document.getElementById('projectClickable')
 projectClickable.addEventListener('click', () => {
     projectTween()
@@ -633,9 +650,20 @@ projectClickable.addEventListener('click', () => {
 
     exitButton.style.opacity = '0'
     exitButton.style.pointerEvents = 'none'
+    exitButton.style.transitionDelay = '0s'
 
     returnButton.style.opacity = '1'
     returnButton.style.pointerEvents = 'all'
+    returnButton.style.transitionDelay = '2.2s'
+
+    projectContent.style.opacity = '1'
+    projectContent.style.pointerEvents = 'all'
+    projectContent.style.transitionDelay = '2.2s'
+
+    projectContent.style.zIndex = '4'
+    aboutContent.style.zIndex = '2'
+    contactContent.style.zIndex = '2'
+
 })
 
 const aboutClickable = document.getElementById('aboutClickable')
@@ -651,9 +679,19 @@ aboutClickable.addEventListener('click', () => {
 
     exitButton.style.opacity = '0'
     exitButton.style.pointerEvents = 'none'
+    exitButton.style.transitionDelay = '0s'
 
     returnButton.style.opacity = '1'
     returnButton.style.pointerEvents = 'all'
+    returnButton.style.transitionDelay = '2.2s'
+
+    aboutContent.style.opacity = '1'
+    aboutContent.style.pointerEvents = 'all'
+    aboutContent.style.transitionDelay = '2.2s'
+
+    projectContent.style.zIndex = '2'
+    aboutContent.style.zIndex = '4'
+    contactContent.style.zIndex = '2'
 })
 
 const contactClickable = document.getElementById('contactClickable')
@@ -669,9 +707,19 @@ contactClickable.addEventListener('click', () => {
 
     exitButton.style.opacity = '0'
     exitButton.style.pointerEvents = 'none'
+    exitButton.style.transitionDelay = '0s'
 
     returnButton.style.opacity = '1'
     returnButton.style.pointerEvents = 'all'
+    returnButton.style.transitionDelay = '2.2s'
+
+    contactContent.style.opacity = '1'
+    contactContent.style.pointerEvents = 'all'
+    contactContent.style.transitionDelay = '2.2s'
+
+    projectContent.style.zIndex = '2'
+    aboutContent.style.zIndex = '2'
+    contactContent.style.zIndex = '4'
 })
 
 

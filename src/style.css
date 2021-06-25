@@ -51,6 +51,38 @@ body {
 #returnBtn {
   position: absolute;
   top: 4vh;
+  left: 5.5vh;
+  z-index: 5;
+  width: 12vw;
+  height: 7vh;
+  background: transparent;
+  border: 3px solid #dcf0fc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 100px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#returnBtn h3 {
+  font-family: 'Raleway', sans-serif;
+  color: #dcf0fc;
+  font-size: 1.2rem;
+}
+
+#exitBtn {
+  position: absolute;
+  top: 4vh;
   left: 4vh;
   z-index: 3;
   width: 12vw;
@@ -74,7 +106,7 @@ body {
   pointer-events: none;
 }
 
-#returnBtn h3 {
+#exitBtn h3 {
   font-family: 'Raleway', sans-serif;
   color: #dcf0fc;
   font-size: 1.2rem;
@@ -287,5 +319,168 @@ body {
 
 #contactClickable #contact_enter:hover h3 {
   color: #333;
+}
+
+#project_content {
+  position: absolute;
+  width: 96vw;
+  height: 96vh;
+  margin: 2vh 2vw 2vh 2vw;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: 'none';
+  z-index: 2;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  background: rgba(26, 35, 41, 0.7);
+  border: 3px solid #4cdbff;
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#project_content #project_selectionArea {
+  width: 47vw;
+  height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+#project_content #project_selectionArea #project_selection {
+  width: 46vw;
+  height: 81vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#project_content #project_selectionArea #project_selection .selection_row {
+  width: 46vw;
+  height: 27vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#project_content #project_selectionArea #project_selection .selection_row .projectOption {
+  width: 22vw;
+  height: 25vh;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+#project_content #project_selectionArea #project_selection .selection_row .projectOption .projectPic {
+  width: 92%;
+  height: 81%;
+  border-radius: 3px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  border: 3px solid transparent;
+}
+
+#project_content #project_selectionArea #project_selection .selection_row .projectOption .activeProject {
+  border: 3px solid #4cdbff;
+}
+
+#project_content #project_selectionArea #project_selection .selection_row .projectOption #project-1 {
+  background-image: url("../static/assets/cosmocoin.png");
+}
+
+#project_content #project_selectionArea #project_selection .selection_row .projectOption #project-2 {
+  background-image: url("../static/assets/breffniInn.png");
+}
+
+#project_content #project_selectionArea #project_selection .selection_row .projectOption #project-3 {
+  background-image: url("../static/assets/mountaineerV2.0.png");
+}
+
+#project_content #project_selectionArea #project_selection .selection_row .projectOption #project-4 {
+  background-image: url("../static/assets/kostekpl.png");
+}
+
+#project_content #project_selectionArea #project_selection .selection_row .projectOption #project-5 {
+  background-image: url("../static/assets/disneyPlus.png");
+}
+
+#project_content #project_selectionArea #project_selection .selection_row .projectOption #project-6 {
+  background-image: url("../static/assets/mountaineerV1.0.png");
+}
+
+#project_content #project_stageArea {
+  width: 47vw;
+  height: 90vh;
+  background: red;
+}
+
+#about_content {
+  position: absolute;
+  width: 96vw;
+  height: 96vh;
+  margin: 2vh 2vw 2vh 2vw;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: 'none';
+  z-index: 2;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  background: rgba(26, 35, 41, 0.7);
+  border: 3px solid #4cdbff;
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+}
+
+#contact_content {
+  position: absolute;
+  width: 96vw;
+  height: 96vh;
+  margin: 2vh 2vw 2vh 2vw;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: 'none';
+  z-index: 2;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  background: rgba(26, 35, 41, 0.7);
+  border: 3px solid #4cdbff;
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
 }
 /*# sourceMappingURL=style.css.map */
