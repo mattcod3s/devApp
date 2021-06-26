@@ -366,9 +366,10 @@ body
     #project_stageArea {
         width: 47vw;
         height: 90vh;
+        //background: red;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
         
         #stagedImage {
@@ -383,7 +384,117 @@ body
 
         #stagedInfo {
             width: 40vw;
-            height: 50vh;
+            height: 45vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            #stagedTitle {
+                padding: 20px 0px 0px 0px;
+                font-family: 'Raleway';
+                font-size: 1.1rem;
+                color: rgb(230, 230, 230);
+            }
+
+            #stagedDesc {
+                padding: 0px 0px 0px 0px;
+                font-family: 'Raleway';
+                font-size: 0.85rem;
+                color: rgb(230, 230, 230);
+            }
+
+            #stagedButtons {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 15vw;
+                height: 6vh;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                
+                .stagedBtn {
+                    width: 6vw;
+                    height: 4vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-family: 'Raleway';
+                    transition-duration: 0.3s;
+                    cursor: pointer;
+                    font-size: 0.9rem;
+                }
+
+                #stagedLink {
+                    margin: 0px 30px 0px 0px;
+                    background: transparent;
+                    border: 2px solid rgb(76, 219, 255);
+                    color: rgb(76, 219, 255);
+                    border-radius: 100px;
+                }
+                #stagedGithub {
+                    background: transparent;
+                    border: 2px solid rgb(252, 255, 76);
+                    color: rgb(252, 255, 76);
+                    border-radius: 100px;
+                }
+
+                #stagedLink:hover {
+                    background: rgb(76, 219, 255);
+                    color: #333;
+                }
+
+                #stagedGithub:hover {
+                    background: rgb(252, 255, 76);
+                    color: #333;
+                }
+            }
+
+            #stagedTechTags {
+                width: 40vw;
+                height: 15vh;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+
+                #techTitle {
+                    width: 40vw;
+                    height: 4vh;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    font-family: 'Raleway';
+                    color: #fff;
+                }
+
+                #techTags {
+                    width: auto;
+                    height: 11vh;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    // background: gray;
+                    border-radius: 4px;
+
+                    .tag {
+                        width: 5vw;
+                        height: 4vh;
+                        border-radius: 100px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 10px;
+
+                        h3 {
+                            font-family: 'Raleway';
+                            color: #fff;
+                            font-size: 0.7rem;
+                        }
+                    }
+                }
+            }
         }
 
     }

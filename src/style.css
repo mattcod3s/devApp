@@ -454,8 +454,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -474,7 +475,168 @@ body {
 
 #project_content #project_stageArea #stagedInfo {
   width: 40vw;
-  height: 50vh;
+  height: 45vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#project_content #project_stageArea #stagedInfo #stagedTitle {
+  padding: 20px 0px 0px 0px;
+  font-family: 'Raleway';
+  font-size: 1.1rem;
+  color: #e6e6e6;
+}
+
+#project_content #project_stageArea #stagedInfo #stagedDesc {
+  padding: 0px 0px 0px 0px;
+  font-family: 'Raleway';
+  font-size: 0.85rem;
+  color: #e6e6e6;
+}
+
+#project_content #project_stageArea #stagedInfo #stagedButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 15vw;
+  height: 6vh;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  align-items: center;
+}
+
+#project_content #project_stageArea #stagedInfo #stagedButtons .stagedBtn {
+  width: 6vw;
+  height: 4vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Raleway';
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+#project_content #project_stageArea #stagedInfo #stagedButtons #stagedLink {
+  margin: 0px 30px 0px 0px;
+  background: transparent;
+  border: 2px solid #4cdbff;
+  color: #4cdbff;
+  border-radius: 100px;
+}
+
+#project_content #project_stageArea #stagedInfo #stagedButtons #stagedGithub {
+  background: transparent;
+  border: 2px solid #fcff4c;
+  color: #fcff4c;
+  border-radius: 100px;
+}
+
+#project_content #project_stageArea #stagedInfo #stagedButtons #stagedLink:hover {
+  background: #4cdbff;
+  color: #333;
+}
+
+#project_content #project_stageArea #stagedInfo #stagedButtons #stagedGithub:hover {
+  background: #fcff4c;
+  color: #333;
+}
+
+#project_content #project_stageArea #stagedInfo #stagedTechTags {
+  width: 40vw;
+  height: 15vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#project_content #project_stageArea #stagedInfo #stagedTechTags #techTitle {
+  width: 40vw;
+  height: 4vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Raleway';
+  color: #fff;
+}
+
+#project_content #project_stageArea #stagedInfo #stagedTechTags #techTags {
+  width: auto;
+  height: 11vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 4px;
+}
+
+#project_content #project_stageArea #stagedInfo #stagedTechTags #techTags .tag {
+  width: 5vw;
+  height: 4vh;
+  border-radius: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px;
+}
+
+#project_content #project_stageArea #stagedInfo #stagedTechTags #techTags .tag h3 {
+  font-family: 'Raleway';
+  color: #fff;
+  font-size: 0.7rem;
 }
 
 #about_content {
