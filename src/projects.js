@@ -1,3 +1,8 @@
+
+
+
+
+
 const project1 = document.getElementById('project-1')
 const project2 = document.getElementById('project-2')
 const project3 = document.getElementById('project-3')
@@ -74,11 +79,36 @@ project6.addEventListener('click', () => {
 })
 
 const changeProject = () => {
+    const stagedImage = document.getElementById('stagedImage')
     for(let i = 1; i <= 6; i++) {
         let projectString = `project-${i}`
         let tempProject = document.getElementById(projectString)
         if(tempProject.classList.contains('activeProject')) {
-            console.log(tempProject)
+            switch (projectString) {
+                case 'project-1':
+                    stagedImage.style.backgroundImage = "url('/assets/cosmocoin.png')"
+                    break;
+                case 'project-2':
+                    stagedImage.style.backgroundImage = "url('/assets/breffniInn.png')"
+                    break;
+                case 'project-3':
+                    stagedImage.style.backgroundImage = "url('/assets/mountaineerV2.png')"
+                    break;
+                case 'project-4':
+                    stagedImage.style.backgroundImage = "url('/assets/kostekpl.png')"
+                    break;
+                case 'project-5':
+                    stagedImage.style.backgroundImage = "url('/assets/disneyPlus.png')"
+                    break;
+                case 'project-6':
+                    stagedImage.style.backgroundImage = "url('/assets/mountaineerV1.png')"
+                    break;
+                default:
+                    stagedImage.style.backgroundImage = "url('/assets/cosmocoin.png')"
+                    break;
+            }
+            
         }
     }
+
 }

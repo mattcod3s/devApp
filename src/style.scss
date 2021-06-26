@@ -47,8 +47,8 @@ body
 
 #returnBtn {
     position: absolute;
-    top : 4vh;
-    left: 5.5vh;
+    top : 5.5vh;
+    left: calc(8vh + 3px);
     z-index: 5;
     width: 12vw;
     height: 7vh;
@@ -343,7 +343,7 @@ body
                     }
 
                     #project-3 {
-                        background-image: url('../static/assets/mountaineerV2.0.png');
+                        background-image: url('../static/assets/mountaineerV2.png');
                     }
 
                     #project-4 {
@@ -355,7 +355,7 @@ body
                     }
 
                     #project-6 {
-                        background-image: url('../static/assets/mountaineerV1.0.png');
+                        background-image: url('../static/assets/mountaineerV1.png');
                     }
                 }
             }
@@ -366,7 +366,26 @@ body
     #project_stageArea {
         width: 47vw;
         height: 90vh;
-        background: red;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        
+        #stagedImage {
+            width: 40vw;
+            height: 40vh;
+            background-image: url('../static/assets/cosmocoin.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition-duration: 0.3s;
+            border-radius: 3px;
+        }
+
+        #stagedInfo {
+            width: 40vw;
+            height: 50vh;
+        }
+
     }
 }
 
