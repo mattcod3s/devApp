@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200&display=swap');
 
 *
 {
@@ -432,12 +432,14 @@ body
                     border: 2px solid rgb(76, 219, 255);
                     color: rgb(76, 219, 255);
                     border-radius: 100px;
+                    text-decoration: none;
                 }
                 #stagedGithub {
                     background: transparent;
                     border: 2px solid rgb(252, 255, 76);
                     color: rgb(252, 255, 76);
                     border-radius: 100px;
+                    text-decoration: none;
                 }
 
                 #stagedLink:hover {
@@ -453,9 +455,9 @@ body
 
             #stagedTechTags {
                 width: 40vw;
-                height: 15vh;
+                height: 16vh;
                 display: flex;
-                justify-content: center;
+                justify-content: flex-start;
                 flex-direction: column;
                 align-items: center;
 
@@ -470,27 +472,42 @@ body
                 }
 
                 #techTags {
-                    width: auto;
-                    height: 11vh;
-                    display: flex;
-                    justify-content: space-between;
+                    width: 40vw;
+                    height: 12vh;
+                    display: inline;
                     align-items: center;
-                    // background: gray;
                     border-radius: 4px;
+                    overflow-y: scroll;
 
                     .tag {
-                        width: 5vw;
+                        width: 10vw;
                         height: 4vh;
                         border-radius: 100px;
-                        display: flex;
+                        display: inline-block;
                         justify-content: center;
                         align-items: center;
-                        margin: 10px;
+                        margin: 5px;
+                        
 
-                        h3 {
-                            font-family: 'Raleway';
-                            color: #fff;
-                            font-size: 0.7rem;
+                        .tagContent {
+                            width: 10vw;
+                            height: 4vh;
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+                            background: rgba(0,0,0,0);
+
+                            h3 {
+                                font-family: 'Raleway';
+                                color: rgb(231, 231, 231);
+                                font-size: 0.7rem;
+                                
+                            }
+    
+                            img {
+                                width: 2vw;
+                                height: 2.5vh;
+                            }
                         }
                     }
                 }

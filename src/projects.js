@@ -2,6 +2,9 @@ const stagedTitle = document.getElementById('stagedTitle')
 const stagedDesc = document.getElementById('stagedDesc')
 const tagArea = document.getElementById('techTags')
 
+const stagedLink = document.getElementById('stagedLink')
+const stagedGithub = document.getElementById('stagedGithub')
+
 const project1 = document.getElementById('project-1')
 const project2 = document.getElementById('project-2')
 const project3 = document.getElementById('project-3')
@@ -10,59 +13,104 @@ const project5 = document.getElementById('project-5')
 const project6 = document.getElementById('project-6')
 
 const htmlTag = 
-    `<div class='tag' id='htmlTag' style='background: blue'>
-        <h3>HTML5</h3>
+    `<div class='tag' id='htmlTag' style='background: rgba(96, 165, 255, 0.6)'>
+        <div class='tagContent'>
+            <h3>HTML5</h3>
+            <img src='/icons/html-5.svg'/>
+        </div>
     </div> `
 
 const cssTag = 
-    `<div class='tag' id='cssTag' style='background: orange'>
-        <h3>CSS3</h3>
+    `<div class='tag' id='cssTag' style='background: rgba(255, 205, 129, 0.6)'>
+        <div class='tagContent'>
+            <h3>CSS3</h3>
+            <img src='/icons/css-3.svg'/>
+        </div>
     </div> `
 
 const scssTag = 
-    `<div class='tag' id='scssTag' style='background: pink'>
-        <h3>SCSS/SASS</h3>
+    `<div class='tag' id='scssTag' style='background: rgba(255, 192, 203, 0.6)'>
+        <div class='tagContent'>
+            <h3>SCSS/SASS</h3>
+            <img src='/icons/sass.svg'/>
+        </div>
     </div> `
 
 const jsTag = 
-    `<div class='tag' id='jsTag' style='background: yellow'>
-        <h3>JS-ES6</h3>
+    `<div class='tag' id='jsTag' style='background: rgba(177, 177, 177, 0.6)'>
+        <div class='tagContent'>
+            <h3>JS-ES6</h3>
+            <img src='/icons/javascript.svg'/>
+        </div>
     </div> `
 
 const reactTag = 
-    `<div class='tag' id='reactTag' style='background: lightBlue'>
-        <h3>ReactJS</h3>
+    `<div class='tag' id='reactTag' style='background: rgba(173, 216, 230, 0.6)'>
+        <div class='tagContent'>
+            <h3>ReactJS</h3>
+            <img src='/icons/react.svg'/>
+        </div>
     </div> `
 
 const mongoTag = 
-    `<div class='tag' id='mongoTag' style='background: green'>
-        <h3>MongoDB</h3>
+    `<div class='tag' id='mongoTag' style='background: rgba(200, 255, 195, 0.6)'>
+        <div class='tagContent'>
+            <h3>MongoDB</h3>
+            <img src='/icons/mongodb.svg'/>
+        </div>
     </div> `
 
 const sqlTag = 
-    `<div class='tag' id='sqlTag' style='background: red'> 
-        <h3>MySQL</h3>
+    `<div class='tag' id='sqlTag' style='background: rgba(255, 239, 209, 0.6)'> 
+        <div class='tagContent'>
+            <h3>MySQL</h3>
+            <img src='/icons/mysql.svg'/>
+        </div>
     </div> `
 
 const postgresTag = 
-    `<div class='tag' id='postgresTag' style='background: darkRed'>
-        <h3>PostgreSQL</h3>
+    `<div class='tag' id='postgresTag' style='background: rgba(218, 209, 255, 0.6)'>
+        <div class='tagContent'>
+            <h3>PostgreSQL</h3>
+            <img src='/icons/postgresql.svg'/>
+        </div>
     </div> `
 
 const nodeTag = 
-    `<div class='tag' id='nodeTag' style='background: lightGreen'>
-        <h3>NodeJS</h3>
+    `<div class='tag' id='nodeTag' style='background: rgba(87, 87, 87, 0.6)'>
+        <div class='tagContent'>
+            <h3>NodeJS</h3>
+            <img src='/icons/node-js.svg'/>
+        </div>
     </div> `
 
 const expressTag = 
-    `<div class='tag' id='expressTag' style='background: rgb(200, 200, 200)'>
-        <h3>ExpressJS</h3>
+    `<div class='tag' id='expressTag' style='background: rgba(200, 200, 200, 0.6)'>
+        <div class='tagContent'>
+            <h3>ExpressJS</h3>
+            <img src='/icons/express.svg'/>
+        </div>
     </div> `
 
 const springTag = 
-    `<div class='tag' id='springTag' style='background: darkGreen'>
-        <h3>Java Spring Boot</h3>
+    `<div class='tag' id='springTag' style='background: rgba(224, 255, 248, 0.6)'>
+        <div class='tagContent'>
+            <h3>Java Spring Boot</h3>
+            <img src='/icons/spring.svg'/>
+        </div
     </div> `
+
+const webpackTag = 
+    `<div class='tag' id='webpackTag' style='background: rgba(220,220,220,0.6)'>
+        <div class='tagContent'>
+            <h3>Webpack</h3>
+            <img src='/icons/webpack.svg'/>
+        </div
+    </div> `
+
+window.addEventListener('load', () => {
+    tagArea.innerHTML = `${reactTag} ${scssTag} ${nodeTag} ${expressTag} ${mongoTag}`
+})
 
 project1.addEventListener('click', () => {
     project1.classList.add('activeProject')
@@ -71,6 +119,8 @@ project1.addEventListener('click', () => {
     project4.classList.remove('activeProject')
     project5.classList.remove('activeProject')
     project6.classList.remove('activeProject')
+
+    stagedLink.href = "https://adoring-pasteur-26cb54.netlify.app/"
 
     changeProject()
 })
@@ -83,6 +133,8 @@ project2.addEventListener('click', () => {
     project5.classList.remove('activeProject')
     project6.classList.remove('activeProject')
 
+    stagedLink.href = "https://suspicious-visvesvaraya-06e9fd.netlify.app/"
+
     changeProject()
 })
 
@@ -93,6 +145,8 @@ project3.addEventListener('click', () => {
     project4.classList.remove('activeProject')
     project5.classList.remove('activeProject')
     project6.classList.remove('activeProject')
+
+    stagedLink.href = "https://practical-hodgkin-456093.netlify.app/"
 
     changeProject()
 })
@@ -105,6 +159,8 @@ project4.addEventListener('click', () => {
     project5.classList.remove('activeProject')
     project6.classList.remove('activeProject')
 
+    stagedLink.href = "https://www.kostek.pl/"
+
     changeProject()
 })
 
@@ -116,6 +172,8 @@ project5.addEventListener('click', () => {
     project1.classList.remove('activeProject')
     project6.classList.remove('activeProject')
 
+    stagedLink.href = "https://hopeful-ritchie-338cf0.netlify.app/"
+
     changeProject()
 })
 
@@ -126,6 +184,8 @@ project6.addEventListener('click', () => {
     project4.classList.remove('activeProject')
     project5.classList.remove('activeProject')
     project1.classList.remove('activeProject')
+
+    stagedLink.href = "https://agitated-curie-c6fc45.netlify.app/"
 
     changeProject()
 })
@@ -152,7 +212,7 @@ const changeProject = () => {
                     stagedDesc.textContent = 
                     "A landing page for a restaurant business, built with HTML, CSS and Vanilla JS."
 
-                    tagArea.innerHTML = `${htmlTag} ${cssTag} ${scssTag} ${jsTag}`
+                    tagArea.innerHTML = `${htmlTag} ${cssTag} ${jsTag}`
 
                     break;
                 case 'project-3':
@@ -161,7 +221,8 @@ const changeProject = () => {
                     stagedDesc.textContent = 
                     "Full Stack Mountaineering Tracker for recording achievemnts and planning adventures. Built with HTML, CSS, Vanilla JS, Three.js, Java Spring Boot & mySQL. Login and Registration functionality included. Using a 3rd Party API to fetch real-time weather data of a given mountains co-ordinates. Chart.js & progressBar.js implemented to create progress-tracking charts."
 
-                    tagArea.innerHTML = `${htmlTag} ${cssTag} ${scssTag} ${jsTag} ${sqlTag} ${postgresTag} ${springTag}`
+                    tagArea.innerHTML = 
+                    ` ${htmlTag} ${scssTag} ${jsTag} ${sqlTag} ${postgresTag} ${springTag}`     
 
                     break;
                 case 'project-4':
@@ -170,7 +231,7 @@ const changeProject = () => {
                     stagedDesc.textContent = 
                     "Brochure website for Holiday Homes, built with React.js. Using React-Router for navigation & React Redux for state management. Contact page includes a functional email form created with Email.js which allows users to contact owners."
 
-                    tagArea.innerHTML = `${reactTag} ${cssTag} ${scssTag} `
+                    tagArea.innerHTML = `${reactTag} ${scssTag}`
 
                     break;
                 case 'project-5':
@@ -179,7 +240,7 @@ const changeProject = () => {
                     stagedDesc.textContent = 
                     "A clone of the Disney Plus Streaming App, using 3rd Party API to fetch movie data. Conveys my ability to create products in the PSD -> HTML/CSS workflow. Used React-Context-API for state management."
 
-                    tagArea.innerHTML = `${reactTag} ${cssTag} ${scssTag}`
+                    tagArea.innerHTML = `${reactTag} ${cssTag}`
 
                     break;
                 case 'project-6':
@@ -188,7 +249,7 @@ const changeProject = () => {
                     stagedDesc.textContent = 
                     "Front-end Mountaineering Progressive-Web-App (PWA) for tracking conquered mountains and planned adventures. Built with React.js and MaterialUI and uses Chart.js, React-Context-API & 3rd Party Weather API. Implements the use of Local Storage to keep track of Trips."
 
-                    tagArea.innerHTML = `${reactTag} ${cssTag} ${scssTag}`
+                    tagArea.innerHTML = `${reactTag}`
 
                     break;
                 default:
