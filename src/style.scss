@@ -530,6 +530,7 @@ body
     background:rgba(26, 35, 41, 0.7);
     border: 3px solid rgb(76, 219, 255);
     backdrop-filter: blur(6px);
+    
 }
 
 #contact_content {
@@ -545,4 +546,20 @@ body
     background:rgba(26, 35, 41, 0.7);
     border: 3px solid rgb(76, 219, 255);
     backdrop-filter: blur(6px);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+
+    #contact_info {
+        width: 48vw;
+        height: 82vh;
+        background: red;
+    }
+
+    #contact_email {
+        width: 48vw;
+        height: 96vh;
+        background: blue;
+    }
 }

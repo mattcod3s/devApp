@@ -23,7 +23,7 @@ import * as TWEEN from 'tween.js'
  * Base
  */
 // Debug
-// const gui = new dat.GUI()
+//const gui = new dat.GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -137,11 +137,11 @@ const planet3OccTexture = textureLoader.load('/textures/planet32/OCC.jpg')
 const parameters = {}
 parameters.count = 400000
 parameters.size = 0.003
-parameters.radius = 4
+parameters.radius = 4.4
 parameters.branches = 5
 parameters.spin = 1
 parameters.randomness = 1.2
-parameters.randomnessPower = 4.6
+parameters.randomnessPower = 4.2
 parameters.insideColor = '#ffffff'
 parameters.outsideColor = '#0174f7'
 
@@ -183,10 +183,10 @@ const generateGalaxy = () =>
     /**
      * Black Hole
      */
-    blackHoleGeometry = new THREE.SphereGeometry(0.25, 64, 64)
+    blackHoleGeometry = new THREE.SphereGeometry(0.35, 64, 64)
     blackHoleMaterial = new THREE.MeshStandardMaterial({ color: 0x000000 })
     blackHole = new THREE.Mesh( blackHoleGeometry, blackHoleMaterial );
-    blackHole.position.set(0, 0, 0)
+    blackHole.position.set(0, -0.05, 0)
     scene.add(blackHole)
 
     /**
