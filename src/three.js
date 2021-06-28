@@ -5,6 +5,7 @@ import * as dat from 'dat.gui'
 import galaxyFragmentShader from './shaders/galaxy/fragment.glsl'
 import galaxyVertexShader from './shaders/galaxy/vertex.glsl'
 import * as TWEEN from 'tween.js'
+import { gsap } from "gsap"
 
 
 // Cursor
@@ -37,6 +38,8 @@ let miniText = null
 let pageX = 0.5;
 let pageY = 0.5;
 
+//GSAP MATERIALS
+
 //Font Loader
 const fontLoader = new THREE.FontLoader()
 fontLoader.load(
@@ -46,22 +49,22 @@ fontLoader.load(
             'Matthew Kostka',
             {
                 font: font,
-                size: 0.75,
+                size: 0.9,
                 height: 0.2,
-                curveSegments: 6,
+                curveSegments: 8,
                 bevelEnabled: true,
                 bevelThickness: 0.03,
                 bevelSize: 0.02,
                 bevelOffset: 0,
-                bevelSegments: 5,
+                bevelSegments: 4,
             }
         )
 
         textGeometry.center()
 
-        const textMaterial = new THREE.MeshMatcapMaterial({ matcap: matcapTexture })
+        const textMaterial = new THREE.MeshMatcapMaterial({ matcap: matcapTexture, transparent: true, opacity: 0 })
         text = new THREE.Mesh(textGeometry, textMaterial)
-        text.position.set(0, 0.4, -6)
+        text.position.set(0, 10.6, 6)
         text.lookAt(camera.position)
 
         const miniTextGeomtery = new THREE.TextGeometry(
@@ -81,17 +84,15 @@ fontLoader.load(
 
         miniTextGeomtery.center()
 
-        const miniTextMaterial = new THREE.MeshMatcapMaterial({ matcap: miniMatCapTexture})
+        const miniTextMaterial = new THREE.MeshMatcapMaterial({ matcap: miniMatCapTexture, transparent: true, opacity: 0})
         miniText = new THREE.Mesh(miniTextGeomtery, miniTextMaterial)
 
-        miniText.position.set(0, -0.6, -6)
+        miniText.position.set(0, 9.6, 6)
         miniText.lookAt(camera.position)
 
         scene.add(text, miniText)
     }
 )
-
-
 
 //Texture Loader
 const loadingManager = new THREE.LoadingManager()
@@ -100,6 +101,8 @@ loadingManager.onStart = () => {
 }
 loadingManager.onLoad = () => {
     console.log('finished')
+    gsap.to(text.material, 1, {opacity:1})
+    gsap.to(miniText.material, 1, {opacity:1})
 }
 loadingManager.onProgress = () => {
     console.log('progress')
@@ -107,7 +110,10 @@ loadingManager.onProgress = () => {
 
 const textureLoader = new THREE.TextureLoader(loadingManager)
 const matcapTexture = textureLoader.load('/textures/matcaps/13.png')
-const miniMatCapTexture = textureLoader.load('/textures/matcaps/17.png')
+const miniMatCapTexture = textureLoader.load('/textures/matcaps/23.png')
+//23
+//27
+//26
 
 const planet1ColorTexture = textureLoader.load('/textures/planet1/COLOR.jpg')
 const planet1DispTexture = textureLoader.load('/textures/planet1/DISP.png')
@@ -135,13 +141,13 @@ const planet3OccTexture = textureLoader.load('/textures/planet32/OCC.jpg')
  * Galaxy
  */
 const parameters = {}
-parameters.count = 400000
+parameters.count = 1000000
 parameters.size = 0.003
-parameters.radius = 4.4
+parameters.radius = 20
 parameters.branches = 5
 parameters.spin = 1
-parameters.randomness = 1.2
-parameters.randomnessPower = 4.2
+parameters.randomness = 0.15
+parameters.randomnessPower = 1.8
 parameters.insideColor = '#ffffff'
 parameters.outsideColor = '#0174f7'
 
@@ -183,10 +189,10 @@ const generateGalaxy = () =>
     /**
      * Black Hole
      */
-    blackHoleGeometry = new THREE.SphereGeometry(0.35, 64, 64)
+    blackHoleGeometry = new THREE.SphereGeometry(1.2, 64, 64)
     blackHoleMaterial = new THREE.MeshStandardMaterial({ color: 0x000000 })
     blackHole = new THREE.Mesh( blackHoleGeometry, blackHoleMaterial );
-    blackHole.position.set(0, -0.05, 0)
+    blackHole.position.set(0, -0.2, 0)
     scene.add(blackHole)
 
     /**
@@ -199,7 +205,7 @@ const generateGalaxy = () =>
      scene.add(light);
 
     // Planet 1
-    projectPlanetGeometry = new THREE.SphereGeometry(0.1, 64, 64)
+    projectPlanetGeometry = new THREE.SphereGeometry(0.08, 64, 64)
     projectPlanetMaterial = new THREE.MeshStandardMaterial()
 
     projectPlanetMaterial.map = planet1ColorTexture
@@ -212,11 +218,11 @@ const generateGalaxy = () =>
 
     projectPlanet = new THREE.Mesh( projectPlanetGeometry, projectPlanetMaterial )
     projectPlanet.geometry.setAttribute('uv2', new THREE.BufferAttribute(projectPlanet.geometry.attributes.uv.array, 2))
-    projectPlanet.position.set(-2.15, 0, 0)
+    projectPlanet.position.set(-8, 0.4, 0)
 
 
     // Planet 2
-    resumePlanetGeometry = new THREE.SphereGeometry(0.15, 64, 64)
+    resumePlanetGeometry = new THREE.SphereGeometry(0.07, 64, 64)
     resumePlanetMaterial = new THREE.MeshStandardMaterial()
 
     resumePlanetMaterial.map = planet2ColorTexture 
@@ -229,7 +235,7 @@ const generateGalaxy = () =>
 
     resumePlanet = new THREE.Mesh( resumePlanetGeometry, resumePlanetMaterial )
     resumePlanet.geometry.setAttribute('uv2', new THREE.BufferAttribute(resumePlanet.geometry.attributes.uv.array, 2))
-    resumePlanet.position.set(1.78, 0, 0)
+    resumePlanet.position.set(3, 0.2, -5)
 
     // Planet 3
     aboutPlanetGeometry = new THREE.SphereGeometry(0.09, 64, 64)
@@ -244,7 +250,7 @@ const generateGalaxy = () =>
 
     aboutPlanet = new THREE.Mesh( aboutPlanetGeometry, aboutPlanetMaterial )
     aboutPlanet.geometry.setAttribute('uv2', new THREE.BufferAttribute(aboutPlanet.geometry.attributes.uv.array, 2))
-    aboutPlanet.position.set(-1, 0, 1.6)
+    aboutPlanet.position.set(4, 0.3, 5)
 
 
     // // Planet 4
@@ -279,6 +285,8 @@ const generateGalaxy = () =>
     const insideColor = new THREE.Color(parameters.insideColor)
     const outsideColor = new THREE.Color(parameters.outsideColor)
 
+    
+
     for(let i = 0; i < parameters.count; i++)
     {
         const i3 = i * 3
@@ -291,14 +299,22 @@ const generateGalaxy = () =>
         const randomX = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius
         const randomY = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius
         const randomZ = Math.pow(Math.random(), parameters.randomnessPower) * (Math.random() < 0.5 ? 1 : - 1) * parameters.randomness * radius
-
+        const randomAx = Math.pow(Math.random(), 1.8) * (Math.random() < 0.5 ? 1 : - 1) * 1 * radius
+        const randomAy = Math.pow(Math.random(), 1.8) * (Math.random() < 0.5 ? 1 : - 1) * 1 * radius
+        const randomAz = Math.pow(Math.random(), 1.8) * (Math.random() < 0.5 ? 1 : - 1) * 1 * radius
         positions[i3    ] = Math.cos(branchAngle) * radius
         positions[i3 + 1] = 0
         positions[i3 + 2] = Math.sin(branchAngle) * radius
     
-        randomness[i3    ] = randomX
-        randomness[i3 + 1] = randomY
-        randomness[i3 + 2] = randomZ
+        if(i % 12 == 0) {
+            randomness[i3    ] = randomAx
+            randomness[i3 + 1] = randomAy
+            randomness[i3 + 2] = randomAz
+        } else {
+            randomness[i3    ] = randomX
+            randomness[i3 + 1] = randomY
+            randomness[i3 + 2] = randomZ
+        }
 
         // Color
         const mixedColor = insideColor.clone()
@@ -327,7 +343,7 @@ const generateGalaxy = () =>
         uniforms:
         {
             uTime: { value: 0 },
-            uSize: { value: 16 * renderer.getPixelRatio() }
+            uSize: { value: 50 * renderer.getPixelRatio() }
         },    
         vertexShader: galaxyVertexShader,
         fragmentShader: galaxyFragmentShader
@@ -402,8 +418,8 @@ window.addEventListener('resize', () =>
 
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 0
-camera.position.y = 3
-camera.position.z = 3
+camera.position.y = 12
+camera.position.z = 16
 scene.add(camera)
 
 
@@ -442,6 +458,7 @@ function render() {
     
 }
 
+
 const exitButton = document.getElementById('exitBtn')
 exitButton.addEventListener('click', () => {
 
@@ -452,15 +469,18 @@ exitButton.addEventListener('click', () => {
         clickables[i].style.transitionDelay = '0s'
     }
 
-    scene.add(text, miniText)
-
     const tween = new TWEEN.Tween(camera.position)
-    .to({x : 0, y : 3, z : 3}, 1000)
+    .to({x : 0, y : 12, z : 16}, 1200)
     .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
 	.onUpdate(() => {
 		// Called after tween.js updates 'coords'.
 		// Move 'box' to the position described by 'coords' with a CSS translation.
 	})
+    .onComplete(()=> {
+        gsap.to(text.material, 1, {opacity:1})
+        gsap.to(miniText.material, 1, {opacity:1})
+        scene.add(text, miniText)
+    })
 	.start()
 
     enterButton.style.opacity = '1'
@@ -472,7 +492,6 @@ exitButton.addEventListener('click', () => {
     exitButton.style.transitionDelay = '0s'
 
     //rayUncast()
-    
 })
 
 const returnButton = document.getElementById('returnBtn')
@@ -557,7 +576,7 @@ enterButton.addEventListener('click', () => {
 
     let enterCoord = {
         x: 0,
-        y: 4.24,
+        y: 10.24,
         z: 0.1
     }
 
@@ -573,7 +592,7 @@ enterButton.addEventListener('click', () => {
         z: enterCoord.z
     };
     let tween = new TWEEN.Tween(from)
-        .to(to, 600)
+        .to(to, 1000)
         .easing(TWEEN.Easing.Linear.None)
         .onUpdate(function () {
         camera.position.set(this.x, this.y, this.z);
@@ -594,7 +613,8 @@ enterButton.addEventListener('click', () => {
     exitButton.style.pointerEvents = 'all'
     exitButton.style.transitionDelay = '0s'
 
-    scene.remove(text, miniText)
+    gsap.to(text.material, 0.2, {opacity:0})
+    gsap.to(miniText.material, 0.2, {opacity:0})
 })
 
 
@@ -808,7 +828,7 @@ const tick = () =>
     TWEEN.update();
 
     // Update material
-    material.uniforms.uTime.value = elapsedTime + 150
+    material.uniforms.uTime.value = elapsedTime + 500
 
     // Update controls
     controls.update()
