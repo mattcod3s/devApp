@@ -653,94 +653,94 @@ const aboutTween = () => {
 
 
 // Animate planet camera
-const projectContent = document.getElementById('project_content')
-const aboutContent = document.getElementById('about_content')
-const contactContent = document.getElementById('contact_content')
+// const projectContent = document.getElementById('project_content')
+// const aboutContent = document.getElementById('about_content')
+// const contactContent = document.getElementById('contact_content')
 
-const projectClickable = document.getElementById('projectClickable')
-projectClickable.addEventListener('click', () => {
-    projectTween()
+// const projectClickable = document.getElementById('projectClickable')
+// projectClickable.addEventListener('click', () => {
+//     projectTween()
 
-    const clickables = document.querySelectorAll('.clickable')
-    for(let i = 0; i < clickables.length; i++) {
-        clickables[i].style.opacity = '0'
-        clickables[i].style.pointerEvents = 'none'
-        clickables[i].style.transitionDelay = '0s'
-    }
+//     const clickables = document.querySelectorAll('.clickable')
+//     for(let i = 0; i < clickables.length; i++) {
+//         clickables[i].style.opacity = '0'
+//         clickables[i].style.pointerEvents = 'none'
+//         clickables[i].style.transitionDelay = '0s'
+//     }
 
-    exitButton.style.opacity = '0'
-    exitButton.style.pointerEvents = 'none'
-    exitButton.style.transitionDelay = '0s'
+//     exitButton.style.opacity = '0'
+//     exitButton.style.pointerEvents = 'none'
+//     exitButton.style.transitionDelay = '0s'
 
-    returnButton.style.opacity = '1'
-    returnButton.style.pointerEvents = 'all'
-    returnButton.style.transitionDelay = '2.2s'
+//     returnButton.style.opacity = '1'
+//     returnButton.style.pointerEvents = 'all'
+//     returnButton.style.transitionDelay = '2.2s'
 
-    projectContent.style.opacity = '1'
-    projectContent.style.pointerEvents = 'all'
-    projectContent.style.transitionDelay = '2.2s'
+//     projectContent.style.opacity = '1'
+//     projectContent.style.pointerEvents = 'all'
+//     projectContent.style.transitionDelay = '2.2s'
 
-    projectContent.style.zIndex = '4'
-    aboutContent.style.zIndex = '2'
-    contactContent.style.zIndex = '2'
+//     projectContent.style.zIndex = '4'
+//     aboutContent.style.zIndex = '2'
+//     contactContent.style.zIndex = '2'
 
-})
+// })
 
-const aboutClickable = document.getElementById('aboutClickable')
-aboutClickable.addEventListener('click', () => {
-    aboutTween()
+// const aboutClickable = document.getElementById('aboutClickable')
+// aboutClickable.addEventListener('click', () => {
+//     aboutTween()
 
-    const clickables = document.querySelectorAll('.clickable')
-    for(let i = 0; i < clickables.length; i++) {
-        clickables[i].style.opacity = '0'
-        clickables[i].style.pointerEvents = 'none'
-        clickables[i].style.transitionDelay = '0s'
-    }
+//     const clickables = document.querySelectorAll('.clickable')
+//     for(let i = 0; i < clickables.length; i++) {
+//         clickables[i].style.opacity = '0'
+//         clickables[i].style.pointerEvents = 'none'
+//         clickables[i].style.transitionDelay = '0s'
+//     }
 
-    exitButton.style.opacity = '0'
-    exitButton.style.pointerEvents = 'none'
-    exitButton.style.transitionDelay = '0s'
+//     exitButton.style.opacity = '0'
+//     exitButton.style.pointerEvents = 'none'
+//     exitButton.style.transitionDelay = '0s'
 
-    returnButton.style.opacity = '1'
-    returnButton.style.pointerEvents = 'all'
-    returnButton.style.transitionDelay = '2.2s'
+//     returnButton.style.opacity = '1'
+//     returnButton.style.pointerEvents = 'all'
+//     returnButton.style.transitionDelay = '2.2s'
 
-    aboutContent.style.opacity = '1'
-    aboutContent.style.pointerEvents = 'all'
-    aboutContent.style.transitionDelay = '2.2s'
+//     aboutContent.style.opacity = '1'
+//     aboutContent.style.pointerEvents = 'all'
+//     aboutContent.style.transitionDelay = '2.2s'
 
-    projectContent.style.zIndex = '2'
-    aboutContent.style.zIndex = '4'
-    contactContent.style.zIndex = '2'
-})
+//     projectContent.style.zIndex = '2'
+//     aboutContent.style.zIndex = '4'
+//     contactContent.style.zIndex = '2'
+// })
 
-const contactClickable = document.getElementById('contactClickable')
-contactClickable.addEventListener('click', () => {
-    contactTween()
+// const contactClickable = document.getElementById('contactClickable')
+// contactClickable.addEventListener('click', () => {
+//     contactTween()
 
-    const clickables = document.querySelectorAll('.clickable')
-    for(let i = 0; i < clickables.length; i++) {
-        clickables[i].style.opacity = '0'
-        clickables[i].style.pointerEvents = 'none'
-        clickables[i].style.transitionDelay = '0s'
-    }
+//     const clickables = document.querySelectorAll('.clickable')
+//     for(let i = 0; i < clickables.length; i++) {
+//         clickables[i].style.opacity = '0'
+//         clickables[i].style.pointerEvents = 'none'
+//         clickables[i].style.transitionDelay = '0s'
+//     }
 
-    exitButton.style.opacity = '0'
-    exitButton.style.pointerEvents = 'none'
-    exitButton.style.transitionDelay = '0s'
+//     exitButton.style.opacity = '0'
+//     exitButton.style.pointerEvents = 'none'
+//     exitButton.style.transitionDelay = '0s'
 
-    returnButton.style.opacity = '1'
-    returnButton.style.pointerEvents = 'all'
-    returnButton.style.transitionDelay = '2.2s'
+//     returnButton.style.opacity = '1'
+//     returnButton.style.pointerEvents = 'all'
+//     returnButton.style.transitionDelay = '2.2s'
 
-    contactContent.style.opacity = '1'
-    contactContent.style.pointerEvents = 'all'
-    contactContent.style.transitionDelay = '2.2s'
+//     contactContent.style.opacity = '1'
+//     contactContent.style.pointerEvents = 'all'
+//     contactContent.style.transitionDelay = '2.2s'
 
-    projectContent.style.zIndex = '2'
-    aboutContent.style.zIndex = '2'
-    contactContent.style.zIndex = '4'
-})
+//     projectContent.style.zIndex = '2'
+//     aboutContent.style.zIndex = '2'
+//     contactContent.style.zIndex = '4'
+// })
 
 
 /**

@@ -117,162 +117,192 @@ body
     }
 }
 
-#projectClickable {
-    position: fixed;
-    z-index: 3;
+// #projectClickable {
+//     position: fixed;
+//     z-index: 3;
 
-    .horizontalLine {
-        position: absolute;
-        left: 23vw;
-        top: 50vh;
-        width: 100px;
-        height: 2px;
-        background: white;
-    }
+//     .horizontalLine {
+//         position: absolute;
+//         left: 23vw;
+//         top: 50vh;
+//         width: 100px;
+//         height: 2px;
+//         background: white;
+//     }
 
-    .verticalLine {
-        position: absolute;
-        left: 23vw;
-        top: calc(50vh - 40px);
-        width: 2px;
-        height: 40px;
-        background: white;
-    }
+//     .verticalLine {
+//         position: absolute;
+//         left: 23vw;
+//         top: calc(50vh - 40px);
+//         width: 2px;
+//         height: 40px;
+//         background: white;
+//     }
 
-    #project_enter {
-        position: absolute;
-        left: 18vw;
-        top: calc(50vh - 11.5vh);
-        width: 10vw;
-        height: 6vh;
-        background: transparent;
-        border: 2px solid white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        transition-duration: 0.4s;
+//     #project_enter {
+//         position: absolute;
+//         left: 18vw;
+//         top: calc(50vh - 11.5vh);
+//         width: 10vw;
+//         height: 6vh;
+//         background: transparent;
+//         border: 2px solid white;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         cursor: pointer;
+//         transition-duration: 0.4s;
         
-        h3 {
-            font-family: 'Raleway';
-            transition-duration: 0.4s;
-            color: white;
-        }
-    }
+//         h3 {
+//             font-family: 'Raleway';
+//             transition-duration: 0.4s;
+//             color: white;
+//         }
+//     }
 
-    #project_enter:hover {
-        background: white;
-        border: 2px solid transparent;
+//     #project_enter:hover {
+//         background: white;
+//         border: 2px solid transparent;
 
-        h3 {
-            color: #333;
-        }
-    }
-}
+//         h3 {
+//             color: #333;
+//         }
+//     }
+// }
 
-.clickable {
-    opacity: 0;
-    pointer-events: none;
-    transition-duration: 0.5s;
-}
+// .clickable {
+//     opacity: 0;
+//     pointer-events: none;
+//     transition-duration: 0.5s;
+// }
 
-#aboutClickable {
-    position: fixed;
-    z-index: 3;
+// #aboutClickable {
+//     position: fixed;
+//     z-index: 3;
 
-    .horizontalLine {
-        position: absolute;
-        left: 67vw;
-        top: 50vh;
-        width: 100px;
-        height: 2px;
-        background: white;
-    }
+//     .horizontalLine {
+//         position: absolute;
+//         left: 67vw;
+//         top: 50vh;
+//         width: 100px;
+//         height: 2px;
+//         background: white;
+//     }
 
-    .verticalLine {
-        position: absolute;
-        left: calc(67vw + 98px);
-        top: calc(50vh - 40px);
-        width: 2px;
-        height: 40px;
-        background: white;
-    }
+//     .verticalLine {
+//         position: absolute;
+//         left: calc(67vw + 98px);
+//         top: calc(50vh - 40px);
+//         width: 2px;
+//         height: 40px;
+//         background: white;
+//     }
 
-    #about_enter {
-        position: absolute;
-        left: 69vw;
-        top: calc(50vh - 11.5vh);
-        width: 10vw;
-        height: 6vh;
-        background: transparent;
-        border: 2px solid white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        transition-duration: 0.4s;
+//     #about_enter {
+//         position: absolute;
+//         left: 69vw;
+//         top: calc(50vh - 11.5vh);
+//         width: 10vw;
+//         height: 6vh;
+//         background: transparent;
+//         border: 2px solid white;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         cursor: pointer;
+//         transition-duration: 0.4s;
         
-        h3 {
-            font-family: 'Raleway';
-            transition-duration: 0.4s;
-            color: white;
-        }
-    }
+//         h3 {
+//             font-family: 'Raleway';
+//             transition-duration: 0.4s;
+//             color: white;
+//         }
+//     }
 
-    #about_enter:hover {
-        background: white;
-        border: 2px solid transparent;
+//     #about_enter:hover {
+//         background: white;
+//         border: 2px solid transparent;
 
-        h3 {
-            color: #333;
-        }
-    }
-}
+//         h3 {
+//             color: #333;
+//         }
+//     }
+// }
 
-#contactClickable {
-    position: fixed;
-    z-index: 3;
+// #contactClickable {
+//     position: fixed;
+//     z-index: 3;
 
-    .horizontalLine {
-        position: absolute;
-        left: 43vw;
-        top: 74.5vh;
-        width: 100px;
-        height: 2px;
-        background: white;
-    }
+//     .horizontalLine {
+//         position: absolute;
+//         left: 43vw;
+//         top: 74.5vh;
+//         width: 100px;
+//         height: 2px;
+//         background: white;
+//     }
 
-    #contact_enter {
-        position: absolute;
-        left: calc(43vw + 100px);
-        top: calc(74.5vh - 3vh);
-        width: 10vw;
-        height: 6vh;
-        background: transparent;
-        border: 2px solid white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        transition-duration: 0.4s;
+//     #contact_enter {
+//         position: absolute;
+//         left: calc(43vw + 100px);
+//         top: calc(74.5vh - 3vh);
+//         width: 10vw;
+//         height: 6vh;
+//         background: transparent;
+//         border: 2px solid white;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         cursor: pointer;
+//         transition-duration: 0.4s;
         
-        h3 {
-            font-family: 'Raleway';
-            transition-duration: 0.4s;
-            color: white;
-        }
-    }
+//         h3 {
+//             font-family: 'Raleway';
+//             transition-duration: 0.4s;
+//             color: white;
+//         }
+//     }
 
-    #contact_enter:hover {
-        background: white;
-        border: 2px solid transparent;
+//     #contact_enter:hover {
+//         background: white;
+//         border: 2px solid transparent;
 
-        h3 {
-            color: #333;
-        }
+//         h3 {
+//             color: #333;
+//         }
+//     }
+// }
+
+
+ /*************************************/  
+// .hexagon {
+//     position: relative;
+//     width: 300px; 
+//     height: 173.21px;
+//     background-color: #ffffff;
+//     margin: 86.60px 0;
+//     border-left: solid 5px #fff93d;
+//     border-right: solid 5px #fff93d;
+//   }
+
+#projectCont {
+    position: absolute;
+    width: 5vw;
+    height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #hex {
+        width: 3vw;
+        height: 3vw;
+        background-image: url('../static/hex5.png');
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 }
 
+ 
 #project_content {
     position: absolute;
     width: 96vw;
@@ -559,7 +589,7 @@ body
         align-items: center;
 
         #contactInfoTitle {
-            
+
 
             h2 {
                 
