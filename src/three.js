@@ -404,12 +404,71 @@ window.addEventListener('resize', () =>
 /**
  * Raycaster mouse coordinates
  */
-// const mouse = new THREE.Vector2()
-// window.addEventListener('mousemove', (_event) => {
-//     mouse.x = _event.clientX / sizes.width * 2 - 1
-//     mouse.y = - (_event.clientY / sizes.height) * 2 + 1
+const mouse = new THREE.Vector2()
+window.addEventListener('mousemove', (_event) => {
+    mouse.x = _event.clientX / sizes.width * 2 - 1
+    mouse.y = - (_event.clientY / sizes.height) * 2 + 1
 
-// })
+    const projectCont = document.getElementById('projectCont')
+    const aboutCont = document.getElementById('aboutCont')
+    const contactCont = document.getElementById('contactCont')
+
+    const tempP = new THREE.Vector3()
+    const tempA = new THREE.Vector3()
+    const tempC = new THREE.Vector3()
+    projectPlanet.getWorldPosition(tempP)
+    aboutPlanet.getWorldPosition(tempA)
+    resumePlanet.getWorldPosition(tempC)
+
+    const tempProject = tempP.project(camera)
+    const tempAbout = tempA.project(camera)
+    const tempContact = tempC.project(camera)
+
+    const Px = (tempProject.x *  .5 + .5) * canvas.clientWidth
+    const Py = (tempProject.y * -.5 + .5) * canvas.clientHeight
+
+    const Ax = (tempAbout.x *  .5 + .5) * canvas.clientWidth
+    const Ay = (tempAbout.y * -.5 + .5) * canvas.clientHeight
+
+    const Cx = (tempContact.x *  .5 + .5) * canvas.clientWidth
+    const Cy = (tempContact.y * -.5 + .5) * canvas.clientHeight
+
+    projectCont.style.transform = `translate(-50%, -50%) translate(${Px}px,${Py}px)`;
+    aboutCont.style.transform = `translate(-50%, -50%) translate(${Ax}px,${Ay}px)`;
+    contactCont.style.transform = `translate(-50%, -50%) translate(${Cx}px,${Cy}px)`;
+
+    // const viewX = (tempA.x *  .5 + .5)
+    // const viewY = (tempA.y * -.5 + .5)
+    // console.log(viewX + ' ' + viewY + ' ' + x + ' ' + y)
+
+
+    // let worldPosition = new THREE.Vector3()
+    // projectPlanet.getWorldPosition(worldPosition)
+    // console.log('View grid model world coordinates',worldPosition)
+
+    // worldPosition.normalize()
+    // console.log(worldPosition)
+
+    // const visibleHeightAtZDepth = ( depth, camera ) => {
+    //     // compensate for cameras not positioned at z=0
+    //     const cameraOffset = camera.position.z;
+    //     if ( depth < cameraOffset ) depth -= cameraOffset;
+    //     else depth += cameraOffset;
+      
+    //     // vertical fov in radians
+    //     const vFOV = camera.fov * Math.PI / 180; 
+      
+    //     // Math.abs to ensure the result is always positive
+    //     return 2 * Math.tan( vFOV / 2 ) * Math.abs( depth );
+    //   };
+      
+    //   const visibleWidthAtZDepth = ( depth, camera ) => {
+    //     const height = visibleHeightAtZDepth( depth, camera );
+    //     return height * camera.aspect;
+    // };
+
+    // console.log(visibleHeightAtZDepth(camera.position.z, camera), visibleWidthAtZDepth(camera.position.z, camera))
+})
 
 /**
  * Camera

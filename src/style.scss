@@ -292,6 +292,43 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
+    transition-duration: 0.3s;
+
+    #hex {
+        width: 3vw;
+        height: 3vw;
+        background-image: url('../static/hex5.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
+#aboutCont {
+    position: absolute;
+    width: 5vw;
+    height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.3s;
+
+    #hex {
+        width: 3vw;
+        height: 3vw;
+        background-image: url('../static/hex5.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
+#contactCont {
+    position: absolute;
+    width: 5vw;
+    height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 0.3s;
 
     #hex {
         width: 3vw;

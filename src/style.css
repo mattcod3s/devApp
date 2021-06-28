@@ -154,9 +154,61 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
 }
 
 #projectCont #hex {
+  width: 3vw;
+  height: 3vw;
+  background-image: url("../static/hex5.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#aboutCont {
+  position: absolute;
+  width: 5vw;
+  height: 5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+#aboutCont #hex {
+  width: 3vw;
+  height: 3vw;
+  background-image: url("../static/hex5.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#contactCont {
+  position: absolute;
+  width: 5vw;
+  height: 5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+#contactCont #hex {
   width: 3vw;
   height: 3vw;
   background-image: url("../static/hex5.png");
