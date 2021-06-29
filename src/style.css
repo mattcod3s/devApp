@@ -143,8 +143,8 @@ body {
 /*************************************/
 #projectCont {
   position: absolute;
-  width: 5vw;
-  height: 5vw;
+  width: 16vw;
+  height: 8vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -156,20 +156,64 @@ body {
           align-items: center;
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
 }
 
 #projectCont #hex {
-  width: 3vw;
-  height: 3vw;
-  background-image: url("../static/hex5.png");
+  width: 8vw;
+  height: 4vw;
+  background-image: url("../static/hexIcon.png");
   background-size: contain;
   background-repeat: no-repeat;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+#projectCont #projectClickable {
+  width: 9vw;
+  height: 3vw;
+  border: 2px solid #FAFE46;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: transparent;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  cursor: pointer;
+  z-index: 6;
+}
+
+#projectCont #projectClickable h3 {
+  font-family: 'Raleway';
+  font-weight: 200;
+  color: #e3e641;
+}
+
+#projectCont #projectClickable:hover {
+  background: #FAFE46;
+}
+
+#projectCont #projectClickable:hover h3 {
+  color: #2c2c2c;
 }
 
 #aboutCont {
   position: absolute;
-  width: 5vw;
-  height: 5vw;
+  width: 16vw;
+  height: 8vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -181,20 +225,61 @@ body {
           align-items: center;
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
 }
 
 #aboutCont #hex {
-  width: 3vw;
-  height: 3vw;
-  background-image: url("../static/hex5.png");
+  width: 8vw;
+  height: 4vw;
+  background-image: url("../static/hexIcon2.png");
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+#aboutCont #aboutClickable {
+  width: 9vw;
+  height: 3vw;
+  border: 2px solid #FAFE46;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: transparent;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  cursor: pointer;
+  z-index: 6;
+}
+
+#aboutCont #aboutClickable h3 {
+  font-family: 'Raleway';
+  font-weight: 200;
+  color: #e3e641;
+}
+
+#aboutCont #aboutClickable:hover {
+  background: #FAFE46;
+}
+
+#aboutCont #aboutClickable:hover h3 {
+  color: #2c2c2c;
 }
 
 #contactCont {
   position: absolute;
-  width: 5vw;
-  height: 5vw;
+  width: 16vw;
+  height: 8vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -206,14 +291,56 @@ body {
           align-items: center;
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
 }
 
 #contactCont #hex {
-  width: 3vw;
-  height: 3vw;
-  background-image: url("../static/hex5.png");
+  width: 8vw;
+  height: 4vw;
+  background-image: url("../static/hexIcon3.png");
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+#contactCont #contactClickable {
+  width: 9vw;
+  height: 3vw;
+  border: 2px solid #FAFE46;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  margin-bottom: 3px;
+  margin-right: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: transparent;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  cursor: pointer;
+  z-index: 6;
+}
+
+#contactCont #contactClickable h3 {
+  font-family: 'Raleway';
+  font-weight: 200;
+  color: #e3e641;
+}
+
+#contactCont #contactClickable:hover {
+  background: #FAFE46;
+}
+
+#contactCont #contactClickable:hover h3 {
+  color: #2c2c2c;
 }
 
 #project_content {
@@ -566,7 +693,7 @@ body {
           backdrop-filter: blur(6px);
 }
 
-#contact_content {
+#cont_content {
   position: absolute;
   width: 96vw;
   height: 96vh;
@@ -575,44 +702,12 @@ body {
   opacity: 0;
   pointer-events: 'none';
   z-index: 2;
+  top: 0vh !important;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
   background: rgba(26, 35, 41, 0.7);
   border: 3px solid #4cdbff;
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-}
-
-#contact_content #contact_info {
-  width: 48vw;
-  height: 82vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#contact_content #contact_email {
-  width: 48vw;
-  height: 96vh;
-  background: blue;
 }
 /*# sourceMappingURL=style.css.map */

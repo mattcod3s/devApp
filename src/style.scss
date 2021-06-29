@@ -287,55 +287,155 @@ body
 
 #projectCont {
     position: absolute;
-    width: 5vw;
-    height: 5vw;
+    width: 16vw;
+    height: 8vw;
     display: flex;
     justify-content: center;
     align-items: center;
     transition-duration: 0.3s;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
 
     #hex {
-        width: 3vw;
-        height: 3vw;
-        background-image: url('../static/hex5.png');
+        width: 8vw;
+        height: 4vw;
+        background-image: url('../static/hexIcon.png');
         background-size: contain;
         background-repeat: no-repeat;
+        order: 2;
+    }
+
+    #projectClickable {
+        width: 9vw;
+        height: 3vw;
+        border: 2px solid #FAFE46;
+        order: 1;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        z-index: 6;
+
+        h3 {
+            font-family: 'Raleway';
+            font-weight: 200;
+            color: #e3e641;
+        }
+    }
+
+    #projectClickable:hover {
+        background: #FAFE46;
+
+        h3 {
+            color: #2c2c2c;
+        }
     }
 }
 
+
+
 #aboutCont {
     position: absolute;
-    width: 5vw;
-    height: 5vw;
+    width: 16vw;
+    height: 8vw;
     display: flex;
     justify-content: center;
     align-items: center;
     transition-duration: 0.3s;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
 
     #hex {
-        width: 3vw;
-        height: 3vw;
-        background-image: url('../static/hex5.png');
+        width: 8vw;
+        height: 4vw;
+        background-image: url('../static/hexIcon2.png');
         background-size: contain;
         background-repeat: no-repeat;
+    }
+
+    #aboutClickable {
+        width: 9vw;
+        height: 3vw;
+        border: 2px solid #FAFE46;
+        order: 1;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        z-index: 6;
+
+        h3 {
+            font-family: 'Raleway';
+            font-weight: 200;
+            color: #e3e641;
+        }
+    }
+
+    #aboutClickable:hover {
+        background: #FAFE46;
+
+        h3 {
+            color: #2c2c2c;
+        }
     }
 }
 
 #contactCont {
     position: absolute;
-    width: 5vw;
-    height: 5vw;
+    width: 16vw;
+    height: 8vw;
     display: flex;
     justify-content: center;
     align-items: center;
     transition-duration: 0.3s;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
 
     #hex {
-        width: 3vw;
-        height: 3vw;
-        background-image: url('../static/hex5.png');
+        width: 8vw;
+        height: 4vw;
+        background-image: url('../static/hexIcon3.png');
         background-size: contain;
         background-repeat: no-repeat;
+    }
+
+    #contactClickable {
+        width: 9vw;
+        height: 3vw;
+        border: 2px solid #FAFE46;
+        order: 1;
+        margin-bottom: 3px;
+        margin-right: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        z-index: 6;
+
+        h3 {
+            font-family: 'Raleway';
+            font-weight: 200;
+            color: #e3e641;
+        }
+    }
+
+    #contactClickable:hover {
+        background: #FAFE46;
+
+        h3 {
+            color: #2c2c2c;
+        }
     }
 }
 
@@ -600,7 +700,9 @@ body
     
 }
 
-#contact_content {
+
+
+#cont_content {
     position: absolute;
     width: 96vw;
     height: 96vh;
@@ -609,34 +711,31 @@ body
     opacity: 0;
     pointer-events: 'none';
     z-index: 2;
+    top: 0vh !important;
     transition-duration: 0.5s;
     background:rgba(26, 35, 41, 0.7);
     border: 3px solid rgb(76, 219, 255);
     backdrop-filter: blur(6px);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-end;
 
-    #contact_info {
-        width: 48vw;
-        height: 82vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    // #contact_info {
+    //     width: 48vw;
+    //     height: 82vh;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
 
-        #contactInfoTitle {
+    //     // #contactInfoTitle {
 
 
-            h2 {
+    //     //     h2 {
                 
-            }
-        }
-    }
+    //     //     }
+    //     // }
+    // }
 
-    #contact_email {
-        width: 48vw;
-        height: 96vh;
-        background: blue;
-    }
+    // #contact_email {
+    //     width: 48vw;
+    //     height: 96vh;
+    //     background: blue;
+    // }
 }

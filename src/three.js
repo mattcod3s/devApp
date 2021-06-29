@@ -8,16 +8,31 @@ import * as TWEEN from 'tween.js'
 import { gsap } from "gsap"
 
 
+const projectCont = document.getElementById('projectCont')
+const aboutCont = document.getElementById('aboutCont')
+const contactCont = document.getElementById('contactCont')
 // Cursor
 // const cursor = {
 //     x: 0,
 //     y: 0
 // }
 
-// window.addEventListener('mousemove', (event) => {
-//     cursor.x = event.clientX / sizes.width - 0.5
-//     cursor.y = event.clientY / sizes.height - 0.5
-// })
+window.addEventListener('load', (event) => {
+    // cursor.x = event.clientX / sizes.width - 0.5
+    // cursor.y = event.clientY / sizes.height - 0.5
+
+projectContent.style.opacity = '0'
+projectContent.style.pointerEvents = 'none'
+projectContent.style.transitionDelay = '0s'
+
+aboutContent.style.opacity = '0'
+aboutContent.style.pointerEvents = 'none'
+aboutContent.style.transitionDelay = '0s'
+
+contactContent.style.opacity = '0'
+contactContent.style.pointerEvents = 'none'
+contactContent.style.transitionDelay = '0s'
+})
 
 
 /**
@@ -205,7 +220,7 @@ const generateGalaxy = () =>
      scene.add(light);
 
     // Planet 1
-    projectPlanetGeometry = new THREE.SphereGeometry(0.08, 64, 64)
+    projectPlanetGeometry = new THREE.SphereGeometry(0.15, 64, 64)
     projectPlanetMaterial = new THREE.MeshStandardMaterial()
 
     projectPlanetMaterial.map = planet1ColorTexture
@@ -222,7 +237,7 @@ const generateGalaxy = () =>
 
 
     // Planet 2
-    resumePlanetGeometry = new THREE.SphereGeometry(0.07, 64, 64)
+    resumePlanetGeometry = new THREE.SphereGeometry(0.16, 64, 64)
     resumePlanetMaterial = new THREE.MeshStandardMaterial()
 
     resumePlanetMaterial.map = planet2ColorTexture 
@@ -238,7 +253,7 @@ const generateGalaxy = () =>
     resumePlanet.position.set(3, 0.2, -5)
 
     // Planet 3
-    aboutPlanetGeometry = new THREE.SphereGeometry(0.09, 64, 64)
+    aboutPlanetGeometry = new THREE.SphereGeometry(0.14, 64, 64)
     aboutPlanetMaterial = new THREE.MeshStandardMaterial()
 
     aboutPlanetMaterial.map = planet3ColorTexture
@@ -378,6 +393,56 @@ const generateGalaxy = () =>
 // gui.addColor(parameters, 'insideColor').onFinishChange(generateGalaxy)
 // gui.addColor(parameters, 'outsideColor').onFinishChange(generateGalaxy)
 
+
+/**
+ * Update Hexagons
+ */
+const updateHexagons = () => {
+
+    const tempP = new THREE.Vector3()
+    const tempA = new THREE.Vector3()
+    const tempC = new THREE.Vector3()
+    projectPlanet.getWorldPosition(tempP)
+    aboutPlanet.getWorldPosition(tempA)
+    resumePlanet.getWorldPosition(tempC)
+
+    const tempProject = tempP.project(camera)
+    const tempAbout = tempA.project(camera)
+    const tempContact = tempC.project(camera)
+
+    const Px = (tempProject.x *  .5 + .5) * canvas.clientWidth
+    const Py = (tempProject.y * -.5 + .5) * canvas.clientHeight
+
+    const Ax = (tempAbout.x *  .5 + .5) * canvas.clientWidth
+    const Ay = (tempAbout.y * -.5 + .5) * canvas.clientHeight
+
+    const Cx = (tempContact.x *  .5 + .5) * canvas.clientWidth
+    const Cy = (tempContact.y * -.5 + .5) * canvas.clientHeight
+
+
+    projectCont.style.transform = `translate(-50%, -50%) translate(calc(${Px}px - 6.5vw),calc(${Py}px - 0.05vw))`
+    aboutCont.style.transform = `translate(-50%, -50%) translate(calc(${Ax}px + 6.5vw),calc(${Ay}px - 0.05vw))`
+    contactCont.style.transform = `translate(-50%, -50%) translate(calc(${Cx}px + 6.5vw),calc(${Cy}px + 0.4vw))`
+
+    projectCont.style.opacity = '1'
+    aboutCont.style.opacity = '1'
+    contactCont.style.opacity = '1'
+
+    projectCont.style.pointerEvents = 'all'
+    aboutCont.style.pointerEvents = 'all'
+    contactCont.style.pointerEvents = 'all'
+}
+
+const removeHexagons = () => {
+    projectCont.style.opacity = '0'
+    aboutCont.style.opacity = '0'
+    contactCont.style.opacity = '0'
+
+    projectCont.style.pointerEvents = 'none'
+    aboutCont.style.pointerEvents = 'none'
+    contactCont.style.pointerEvents = 'none'
+}
+
 /**
  * Sizes
  */
@@ -408,66 +473,6 @@ const mouse = new THREE.Vector2()
 window.addEventListener('mousemove', (_event) => {
     mouse.x = _event.clientX / sizes.width * 2 - 1
     mouse.y = - (_event.clientY / sizes.height) * 2 + 1
-
-    const projectCont = document.getElementById('projectCont')
-    const aboutCont = document.getElementById('aboutCont')
-    const contactCont = document.getElementById('contactCont')
-
-    const tempP = new THREE.Vector3()
-    const tempA = new THREE.Vector3()
-    const tempC = new THREE.Vector3()
-    projectPlanet.getWorldPosition(tempP)
-    aboutPlanet.getWorldPosition(tempA)
-    resumePlanet.getWorldPosition(tempC)
-
-    const tempProject = tempP.project(camera)
-    const tempAbout = tempA.project(camera)
-    const tempContact = tempC.project(camera)
-
-    const Px = (tempProject.x *  .5 + .5) * canvas.clientWidth
-    const Py = (tempProject.y * -.5 + .5) * canvas.clientHeight
-
-    const Ax = (tempAbout.x *  .5 + .5) * canvas.clientWidth
-    const Ay = (tempAbout.y * -.5 + .5) * canvas.clientHeight
-
-    const Cx = (tempContact.x *  .5 + .5) * canvas.clientWidth
-    const Cy = (tempContact.y * -.5 + .5) * canvas.clientHeight
-
-    projectCont.style.transform = `translate(-50%, -50%) translate(${Px}px,${Py}px)`;
-    aboutCont.style.transform = `translate(-50%, -50%) translate(${Ax}px,${Ay}px)`;
-    contactCont.style.transform = `translate(-50%, -50%) translate(${Cx}px,${Cy}px)`;
-
-    // const viewX = (tempA.x *  .5 + .5)
-    // const viewY = (tempA.y * -.5 + .5)
-    // console.log(viewX + ' ' + viewY + ' ' + x + ' ' + y)
-
-
-    // let worldPosition = new THREE.Vector3()
-    // projectPlanet.getWorldPosition(worldPosition)
-    // console.log('View grid model world coordinates',worldPosition)
-
-    // worldPosition.normalize()
-    // console.log(worldPosition)
-
-    // const visibleHeightAtZDepth = ( depth, camera ) => {
-    //     // compensate for cameras not positioned at z=0
-    //     const cameraOffset = camera.position.z;
-    //     if ( depth < cameraOffset ) depth -= cameraOffset;
-    //     else depth += cameraOffset;
-      
-    //     // vertical fov in radians
-    //     const vFOV = camera.fov * Math.PI / 180; 
-      
-    //     // Math.abs to ensure the result is always positive
-    //     return 2 * Math.tan( vFOV / 2 ) * Math.abs( depth );
-    //   };
-      
-    //   const visibleWidthAtZDepth = ( depth, camera ) => {
-    //     const height = visibleHeightAtZDepth( depth, camera );
-    //     return height * camera.aspect;
-    // };
-
-    // console.log(visibleHeightAtZDepth(camera.position.z, camera), visibleWidthAtZDepth(camera.position.z, camera))
 })
 
 /**
@@ -485,7 +490,7 @@ scene.add(camera)
 // Controls
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
-controls.enabled = false
+
 
 /**
  * Renderer
@@ -521,13 +526,6 @@ function render() {
 const exitButton = document.getElementById('exitBtn')
 exitButton.addEventListener('click', () => {
 
-    const clickables = document.querySelectorAll('.clickable')
-    for(let i = 0; i < clickables.length; i++) {
-        clickables[i].style.opacity = '0'
-        clickables[i].style.pointerEvents = 'none'
-        clickables[i].style.transitionDelay = '0s'
-    }
-
     const tween = new TWEEN.Tween(camera.position)
     .to({x : 0, y : 12, z : 16}, 1200)
     .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
@@ -550,7 +548,7 @@ exitButton.addEventListener('click', () => {
     exitButton.style.pointerEvents = 'none'
     exitButton.style.transitionDelay = '0s'
 
-    //rayUncast()
+    removeHexagons()
 })
 
 const returnButton = document.getElementById('returnBtn')
@@ -558,17 +556,9 @@ returnButton.addEventListener('click', () => {
 
     scene.remove(text, miniText)
 
-    const clickables = document.querySelectorAll('.clickable')
-    for(let i = 0; i < clickables.length; i++) {
-        clickables[i].style.opacity = '1'
-        clickables[i].style.pointerEvents = 'all'
-        clickables[i].style.transitionDelay = '1.8s'
-    }
-
+    
     let enterCoord = {
-        x: 0,
-        y: 4.24,
-        z: 0.1
+        x : 0, y : 12, z : 16
     }
 
     let from = {
@@ -591,10 +581,10 @@ returnButton.addEventListener('click', () => {
     })
         .onComplete(function () {
         camera.lookAt(new THREE.Vector3(0, 0, 0));
+        updateHexagons()
     })
         .start();
 
-    //rayCast()
 
     enterButton.style.opacity = '0'
     enterButton.style.transitionDuration = '0.5s'
@@ -626,17 +616,8 @@ returnButton.addEventListener('click', () => {
 const enterButton = document.getElementById('enterBtn')
 enterButton.addEventListener('click', () => {
 
-    const clickables = document.querySelectorAll('.clickable')
-    for(let i = 0; i < clickables.length; i++) {
-        clickables[i].style.opacity = '1'
-        clickables[i].style.pointerEvents = 'all'
-        clickables[i].style.transitionDelay = '1s'
-    }
-
     let enterCoord = {
-        x: 0,
-        y: 10.24,
-        z: 0.1
+        x : 0, y : 12, z : 16
     }
 
     let from = {
@@ -659,6 +640,7 @@ enterButton.addEventListener('click', () => {
     })
         .onComplete(function () {
         camera.lookAt(new THREE.Vector3(0, 0, 0));
+        updateHexagons()
     })
         .start();
 
@@ -679,7 +661,7 @@ enterButton.addEventListener('click', () => {
 
 const projectTween = () => {
     const tween = new TWEEN.Tween(camera.position)
-    .to({x : -2.46, y : 0.04, z : -0.25}, 2000)
+    .to({x : -8.38948, y : 0.48485, z : -0.27225}, 2000)
     .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
 	.onUpdate(() => {
 		// Called after tween.js updates 'coords'.
@@ -690,7 +672,7 @@ const projectTween = () => {
 
 const contactTween = () => {
     const tween = new TWEEN.Tween(camera.position)
-    .to({x : -1.34396115787535, y : 0.0562634047638856, z : 1.750786523197392}, 2000)
+    .to({x : 3.99994, y : 0.26698, z : -5.37808}, 2000)
     .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
 	.onUpdate(() => {
 		// Called after tween.js updates 'coords'.
@@ -701,7 +683,7 @@ const contactTween = () => {
 
 const aboutTween = () => {
     const tween = new TWEEN.Tween(camera.position)
-    .to({x : 2.23847335632193, y : 0.0934424502899299, z : 0.38280577924257714}, 2000)
+    .to({x : 3.93154, y : 0.33899, z : 5.74922}, 2000)
     .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
 	.onUpdate(() => {
 		// Called after tween.js updates 'coords'.
@@ -712,94 +694,92 @@ const aboutTween = () => {
 
 
 // Animate planet camera
-// const projectContent = document.getElementById('project_content')
-// const aboutContent = document.getElementById('about_content')
-// const contactContent = document.getElementById('contact_content')
+const projectContent = document.getElementById('project_content')
+const aboutContent = document.getElementById('about_content')
+const contactContent = document.getElementById('cont_content')
 
-// const projectClickable = document.getElementById('projectClickable')
-// projectClickable.addEventListener('click', () => {
-//     projectTween()
+const projectClickable = document.getElementById('projectClickable')
+projectClickable.addEventListener('click', () => {
+    
+    removeHexagons()
 
-//     const clickables = document.querySelectorAll('.clickable')
-//     for(let i = 0; i < clickables.length; i++) {
-//         clickables[i].style.opacity = '0'
-//         clickables[i].style.pointerEvents = 'none'
-//         clickables[i].style.transitionDelay = '0s'
-//     }
+    projectTween()
 
-//     exitButton.style.opacity = '0'
-//     exitButton.style.pointerEvents = 'none'
-//     exitButton.style.transitionDelay = '0s'
+    exitButton.style.opacity = '0'
+    exitButton.style.pointerEvents = 'none'
+    exitButton.style.transitionDelay = '0s'
 
-//     returnButton.style.opacity = '1'
-//     returnButton.style.pointerEvents = 'all'
-//     returnButton.style.transitionDelay = '2.2s'
+    returnButton.style.opacity = '1'
+    returnButton.style.pointerEvents = 'all'
+    returnButton.style.transitionDelay = '2.2s'
 
-//     projectContent.style.opacity = '1'
-//     projectContent.style.pointerEvents = 'all'
-//     projectContent.style.transitionDelay = '2.2s'
+    projectContent.style.opacity = '1'
+    projectContent.style.pointerEvents = 'all'
+    projectContent.style.transitionDelay = '2.2s'
 
-//     projectContent.style.zIndex = '4'
-//     aboutContent.style.zIndex = '2'
-//     contactContent.style.zIndex = '2'
+    projectContent.style.zIndex = '4'
+    aboutContent.style.zIndex = '2'
+    contactContent.style.zIndex = '2'
 
-// })
+})
 
-// const aboutClickable = document.getElementById('aboutClickable')
-// aboutClickable.addEventListener('click', () => {
-//     aboutTween()
+const aboutClickable = document.getElementById('aboutClickable')
+aboutClickable.addEventListener('click', () => {
 
-//     const clickables = document.querySelectorAll('.clickable')
-//     for(let i = 0; i < clickables.length; i++) {
-//         clickables[i].style.opacity = '0'
-//         clickables[i].style.pointerEvents = 'none'
-//         clickables[i].style.transitionDelay = '0s'
-//     }
+    removeHexagons()
 
-//     exitButton.style.opacity = '0'
-//     exitButton.style.pointerEvents = 'none'
-//     exitButton.style.transitionDelay = '0s'
+    aboutTween()
 
-//     returnButton.style.opacity = '1'
-//     returnButton.style.pointerEvents = 'all'
-//     returnButton.style.transitionDelay = '2.2s'
+    exitButton.style.opacity = '0'
+    exitButton.style.pointerEvents = 'none'
+    exitButton.style.transitionDelay = '0s'
 
-//     aboutContent.style.opacity = '1'
-//     aboutContent.style.pointerEvents = 'all'
-//     aboutContent.style.transitionDelay = '2.2s'
+    returnButton.style.opacity = '1'
+    returnButton.style.pointerEvents = 'all'
+    returnButton.style.transitionDelay = '2.2s'
 
-//     projectContent.style.zIndex = '2'
-//     aboutContent.style.zIndex = '4'
-//     contactContent.style.zIndex = '2'
-// })
+    aboutContent.style.opacity = '1'
+    aboutContent.style.pointerEvents = 'all'
+    aboutContent.style.transitionDelay = '2.2s'
 
-// const contactClickable = document.getElementById('contactClickable')
-// contactClickable.addEventListener('click', () => {
-//     contactTween()
+    projectContent.style.zIndex = '2'
+    aboutContent.style.zIndex = '4'
+    contactContent.style.zIndex = '2'
+})
 
-//     const clickables = document.querySelectorAll('.clickable')
-//     for(let i = 0; i < clickables.length; i++) {
-//         clickables[i].style.opacity = '0'
-//         clickables[i].style.pointerEvents = 'none'
-//         clickables[i].style.transitionDelay = '0s'
-//     }
+projectContent.style.opacity = '1'
+projectContent.style.pointerEvents = 'all'
+projectContent.style.transitionDelay = '2.2s'
+aboutContent.style.opacity = '1'
+aboutContent.style.pointerEvents = 'all'
+aboutContent.style.transitionDelay = '2.2s'
+contactContent.style.opacity = '1'
+contactContent.style.pointerEvents = 'all'
+contactContent.style.transitionDelay = '2.2s'
 
-//     exitButton.style.opacity = '0'
-//     exitButton.style.pointerEvents = 'none'
-//     exitButton.style.transitionDelay = '0s'
+const contactClickable = document.getElementById('contactClickable')
+contactClickable.addEventListener('click', () => {
 
-//     returnButton.style.opacity = '1'
-//     returnButton.style.pointerEvents = 'all'
-//     returnButton.style.transitionDelay = '2.2s'
+    removeHexagons()
 
-//     contactContent.style.opacity = '1'
-//     contactContent.style.pointerEvents = 'all'
-//     contactContent.style.transitionDelay = '2.2s'
+    contactTween()
 
-//     projectContent.style.zIndex = '2'
-//     aboutContent.style.zIndex = '2'
-//     contactContent.style.zIndex = '4'
-// })
+    exitButton.style.opacity = '0'
+    exitButton.style.pointerEvents = 'none'
+    exitButton.style.transitionDelay = '0s'
+
+    returnButton.style.opacity = '1'
+    returnButton.style.pointerEvents = 'all'
+    returnButton.style.transitionDelay = '2.2s'
+
+    contactContent.style.opacity = '1'
+    contactContent.style.pointerEvents = 'all'
+    contactContent.style.transitionDelay = '2.2s'
+
+    projectContent.style.zIndex = '2'
+    aboutContent.style.zIndex = '2'
+    contactContent.style.zIndex = '4'
+})
 
 
 /**
