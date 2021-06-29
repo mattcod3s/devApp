@@ -1,4 +1,98 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap");
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: translate(1px, 1px) rotate(0deg);
+            transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    -webkit-transform: translate(-1px, -2px) rotate(-1deg);
+            transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    -webkit-transform: translate(-3px, 0px) rotate(1deg);
+            transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    -webkit-transform: translate(3px, 2px) rotate(0deg);
+            transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    -webkit-transform: translate(1px, -1px) rotate(1deg);
+            transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    -webkit-transform: translate(-1px, 2px) rotate(-1deg);
+            transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    -webkit-transform: translate(-3px, 1px) rotate(0deg);
+            transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    -webkit-transform: translate(3px, 1px) rotate(-1deg);
+            transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    -webkit-transform: translate(-1px, -1px) rotate(1deg);
+            transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    -webkit-transform: translate(1px, 2px) rotate(0deg);
+            transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(0px, 0px) rotate(0deg);
+            transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+@keyframes shake {
+  0% {
+    -webkit-transform: translate(1px, 1px) rotate(0deg);
+            transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    -webkit-transform: translate(-1px, -2px) rotate(-1deg);
+            transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    -webkit-transform: translate(-3px, 0px) rotate(1deg);
+            transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    -webkit-transform: translate(3px, 2px) rotate(0deg);
+            transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    -webkit-transform: translate(1px, -1px) rotate(1deg);
+            transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    -webkit-transform: translate(-1px, 2px) rotate(-1deg);
+            transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    -webkit-transform: translate(-3px, 1px) rotate(0deg);
+            transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    -webkit-transform: translate(3px, 1px) rotate(-1deg);
+            transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    -webkit-transform: translate(-1px, -1px) rotate(1deg);
+            transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    -webkit-transform: translate(1px, 2px) rotate(0deg);
+            transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(0px, 0px) rotate(0deg);
+            transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -354,7 +448,7 @@ body {
   z-index: 2;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
-  background: rgba(26, 35, 41, 0.7);
+  background: rgba(26, 35, 41, 0.8);
   border: 3px solid #4cdbff;
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
@@ -687,7 +781,7 @@ body {
   z-index: 2;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
-  background: rgba(26, 35, 41, 0.7);
+  background: rgba(26, 35, 41, 0.8);
   border: 3px solid #4cdbff;
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
@@ -705,9 +799,315 @@ body {
   top: 0vh !important;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
-  background: rgba(26, 35, 41, 0.7);
+  background: rgba(26, 35, 41, 0.8);
   border: 3px solid #4cdbff;
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#cont_content #contact_text {
+  width: 50vw;
+  height: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#cont_content #contact_text #contact_welcome {
+  width: 40vw;
+  height: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#cont_content #contact_text #contact_welcome h1 {
+  font-family: 'Roboto', sans-serif;
+  color: #ececec;
+  font-size: 3rem;
+  font-weight: 100;
+  padding: 5px 0px 5px 0px;
+}
+
+#cont_content #contact_text #contact_welcome h4 {
+  text-align: center;
+  line-height: 24px;
+  font-family: 'Roboto', sans-serif;
+  color: #4cdbff;
+  font-size: 1rem;
+  font-weight: 100;
+  padding: 5px 0px 5px 0px;
+}
+
+#cont_content #contact_text #contact_welcome h4 span {
+  color: #FAFE46;
+  border-bottom: 2px solid transparent;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+
+#cont_content #contact_text #contact_welcome h4 span:hover {
+  color: #FAFE46;
+  border-bottom: 2px solid #FAFE46;
+  cursor: pointer;
+}
+
+#cont_content #contact_email {
+  width: 70vw;
+  height: 70vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#cont_content #contact_email #contact_form {
+  height: 70vh;
+  width: 60vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#cont_content #contact_email #contact_form #messageInput {
+  width: 40vw;
+  height: 25vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#cont_content #contact_email #contact_form #messageInput textarea {
+  outline: none;
+  border: none;
+  width: 40vw;
+  height: 22vh;
+  padding: 12px;
+  border-bottom: 3px solid #4cdbff;
+  background: transparent;
+  font-family: 'Roboto';
+  font-weight: 100;
+  font-size: 1.1rem;
+  color: #fff;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#cont_content #contact_email #contact_form #messageInput textarea::-webkit-input-placeholder {
+  color: #f3f3f3;
+}
+
+#cont_content #contact_email #contact_form #messageInput #messageError {
+  position: absolute;
+  font-size: 0.65rem;
+  color: #c23d00;
+  font-family: 'Roboto';
+  font-weight: 300;
+  margin-top: 29vh;
+  opacity: 0;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+
+#cont_content #contact_email #contact_form .contactInput {
+  width: 40vw;
+  height: 9vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#cont_content #contact_email #contact_form .contactInput input {
+  outline: none;
+  border: none;
+  width: 40vw;
+  padding: 12px;
+  border-bottom: 3px solid #4cdbff;
+  border-radius: 4px;
+  background: transparent;
+  font-family: 'Roboto';
+  font-weight: 100;
+  font-size: 1.1rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#cont_content #contact_email #contact_form .contactInput input::-webkit-input-placeholder {
+  color: #f3f3f3;
+}
+
+#cont_content #contact_email #contact_form .contactInput #nameError {
+  font-size: 0.65rem;
+  color: #c23d00;
+  font-family: 'Roboto';
+  font-weight: 300;
+  position: absolute;
+  margin-top: 9.5vh;
+  opacity: 0;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+
+#cont_content #contact_email #contact_form .contactInput #emailError {
+  position: absolute;
+  font-size: 0.65rem;
+  color: #c23d00;
+  font-family: 'Roboto';
+  font-weight: 300;
+  margin-top: 9.5vh;
+  opacity: 0;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+
+#cont_content #contact_email #contact_form #submit {
+  width: 90vw;
+  height: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#cont_content #contact_email #contact_form #submit #submitBtn {
+  width: 10vw;
+  height: 3vw;
+  border-radius: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: transparent;
+  border: 2px solid #4cdbff;
+  color: #4cdbff;
+  font-family: 'Roboto';
+  font-weight: 100;
+  font-size: 1rem;
+  cursor: pointer;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+
+#cont_content #contact_email #contact_form #submit #submitBtn:hover {
+  background: #fff;
+  border: 2px solid #fff;
+  color: #333;
+}
+
+#cont_content #cont_icons {
+  position: absolute;
+  bottom: 1vw;
+  right: 2vw;
+  width: 8vw;
+  height: 4vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#cont_content #cont_icons a {
+  text-decoration: none;
+}
+
+#cont_content #cont_icons #githubIcon {
+  width: 2vw;
+  height: 2vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("../static/github.png");
+  cursor: pointer;
+}
+
+#cont_content #cont_icons #githubIcon:hover {
+  -webkit-animation: shake .5s;
+          animation: shake .5s;
+  -webkit-animation-iteration-count: initial;
+          animation-iteration-count: initial;
+}
+
+#cont_content #cont_icons #linkedinIcon {
+  width: 2vw;
+  height: 2vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("../static/linkedin.png");
+  cursor: pointer;
+}
+
+#cont_content #cont_icons #linkedinIcon:hover {
+  -webkit-animation: shake .5s;
+          animation: shake .5s;
+  -webkit-animation-iteration-count: initial;
+          animation-iteration-count: initial;
 }
 /*# sourceMappingURL=style.css.map */
