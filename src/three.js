@@ -364,6 +364,8 @@ const generateGalaxy = () =>
         fragmentShader: galaxyFragmentShader
     })
 
+    
+
     /**
      * Points
      */
