@@ -110,10 +110,6 @@ body {
   outline: none;
 }
 
-.skillsCanvas {
-  background: transparent;
-}
-
 #exitBtn {
   position: absolute;
   top: 4vh;
@@ -792,12 +788,84 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+#about_content #skillsContainer {
+  position: absolute;
+  right: 1vw;
+}
+
+#about_content #skillsContainer .skillsCanvas {
+  cursor: pointer;
+}
+
+#about_content #skillsTextCont {
+  width: 45vw;
+  height: 96vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+#about_content #skillsTextCont #skillsText {
+  width: 45vw;
+  height: 70vh;
+  margin-bottom: 7vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#about_content #skillsTextCont #skillsText #skillsTopText {
+  width: 34vw;
+  height: 15vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#about_content #skillsTextCont #skillsText #skillsTopText h2 {
+  font-size: 3rem;
+  color: #fff;
+  font-family: 'Raleway';
+}
+
+#about_content #skillsTextCont #skillsText #skillsDescText {
+  width: 34vw;
+  height: 50vh;
+}
+
+#about_content #skillsTextCont #skillsText #skillsDescText p {
+  font-size: 1.2rem;
+  color: #fff;
+  font-family: 'Raleway';
 }
 
 #cont_content {

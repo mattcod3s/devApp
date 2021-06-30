@@ -714,9 +714,63 @@ body
     border: 3px solid rgb(76, 219, 255);
     backdrop-filter: blur(6px);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     
+    #skillsContainer {
+        position: absolute;
+        right: 1vw;
+
+        .skillsCanvas {
+            cursor: pointer;
+        }
+    }
+
+    #skillsTextCont {
+        width: 45vw;
+        height: 96vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        
+        #skillsText {
+            width: 45vw;
+            height: 70vh;
+            margin-bottom: 7vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            // background: white;
+
+            #skillsTopText {
+                width: 34vw;
+                height: 15vh;
+                // background: red;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+
+                h2 {
+                    font-size: 3rem;
+                    color: #fff;
+                    font-family: 'Raleway';
+                }
+            }
+
+            #skillsDescText {
+                width: 34vw;
+                height: 50vh;
+                // background: red;
+
+                p {
+                    font-size: 1.2rem;
+                    color: #fff;
+                    font-family: 'Raleway';
+                }
+            }
+        }
+    }
 }
 
 

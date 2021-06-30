@@ -15,7 +15,7 @@ let vecArray = []
 /**888888888888888 */
 
 const container = document.getElementById('skillsContainer')
-let contSize = 40
+let contSize = 50
 container.style.width = `${contSize}vw`
 container.style.height = `${contSize}vw`
 
@@ -27,10 +27,17 @@ const scene = new THREE.Scene()
 scene.background = null;
 
 /**
+ * Textures
+ */
+ const textureLoader = new THREE.TextureLoader()
+ const textTexture = textureLoader.load('/textures/matcaps/13.png')
+ const subtextTexture = textureLoader.load('/textures/matcaps/23.png')
+
+/**
  * Objects
  */
 const geometry = new THREE.SphereGeometry(2, 5, 5)
-const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
+const material = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.1  })
 material.wireframe = true
 const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
@@ -85,29 +92,34 @@ for ( let i = 5, l = position.count; i < l; i ++ ){
 
 let tagArray = []
 const fillTags = () => {
-    const textMaterial = new THREE.MeshMatcapMaterial({ color: 0x00ff00 })
+    const textMaterial = new THREE.MeshMatcapMaterial({ matcap: subtextTexture })
     
 
     fontLoader.load(
         '/fonts/helvetiker_regular.typeface.json',
         (font) => {
-            const jsGeometry = new THREE.TextGeometry('JavaScript', {font: font, size: 0.15, height: 0.0025})
-            const htmlGeometry = new THREE.TextGeometry('HTML5', {font: font, size: 0.15, height: 0.0025})
-            const cssGeometry = new THREE.TextGeometry('CSS3', {font: font, size: 0.15, height: 0.0025})
-            const sassGeometry = new THREE.TextGeometry('SASS', {font: font, size: 0.15, height: 0.0025})
-            const lessGeometry = new THREE.TextGeometry('LESS', {font: font, size: 0.15, height: 0.0025})
-            const reactGeometry = new THREE.TextGeometry('React', {font: font, size: 0.15, height: 0.0025})
-            const angularGeometry = new THREE.TextGeometry('Angular', {font: font, size: 0.15, height: 0.0025})
-            const nodeGeometry = new THREE.TextGeometry('NodeJS', {font: font, size: 0.15, height: 0.0025})
-            const expressGeometry = new THREE.TextGeometry('ExpressJS', {font: font, size: 0.15, height: 0.0025})
-            const mongoGeometry = new THREE.TextGeometry('MongoDB', {font: font, size: 0.15, height: 0.0025})
-            const mysqlGeometry = new THREE.TextGeometry('MySQL', {font: font, size: 0.15, height: 0.0025})
-            const postgresGeometry = new THREE.TextGeometry('PostgreSQL', {font: font, size: 0.15, height: 0.0025})
-            const javaGeometry = new THREE.TextGeometry('Java', {font: font, size: 0.15, height: 0.0025})
-            const springGeometry = new THREE.TextGeometry('Spring', {font: font, size: 0.15, height: 0.0025})
-            const jsonGeometry = new THREE.TextGeometry('JSON', {font: font, size: 0.15, height: 0.0025})
-            const responsiveGeometry = new THREE.TextGeometry('Responsive Design', {font: font, size: 0.15, height: 0.0025})
-            const webpackGeometry = new THREE.TextGeometry('WebPack', {font: font, size: 0.15, height: 0.0025})
+            const jsGeometry = new THREE.TextGeometry('JavaScript', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const htmlGeometry = new THREE.TextGeometry('HTML5', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const cssGeometry = new THREE.TextGeometry('CSS3', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const sassGeometry = new THREE.TextGeometry('SASS', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const lessGeometry = new THREE.TextGeometry('LESS', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const reactGeometry = new THREE.TextGeometry('React', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const angularGeometry = new THREE.TextGeometry('Angular', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const nodeGeometry = new THREE.TextGeometry('NodeJS', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const expressGeometry = new THREE.TextGeometry('ExpressJS', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const mongoGeometry = new THREE.TextGeometry('MongoDB', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const mysqlGeometry = new THREE.TextGeometry('MySQL', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const postgresGeometry = new THREE.TextGeometry('PostgreSQL', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const javaGeometry = new THREE.TextGeometry('TypeScript', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const springGeometry = new THREE.TextGeometry('Spring Boot', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const jsonGeometry = new THREE.TextGeometry('JSON', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const responsiveGeometry = new THREE.TextGeometry('Responsive Design', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const webpackGeometry = new THREE.TextGeometry('WebPack', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const blenderGeometry = new THREE.TextGeometry('Blender', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const figmaGeometry = new THREE.TextGeometry('Figma', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const npmGeometry = new THREE.TextGeometry('npm', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const gitGeometry = new THREE.TextGeometry('git', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const githubGeometry = new THREE.TextGeometry('github', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
         
             const jsTag = new THREE.Mesh(jsGeometry, textMaterial)
             const htmlTag = new THREE.Mesh(htmlGeometry, textMaterial)
@@ -126,11 +138,17 @@ const fillTags = () => {
             const jsonTag = new THREE.Mesh(jsonGeometry, textMaterial)
             const responsiveTag = new THREE.Mesh(responsiveGeometry, textMaterial)
             const webpackTag = new THREE.Mesh(webpackGeometry, textMaterial)
+            const blenderTag = new THREE.Mesh(blenderGeometry, textMaterial)
+            const figmaTag = new THREE.Mesh(figmaGeometry, textMaterial)
+            const npmTag = new THREE.Mesh(npmGeometry, textMaterial)
+            const gitTag = new THREE.Mesh(gitGeometry, textMaterial)
+            const githubTag = new THREE.Mesh(githubGeometry, textMaterial)
 
             tagArray = [
                 jsTag, htmlTag, cssTag, sassTag, lessTag, reactTag, nodeTag, 
                 angularTag, expressTag, mongoTag, mysqlTag, postgresTag, javaTag,
-                springTag, jsonTag, responsiveTag, webpackTag
+                springTag, jsonTag, responsiveTag, webpackTag, blenderTag,
+                figmaTag, npmTag, gitTag, githubTag
             ]
 
             jsTag.position.set(vecArray[0].x, vecArray[0].y, vecArray[0].z)
@@ -150,6 +168,12 @@ const fillTags = () => {
             webpackTag.position.set(vecArray[16].x, vecArray[16].y, vecArray[16].z)
             nodeTag.position.set(vecArray[17].x, vecArray[17].y, vecArray[17].z)
             angularTag.position.set(vecArray[19].x, vecArray[19].y, vecArray[19].z)
+            blenderTag.position.set(vecArray[20].x, vecArray[20].y, vecArray[20].z)
+            figmaTag.position.set(vecArray[21].x, vecArray[21].y, vecArray[21].z)
+            npmTag.position.set(vecArray[22].x, vecArray[22].y, vecArray[22].z)
+            gitTag.position.set(vecArray[23].x, vecArray[23].y, vecArray[23].z)
+            githubTag.position.set(vecArray[25].x, vecArray[25].y, vecArray[25].z)
+            
 
             for(let i = 0; i < tagArray.length; i++) {
                 tagArray[i].geometry.center()
@@ -176,7 +200,7 @@ const sizes = {
  * Camera
  */
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
-camera.position.z = 4
+camera.position.z = 4.7
 scene.add(camera)
 
 /**
@@ -186,7 +210,7 @@ const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
     alpha: true
 })
-renderer.setClearColor( 0x000000, 1 );
+renderer.setClearColor( 0x000000, 0 );
 
 renderer.setSize(sizes.width, sizes.height)
 renderer.render(scene, camera)
