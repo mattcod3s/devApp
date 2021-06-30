@@ -110,6 +110,140 @@ body {
   outline: none;
 }
 
+#sidebar {
+  right: 0vw;
+  top: 20vh;
+  width: 12vw;
+  height: 40vh;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  z-index: 2;
+}
+
+#sidebar #emailOption {
+  border-radius: 10px 0px 0px 0px;
+}
+
+#sidebar .sidebarOption {
+  width: 3vw;
+  height: 5vh;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  background: #1a1a1a;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#sidebar .sidebarOption #gitIcon {
+  background-image: url("../static/github.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 1.5vw;
+  height: 1.5vw;
+}
+
+#sidebar .sidebarOption #phoneIcon {
+  background-image: url("../static/smartIcon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 1.5vw;
+  height: 1.5vw;
+}
+
+#sidebar .sidebarOption #linkedIcon {
+  background-image: url("../static/linkedin.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 1.5vw;
+  height: 1.5vw;
+}
+
+#sidebar .sidebarOption #emailIcon {
+  background-image: url("../static/emailIcon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 1.5vw;
+  height: 1.5vw;
+}
+
+#sidebar .sidebarOption .sidebarText {
+  display: none;
+  color: #fff;
+  font-family: 'Roboto';
+  font-weight: 100;
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+#sidebar .sidebarOption .sidebarText span {
+  border-bottom: 2px solid transparent;
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+#sidebar .sidebarOption:hover {
+  width: 20vw;
+}
+
+#sidebar .sidebarOption:hover .sidebarText {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#sidebar .sidebarOption:hover .sidebarText span {
+  border-bottom: 2px solid #fff;
+}
+
+#sidebar #resumeSidebar {
+  width: 3vw;
+  height: 20vh;
+  background: #1a1a1a;
+  border-radius: 0px 0px 0px 10px;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#sidebar #resumeSidebar h2 {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  color: #fff;
+  font-family: 'Roboto';
+  font-weight: 100;
+}
+
+#sidebar #resumeSidebar:hover {
+  width: 20vw;
+}
+
 #exitBtn {
   position: absolute;
   top: 4vh;
@@ -234,7 +368,6 @@ body {
   font-size: 1.2rem;
 }
 
-/*************************************/
 #projectCont {
   position: absolute;
   width: 16vw;

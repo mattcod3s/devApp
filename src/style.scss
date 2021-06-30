@@ -36,6 +36,119 @@ body
     outline: none;
 }
 
+#sidebar {
+    right: 0vw;
+    top: 20vh;
+    width: 12vw;
+    height: 40vh;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 2;
+
+    #emailOption {
+        border-radius: 10px 0px 0px 0px;
+    }
+
+    // #githubOption {
+    //     border-radius: 0px 0px 0px 10px;
+    // }
+
+    .sidebarOption {
+        width: 3vw;
+        height: 5vh;
+        transition-duration: 0.3s;
+        background: rgb(26, 26, 26);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        #gitIcon {
+            background-image: url('../static/github.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 1.5vw;
+            height: 1.5vw;
+        }
+
+        #phoneIcon {
+            background-image: url('../static/smartIcon.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 1.5vw;
+            height: 1.5vw;
+        }
+
+        #linkedIcon {
+            background-image: url('../static/linkedin.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 1.5vw;
+            height: 1.5vw;
+        }
+
+        #emailIcon {
+            background-image: url('../static/emailIcon.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 1.5vw;
+            height: 1.5vw;
+        }
+
+
+        .sidebarText {
+            display: none;
+            color: #fff;
+            font-family: 'Roboto';
+            font-weight: 100;
+            transition-delay: 0.2s;
+
+            span {
+                border-bottom: 2px solid transparent;
+                transition-delay: 0.2s;
+            }
+        }
+    }
+    .sidebarOption:hover {
+        width: 20vw;
+
+        .sidebarText {
+            display: flex;
+
+            span {
+                border-bottom: 2px solid #fff;
+            }
+        }
+        
+    }
+
+    #resumeSidebar {
+        width: 3vw;
+        height: 20vh;
+        background: rgb(26, 26, 26);
+        border-radius: 0px 0px 0px 10px;
+        transition-duration: 0.3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+       h2 {
+           transform: rotate(-90deg);
+           color: #fff;
+           font-family: 'Roboto';
+           font-weight: 100;
+       }
+    }
+    #resumeSidebar:hover {
+        width: 20vw;
+    }
+
+
+}
+
 #exitBtn {
     position: absolute;
     top : 4vh;
@@ -132,174 +245,6 @@ body
         font-size: 1.2rem;
     }
 }
-
-// #projectClickable {
-//     position: fixed;
-//     z-index: 3;
-
-//     .horizontalLine {
-//         position: absolute;
-//         left: 23vw;
-//         top: 50vh;
-//         width: 100px;
-//         height: 2px;
-//         background: white;
-//     }
-
-//     .verticalLine {
-//         position: absolute;
-//         left: 23vw;
-//         top: calc(50vh - 40px);
-//         width: 2px;
-//         height: 40px;
-//         background: white;
-//     }
-
-//     #project_enter {
-//         position: absolute;
-//         left: 18vw;
-//         top: calc(50vh - 11.5vh);
-//         width: 10vw;
-//         height: 6vh;
-//         background: transparent;
-//         border: 2px solid white;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         cursor: pointer;
-//         transition-duration: 0.4s;
-        
-//         h3 {
-//             font-family: 'Raleway';
-//             transition-duration: 0.4s;
-//             color: white;
-//         }
-//     }
-
-//     #project_enter:hover {
-//         background: white;
-//         border: 2px solid transparent;
-
-//         h3 {
-//             color: #333;
-//         }
-//     }
-// }
-
-// .clickable {
-//     opacity: 0;
-//     pointer-events: none;
-//     transition-duration: 0.5s;
-// }
-
-// #aboutClickable {
-//     position: fixed;
-//     z-index: 3;
-
-//     .horizontalLine {
-//         position: absolute;
-//         left: 67vw;
-//         top: 50vh;
-//         width: 100px;
-//         height: 2px;
-//         background: white;
-//     }
-
-//     .verticalLine {
-//         position: absolute;
-//         left: calc(67vw + 98px);
-//         top: calc(50vh - 40px);
-//         width: 2px;
-//         height: 40px;
-//         background: white;
-//     }
-
-//     #about_enter {
-//         position: absolute;
-//         left: 69vw;
-//         top: calc(50vh - 11.5vh);
-//         width: 10vw;
-//         height: 6vh;
-//         background: transparent;
-//         border: 2px solid white;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         cursor: pointer;
-//         transition-duration: 0.4s;
-        
-//         h3 {
-//             font-family: 'Raleway';
-//             transition-duration: 0.4s;
-//             color: white;
-//         }
-//     }
-
-//     #about_enter:hover {
-//         background: white;
-//         border: 2px solid transparent;
-
-//         h3 {
-//             color: #333;
-//         }
-//     }
-// }
-
-// #contactClickable {
-//     position: fixed;
-//     z-index: 3;
-
-//     .horizontalLine {
-//         position: absolute;
-//         left: 43vw;
-//         top: 74.5vh;
-//         width: 100px;
-//         height: 2px;
-//         background: white;
-//     }
-
-//     #contact_enter {
-//         position: absolute;
-//         left: calc(43vw + 100px);
-//         top: calc(74.5vh - 3vh);
-//         width: 10vw;
-//         height: 6vh;
-//         background: transparent;
-//         border: 2px solid white;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         cursor: pointer;
-//         transition-duration: 0.4s;
-        
-//         h3 {
-//             font-family: 'Raleway';
-//             transition-duration: 0.4s;
-//             color: white;
-//         }
-//     }
-
-//     #contact_enter:hover {
-//         background: white;
-//         border: 2px solid transparent;
-
-//         h3 {
-//             color: #333;
-//         }
-//     }
-// }
-
-
- /*************************************/  
-// .hexagon {
-//     position: relative;
-//     width: 300px; 
-//     height: 173.21px;
-//     background-color: #ffffff;
-//     margin: 86.60px 0;
-//     border-left: solid 5px #fff93d;
-//     border-right: solid 5px #fff93d;
-//   }
 
 #projectCont {
     position: absolute;
