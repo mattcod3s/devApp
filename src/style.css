@@ -110,6 +110,10 @@ body {
   outline: none;
 }
 
+.skillsCanvas {
+  background: transparent;
+}
+
 #exitBtn {
   position: absolute;
   top: 4vh;
