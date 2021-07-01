@@ -136,6 +136,22 @@ body {
   border-radius: 10px 0px 0px 0px;
 }
 
+#sidebar #emailOption:hover #emailCircle {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+#sidebar #emailOption:hover #emailCircle #emailIcon {
+  width: 1vw;
+  height: 1vw;
+  background-image: url("../static/copyIcon.png");
+}
+
+#sidebar #emailOption:hover #emailCircle:hover #emailIcon #copyTootTip {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 #sidebar .sidebarOption {
   width: 3vw;
   height: 5vh;
@@ -177,12 +193,50 @@ body {
   height: 1.5vw;
 }
 
-#sidebar .sidebarOption #emailIcon {
+#sidebar .sidebarOption #emailCircle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0);
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+
+#sidebar .sidebarOption #emailCircle #emailIcon {
   background-image: url("../static/emailIcon.png");
   background-size: contain;
   background-repeat: no-repeat;
   width: 1.5vw;
   height: 1.5vw;
+}
+
+#sidebar .sidebarOption #emailCircle #emailIcon #copyTootTip {
+  position: absolute;
+  width: 10vw;
+  height: 3vh;
+  background: #333;
+  border-radius: 3px;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Roboto';
+  font-size: 0.8rem;
+  color: #fff;
+  top: -3vh;
+  right: 13.5vw;
 }
 
 #sidebar .sidebarOption .sidebarText {
@@ -238,10 +292,63 @@ body {
   color: #fff;
   font-family: 'Roboto';
   font-weight: 100;
+  height: 3vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#sidebar #resumeSidebar #donwloadCont {
+  width: 17vw;
+  height: 20vh;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#sidebar #resumeSidebar #donwloadCont #downloadCircle {
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+#sidebar #resumeSidebar #donwloadCont #downloadCircle #downloadIcon {
+  width: 8vh;
+  height: 8vh;
+  background-image: url("../static/fileDownload.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #sidebar #resumeSidebar:hover {
   width: 20vw;
+}
+
+#sidebar #resumeSidebar:hover #donwloadCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #exitBtn {
