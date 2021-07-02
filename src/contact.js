@@ -116,8 +116,11 @@ const validateMessage = (message) => {
 
 const submitBtn = document.getElementById('submitBtn')
 const contactForm = document.getElementById('contact_form')
+const snackBar = document.getElementById('success_snackBar')
 
-submitBtn.addEventListener('click', () => {
+
+submitBtn.addEventListener('click', (e) => {
+
     if(
         validateEmail(templateParams.email) && 
         validateName(templateParams.name) && 
@@ -125,7 +128,13 @@ submitBtn.addEventListener('click', () => {
 
             emailjs.send('service_mqlhlam', 'template_yjwrfj8', templateParams)
             .then(function(response) {
+
                 // console.log('SUCCESS!', response.status, response.text);
+                e.preventDefault()
+                snackBar.classList.remove("runAnimation")
+                void snackBar.offsetWidth;
+                snackBar.classList.add("runAnimation")
+
              }, function(err) {
                 // console.log('FAILED...', err);
              });
@@ -133,4 +142,12 @@ submitBtn.addEventListener('click', () => {
     } else {
         console.log('not ready')
     }
+
+    templateParams.name = ''
+    templateParams.email = ''
+    templateParams.message = ''
+    nameInput.value = ''
+    emailInput.value = ''
+    messageInput.value = ''
 })
+

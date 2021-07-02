@@ -16,6 +16,26 @@
     100% { transform: translate(0px, 0px) rotate(0deg); }
   }
 
+  @keyframes success {
+    0% { 
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    10% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    90%  {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    100% { 
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+  }
+
+
 *
 {
     margin: 0;
@@ -143,6 +163,16 @@ body
                     color: #fff;
                     top: -3vh;
                     right: 13.5vw;
+                    transition-duration: 0.3s;
+
+                    #checkIcon {
+                        display: none;
+                        width: 2vh;
+                        height: 2vh;
+                        background-image: url('../static/checked.png');
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                    }
                 }
             }
         }
@@ -822,6 +852,45 @@ body
     align-items: center;
     flex-direction: column;
 
+    .runAnimation {
+        animation: success 8s ease-in-out;
+    }
+
+    #success_snackBar {
+        position: absolute;
+        top: 5vh;
+        right: 5vh;
+        width: 20vw;
+        height: 8vh;
+        background: rgb(120, 226, 106);
+        border-radius: 4px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+
+
+        h2 {
+            width: 14vw;
+            height: 8vh;
+            font-family: 'Roboto';
+            color: rgb(44, 44, 44);
+            font-size: 1.3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #snackIcon {
+            width: 6vw;
+            height: 8vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
     #contact_text {
         width: 50vw;
         height: 20vh;
@@ -873,6 +942,8 @@ body
         display: flex;
         justify-content: center;
         align-items: center;
+
+
         
         #contact_form {
             height: 70vh;
