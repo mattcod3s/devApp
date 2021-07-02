@@ -2,6 +2,8 @@ const copyIcon = document.getElementById('emailCircle')
 const emailAddress = document.getElementById('emailAddressSidebar')
 const toolTip = document.getElementById('copyTootTip')
 const checkIcon = document.getElementById('checkIcon')
+const sideBarOptions = document.querySelectorAll('.sidebarOption')
+const sideBarTexts = document.querySelectorAll('.sidebarText')
 
 copyIcon.addEventListener('click', () => {
     let copyText = emailAddress.textContent
@@ -30,3 +32,15 @@ copyIcon.addEventListener('mouseleave', () => {
     toolTip.style.color = '#fff'
     checkIcon.style.display = 'none'
 })
+
+for(let i = 0; i < sideBarOptions.length; i++) {
+    sideBarOptions[i].addEventListener('mouseover', () => {
+        
+    })
+}
+
+for(let i = 0; i < sideBarOptions.length; i++) {
+    sideBarOptions[i].addEventListener('mouseleave', () => {
+       
+    })
+}

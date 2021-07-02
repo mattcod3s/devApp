@@ -31,13 +31,13 @@ scene.background = null;
  */
  const textureLoader = new THREE.TextureLoader()
  const textTexture = textureLoader.load('/textures/matcaps/13.png')
- const subtextTexture = textureLoader.load('/textures/matcaps/23.png')
+ const subtextTexture = textureLoader.load('/textures/matcaps/22.png')
 
 /**
  * Objects
  */
 const geometry = new THREE.SphereGeometry(2, 5, 5)
-const material = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.1  })
+const material = new THREE.MeshBasicMaterial({ color: 0x84FFF7, transparent: true, opacity: 0.1  })
 material.wireframe = true
 const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
@@ -200,7 +200,7 @@ const sizes = {
  * Camera
  */
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
-camera.position.z = 4.7
+camera.position.z = 4.8
 scene.add(camera)
 
 /**
@@ -234,7 +234,10 @@ controls.enableDamping = true
             tag.lookAt(camera.position)
         })
     }
-
+    // let rotSpeed = 0.002
+    // camera.position.x = camera.position.x * Math.cos(rotSpeed) + camera.position.z * Math.sin(rotSpeed)
+    // camera.position.z = camera.position.z * Math.cos(rotSpeed) - camera.position.x * Math.sin(rotSpeed)
+   
     controls.update()
 
     // Render
