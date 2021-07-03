@@ -15,7 +15,12 @@ let vecArray = []
 /**888888888888888 */
 
 const container = document.getElementById('skillsContainer')
-let contSize = 50
+let contSize = null
+if(window.innerWidth < 600) {
+    contSize = 90
+} else {
+    contSize = 50
+}
 container.style.width = `${contSize}vw`
 container.style.height = `${contSize}vw`
 

@@ -7,6 +7,34 @@ import galaxyVertexShader from './shaders/galaxy/vertex.glsl'
 import * as TWEEN from 'tween.js'
 import { gsap } from "gsap"
 
+/**
+ * Responsive
+ */
+let sizeResValue = null
+let cameraResValueX = 0
+let cameraResValueY = 12
+let cameraResValueZ = 16
+let textPositionY = 10.6
+let miniTextPositionY = 9.6
+
+if(window.innerWidth > 1920) {
+    sizeResValue = 80
+} else if(window.innerWidth > 1440) {
+    sizeResValue = 60
+} else if(window.innerWidth > 800) {
+    sizeResValue = 50
+} else {
+    sizeResValue = 40
+}
+
+if(window.innerWidth < 600)  {
+    cameraResValueX = 0
+    cameraResValueY = 15
+    cameraResValueZ = 20
+    sizeResValue = 50
+    textPositionY = 12.6
+    miniTextPositionY = 11.6
+}
 
 const projectCont = document.getElementById('projectCont')
 const aboutCont = document.getElementById('aboutCont')
@@ -79,7 +107,7 @@ fontLoader.load(
 
         const textMaterial = new THREE.MeshMatcapMaterial({ matcap: matcapTexture, transparent: true, opacity: 0 })
         text = new THREE.Mesh(textGeometry, textMaterial)
-        text.position.set(0, 10.6, 6)
+        text.position.set(0, textPositionY, 6)
         text.lookAt(camera.position)
 
         const miniTextGeomtery = new THREE.TextGeometry(
@@ -102,7 +130,7 @@ fontLoader.load(
         const miniTextMaterial = new THREE.MeshMatcapMaterial({ matcap: miniMatCapTexture, transparent: true, opacity: 0})
         miniText = new THREE.Mesh(miniTextGeomtery, miniTextMaterial)
 
-        miniText.position.set(0, 9.6, 6)
+        miniText.position.set(0, miniTextPositionY, 6)
         miniText.lookAt(camera.position)
 
         scene.add(text, miniText)
@@ -351,6 +379,7 @@ const generateGalaxy = () =>
     /**
      * Material
      */
+
     material = new THREE.ShaderMaterial({
         depthWrite: false,
         blending: THREE.AdditiveBlending,
@@ -358,7 +387,7 @@ const generateGalaxy = () =>
         uniforms:
         {
             uTime: { value: 0 },
-            uSize: { value: 50 * renderer.getPixelRatio() }
+            uSize: { value: sizeResValue * renderer.getPixelRatio() }
         },    
         vertexShader: galaxyVertexShader,
         fragmentShader: galaxyFragmentShader
@@ -483,9 +512,9 @@ window.addEventListener('mousemove', (_event) => {
 // Base camera
 
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.x = 0
-camera.position.y = 12
-camera.position.z = 16
+camera.position.x = cameraResValueX
+camera.position.y = cameraResValueY
+camera.position.z = cameraResValueZ
 scene.add(camera)
 
 
@@ -530,7 +559,7 @@ const exitButton = document.getElementById('exitBtn')
 exitButton.addEventListener('click', () => {
 
     const tween = new TWEEN.Tween(camera.position)
-    .to({x : 0, y : 12, z : 16}, 1200)
+    .to({x : cameraResValueX, y : cameraResValueY, z : cameraResValueZ}, 1200)
     .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
 	.onUpdate(() => {
 		// Called after tween.js updates 'coords'.
@@ -561,7 +590,7 @@ returnButton.addEventListener('click', () => {
 
     
     let enterCoord = {
-        x : 0, y : 12, z : 16
+        x : cameraResValueX, y : cameraResValueY, z : cameraResValueZ
     }
 
     let from = {
@@ -620,7 +649,7 @@ const enterButton = document.getElementById('enterBtn')
 enterButton.addEventListener('click', () => {
 
     let enterCoord = {
-        x : 0, y : 12, z : 16
+        x : cameraResValueX, y : cameraResValueY, z : cameraResValueZ
     }
 
     let from = {

@@ -418,38 +418,6 @@ body {
           transition-duration: 0.5s;
 }
 
-#exitBtn {
-  position: absolute;
-  top: 4vh;
-  left: 4vh;
-  z-index: 3;
-  width: 12vw;
-  height: 7vh;
-  background: transparent;
-  border: 3px solid #dcf0fc;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 100px;
-  cursor: pointer;
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
-  opacity: 0;
-  pointer-events: none;
-}
-
-#exitBtn h3 {
-  font-family: 'Raleway', sans-serif;
-  color: #dcf0fc;
-  font-size: 1.2rem;
-}
-
 #returnBtn {
   position: absolute;
   top: 5.5vh;
@@ -1564,6 +1532,230 @@ body {
 @media screen and (max-width: 800px) {
   #sidebar {
     display: none;
+  }
+  #returnBtn {
+    width: 30vw;
+    height: 7vh;
+    left: calc(5vw + 3px);
+  }
+  #returnBtn h3 {
+    font-size: 1rem;
+  }
+  #exitBtn {
+    width: 30vw;
+    height: 7vh;
+  }
+  #exitBtn h3 {
+    font-size: 1rem;
+  }
+  #enterBtn {
+    bottom: 5vh;
+    left: 35vw;
+    width: 30vw;
+    height: 7vh;
+  }
+  #enterBtn h3 {
+    font-size: 1rem;
+  }
+  #projectCont {
+    width: 32vw;
+    height: 12vw;
+    left: 18vw;
+    top: -0.5vw;
+  }
+  #projectCont #hex {
+    width: 15vw;
+    height: 6vw;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+  }
+  #projectCont #projectClickable {
+    width: 17vw;
+    height: 6vw;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    margin-bottom: 12.5vw;
+  }
+  #projectCont #projectClickable h3 {
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 0.7rem;
+  }
+  #aboutCont {
+    width: 32vw;
+    height: 12vw;
+    left: -20vw;
+    top: 1vw;
+  }
+  #aboutCont #hex {
+    width: 15vw;
+    height: 6vw;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    -webkit-transform: rotateZ(180deg);
+            transform: rotateZ(180deg);
+  }
+  #aboutCont #aboutClickable {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    width: 22vw;
+    height: 6vw;
+    margin-bottom: -12.5vw;
+  }
+  #aboutCont #aboutClickable h3 {
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 0.7rem;
+  }
+  #contactCont {
+    width: 32vw;
+    height: 12vw;
+    left: 7vw;
+    top: 0vw;
+  }
+  #contactCont #hex {
+    width: 15vw;
+    height: 6vw;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  #contactCont #contactClickable {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    width: 22vw;
+    height: 6vw;
+    margin-bottom: 0.2vw;
+    margin-right: 0.15vw;
+  }
+  #contactCont #contactClickable h3 {
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 0.7rem;
+  }
+  #project_content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    overflow-y: scroll;
+  }
+  #project_content #project_selectionArea {
+    width: 90vw;
+    height: 330vh;
+  }
+  #project_content #project_selectionArea #project_selection {
+    width: 90vw;
+    height: 330vh;
+  }
+  #project_content #project_selectionArea #project_selection .selection_row {
+    width: 90vw;
+    height: 55vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #project_content #project_selectionArea #project_selection .selection_row .projectOption {
+    width: 88vw;
+    height: 55vh;
+  }
+  #project_content #project_selectionArea #project_selection .selection_row .projectOption .projectPic {
+    height: 89%;
+  }
+  #project_content #project_stageArea {
+    margin-top: 13vh;
+    margin-bottom: 5vh;
+    width: 90vw;
+    height: 100vh;
+  }
+  #project_content #project_stageArea #stagedImage {
+    width: 80vw;
+    height: 25vh;
+  }
+  #project_content #project_stageArea #stagedInfo {
+    width: 80vw;
+    height: 50vh;
+  }
+  #project_content #project_stageArea #stagedInfo #stagedTitle {
+    font-size: 1rem;
+  }
+  #project_content #project_stageArea #stagedInfo #stagedDesc {
+    font-size: 0.75rem;
+  }
+  #project_content #project_stageArea #stagedInfo #stagedButtons {
+    width: 44vw;
+    height: 6vh;
+  }
+  #project_content #project_stageArea #stagedInfo #stagedButtons .stagedBtn {
+    width: 18vw;
+    font-size: 0.7rem;
+  }
+  #project_content #project_stageArea #stagedInfo #stagedTechTags {
+    width: 80vw;
+  }
+  #project_content #project_stageArea #stagedInfo #stagedTechTags #techTitle {
+    width: 80vw;
+  }
+  #project_content #project_stageArea #stagedInfo #stagedTechTags #techTags {
+    width: 80vw;
+  }
+  #project_content #project_stageArea #stagedInfo #stagedTechTags #techTags .tag {
+    width: 22vw;
+  }
+  #project_content #project_stageArea #stagedInfo #stagedTechTags #techTags .tag .tagContent {
+    width: 22vw;
+  }
+  #project_content #project_stageArea #stagedInfo #stagedTechTags #techTags .tag .tagContent h3 {
+    font-size: 0.5rem;
+  }
+  #project_content #project_stageArea #stagedInfo #stagedTechTags #techTags .tag .tagContent img {
+    width: 2vh;
+    height: 2vh;
+  }
+  #about_content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    overflow-y: scroll;
+  }
+  #about_content #skillsContainer {
+    top: 80vh;
+  }
+  #about_content #skillsTextCont {
+    margin-top: 25vh;
+    width: 80vw;
+    height: 50vh;
+  }
+  #about_content #skillsTextCont #skillsText {
+    width: 80vw;
+    height: 50vh;
+  }
+  #about_content #skillsTextCont #skillsText #skillsTopText {
+    width: 80vw;
+    height: 15vh;
+  }
+  #about_content #skillsTextCont #skillsText #skillsTopText h2 {
+    font-size: 2.5rem;
+  }
+  #about_content #skillsTextCont #skillsText #skillsDescText {
+    width: 80vw;
+    height: 35vh;
+    margin-left: 4vw;
+  }
+  #about_content #skillsTextCont #skillsText #skillsDescText p {
+    line-height: 22px;
+    font-size: 0.9rem;
   }
 }
 /*# sourceMappingURL=style.css.map */
