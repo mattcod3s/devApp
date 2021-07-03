@@ -1560,4 +1560,10 @@ body {
   -webkit-animation-iteration-count: initial;
           animation-iteration-count: initial;
 }
+
+@media screen and (max-width: 800px) {
+  #sidebar {
+    display: none;
+  }
+}
 /*# sourceMappingURL=style.css.map */

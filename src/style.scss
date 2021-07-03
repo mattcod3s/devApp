@@ -267,6 +267,8 @@ body
 
 }
 
+
+
 #exitBtn {
     position: absolute;
     top : 4vh;
@@ -1129,4 +1131,13 @@ body
     }
     
    
+}
+
+@media screen and (max-width: 800px) {
+    #sidebar {
+        display: none;
+    }
+
+    
+    
 }
