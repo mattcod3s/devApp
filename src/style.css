@@ -1529,17 +1529,74 @@ body {
           animation-iteration-count: initial;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   #sidebar {
-    display: none;
+    top: 25vh;
+    width: 50vw;
+  }
+  #sidebar #emailOption:hover #emailCircle #emailIcon {
+    width: 2vh;
+    height: 2vh;
+  }
+  #sidebar .sidebarOption {
+    width: 8vw;
+  }
+  #sidebar .sidebarOption #gitIcon {
+    width: 1.5vh;
+    height: 1.5vh;
+  }
+  #sidebar .sidebarOption #phoneIcon {
+    width: 1.5vh;
+    height: 1.5vh;
+  }
+  #sidebar .sidebarOption #linkedIcon {
+    width: 1.5vh;
+    height: 1.5vh;
+  }
+  #sidebar .sidebarOption #emailCircle {
+    width: 1.5vh;
+    height: 1.5vh;
+  }
+  #sidebar .sidebarOption #emailCircle #emailIcon {
+    width: 1.5vh;
+    height: 1.5vh;
+  }
+  #sidebar .sidebarOption #emailCircle #emailIcon #copyTootTip {
+    width: 25vw;
+    height: 4vh;
+  }
+  #sidebar .sidebarOption .sidebarText {
+    right: -100vw;
+  }
+  #sidebar .sidebarOption .sidebarText span {
+    font-size: 0.75rem;
+  }
+  #sidebar .sidebarOption:hover {
+    width: 50vw;
+  }
+  #sidebar #resumeSidebar {
+    width: 8vw;
+  }
+  #sidebar #resumeSidebar h2 {
+    height: 6vw;
+    font-size: 1.3rem;
+  }
+  #sidebar #resumeSidebar #donwloadCont {
+    width: 44vw;
+    right: -100vw;
+  }
+  #sidebar #resumeSidebar:hover {
+    width: 50vw;
   }
   #returnBtn {
     width: 30vw;
     height: 7vh;
     left: calc(5vw + 3px);
+    background: #dcf0fc;
   }
   #returnBtn h3 {
     font-size: 1rem;
+    color: #2c2c2c;
   }
   #exitBtn {
     width: 30vw;
@@ -1746,7 +1803,7 @@ body {
     height: 15vh;
   }
   #about_content #skillsTextCont #skillsText #skillsTopText h2 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
   #about_content #skillsTextCont #skillsText #skillsDescText {
     width: 80vw;
@@ -1756,6 +1813,81 @@ body {
   #about_content #skillsTextCont #skillsText #skillsDescText p {
     line-height: 22px;
     font-size: 0.9rem;
+  }
+  #cont_content #success_snackBar {
+    top: 24vh;
+    left: 6vw;
+    width: 83vw;
+  }
+  #cont_content #success_snackBar h2 {
+    width: 30vw;
+    font-size: 1rem;
+  }
+  #cont_content #success_snackBar #snackIcon {
+    width: 15vw;
+  }
+  #cont_content #contact_text {
+    width: 90vw;
+    height: 20vh;
+  }
+  #cont_content #contact_text #contact_welcome {
+    width: 90vw;
+    height: 20vh;
+  }
+  #cont_content #contact_text #contact_welcome h1 {
+    font-size: 2.4rem;
+  }
+  #cont_content #contact_text #contact_welcome h4 {
+    font-size: 0.9rem;
+  }
+  #cont_content #contact_text #contact_welcome h4 span {
+    font-size: 1rem;
+  }
+  #cont_content #contact_email {
+    width: 90vw;
+    height: 60vh;
+    margin-bottom: 3vh;
+  }
+  #cont_content #contact_email #contact_form {
+    height: 60vh;
+    width: 90vw;
+  }
+  #cont_content #contact_email #contact_form #messageInput {
+    width: 80vw;
+    height: 20vh;
+  }
+  #cont_content #contact_email #contact_form #messageInput textarea {
+    width: 80vw;
+    height: 17vh;
+  }
+  #cont_content #contact_email #contact_form #messageInput #messageError {
+    margin-top: 26vh;
+  }
+  #cont_content #contact_email #contact_form .contactInput {
+    width: 80vw;
+    height: 7vh;
+  }
+  #cont_content #contact_email #contact_form .contactInput input {
+    width: 80vw;
+  }
+  #cont_content #contact_email #contact_form #submit {
+    height: 10vh;
+  }
+  #cont_content #contact_email #contact_form #submit #submitBtn {
+    width: 20vw;
+    height: 8vw;
+  }
+  #cont_content #cont_icons {
+    width: 22vw;
+    height: 10vw;
+  }
+  #cont_content #cont_icons #githubIcon {
+    width: 4vh;
+    height: 4vh;
+  }
+  #cont_content #cont_icons #linkedinIcon {
+    width: 4vh;
+    height: 4vh;
   }
 }
 /*# sourceMappingURL=style.css.map */

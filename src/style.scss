@@ -277,7 +277,7 @@ body
     width: 12vw;
     height: 7vh;
     background: transparent;
-    border: 3px solid rgb(220, 240, 252);;
+    border: 3px solid rgb(220, 240, 252);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -289,7 +289,7 @@ body
 
     h3 {
         font-family: 'Raleway', sans-serif;
-        color: rgb(220, 240, 252);;
+        color: rgb(220, 240, 252);
         font-size: 1.2rem;
     }
 }
@@ -1108,17 +1108,231 @@ body
    
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
+    //**//
+
     #sidebar {
-        display: none;
+        // right: 0vw;
+        top: 25vh;
+        width: 50vw;
+        // height: 40vh;
+        // position: absolute;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        // align-items: flex-end;
+        // z-index: 2;
+    
+        #emailOption {
+            // border-radius: 10px 0px 0px 0px;
+        }
+    
+        #emailOption:hover {
+    
+            #emailCircle {
+                // background: rgba(255,255,255,0.25);
+    
+                #emailIcon {
+                    width: 2vh;
+                    height: 2vh;
+                    // background-image: url('../static/copyIcon.png');
+    
+                }
+            }
+    
+            #emailCircle:hover {
+                #emailIcon {
+                    #copyTootTip {
+                        // display: flex;
+                    }
+                }
+            }
+        }
+    
+        .sidebarOption {
+            width: 8vw;
+            // height: 5vh;
+            // transition-duration: 0.5s;
+            // background: rgb(26, 26, 26);
+            // cursor: pointer;
+            // display: flex;
+            // justify-content: space-around;
+            // align-items: center;
+    
+            #gitIcon {
+                // background-image: url('../static/github.png');
+                // background-size: contain;
+                // background-repeat: no-repeat;
+                width: 1.5vh;
+                height: 1.5vh;
+            }
+    
+            #phoneIcon {
+                // background-image: url('../static/smartIcon.png');
+                // background-size: contain;
+                // background-repeat: no-repeat;
+                width: 1.5vh;
+                height: 1.5vh;
+            }
+    
+            #linkedIcon {
+                // background-image: url('../static/linkedin.png');
+                // background-size: contain;
+                // background-repeat: no-repeat;
+                width: 1.5vh;
+                height: 1.5vh;
+            }
+    
+            #emailCircle {
+                // display: flex;
+                // justify-content: center;
+                // align-items: center;
+                width: 1.5vh;
+                height: 1.5vh;
+                // border-radius: 50%;
+                // background: rgba(255,255,255,0);
+                // transition-duration: 0.2s;
+    
+                #emailIcon {
+                    // background-image: url('../static/emailIcon.png');
+                    // background-size: contain;
+                    // background-repeat: no-repeat;
+                    width: 1.5vh;
+                    height: 1.5vh;
+    
+                    #copyTootTip {
+                        // position: absolute;
+                        width: 25vw;
+                        height: 4vh;
+                        // background: #333;
+                        // border-radius: 3px;
+                        // display: none;
+                        // justify-content: center;
+                        // align-items: center;
+                        // font-family: 'Roboto';
+                        // font-size: 0.8rem;
+                        // color: #fff;
+                        // top: -3vh;
+                        // right: 13.5vw;
+                        // transition-duration: 0.3s;
+    
+                        #checkIcon {
+                            // display: none;
+                            // width: 2vh;
+                            // height: 2vh;
+                            // background-image: url('../static/checked.png');
+                            // background-size: contain;
+                            // background-repeat: no-repeat;
+                        }
+                    }
+                }
+            }
+    
+    
+            .sidebarText {
+                // display: flex;
+                // color: #fff;
+                // font-family: 'Roboto';
+                // font-weight: 100;
+                // position: absolute;
+                right: -100vw;
+                // transition-duration: 0.5s;
+    
+                span {
+                    // border-bottom: 2px solid transparent;
+                    font-size: 0.75rem;
+                }
+            }
+        }
+        .sidebarOption:hover {
+            width: 50vw;
+            // border-radius: 4px 0px 0px 4px !important;
+    
+            .sidebarText {
+                // position: relative;
+                // right: 0vw;
+    
+                span {
+                    // border-bottom: 2px solid #fff;
+                }
+            }
+            
+        }
+    
+        #resumeSidebar {
+            width: 8vw;
+            // height: 20vh;
+            // background: rgb(26, 26, 26);
+            // border-radius: 0px 0px 0px 10px;
+            // transition-duration: 0.5s;
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+    
+            h2 {
+                // transform: rotate(-90deg);
+                // color: #fff;
+                // font-family: 'Roboto';
+                // font-weight: 100;
+                height: 6vw;
+                // display: flex;
+                // justify-content: center;
+                // align-items: center;
+                font-size: 1.3rem;
+            }
+    
+            #donwloadCont {
+                width: 44vw;
+                // height: 20vh;
+                // display: flex;
+                // justify-content: center;
+                // align-items: center;
+                // position: absolute;
+                right: -100vw;
+                // transition-duration: 0.5s;
+    
+                #downloadCircle {
+                    // width: 15vh;
+                    // height: 15vh;
+                    // border-radius: 50%;
+                    // background-color: rgba(255,255,255,0.25);
+                    // display: flex;
+                    // justify-content: center;
+                    // align-items: center;
+                    // cursor: pointer;
+    
+                    #downloadIcon {
+                        // width: 8vh;
+                        // height: 8vh;
+                        // background-image: url('../static/fileDownload.png');
+                        // background-size: contain;
+                        // background-repeat: no-repeat;
+                    }
+                }
+            }
+        }
+        #resumeSidebar:hover {
+            width: 50vw;
+            #donwloadCont{
+                // position: relative;
+                // right: 0vw;
+                // transition-duration: 0.5s;
+            }
+        }
+    
+    
     }
+
+    //**//
 
     #returnBtn {
         width: 30vw;
         height: 7vh;
         left: calc(5vw + 3px);
+        background: rgb(220, 240, 252);
         h3 {
             font-size: 1rem;
+            color: #2c2c2c;
         }
     }
     #exitBtn {
@@ -1321,7 +1535,7 @@ body
                     width: 80vw;
                     height: 15vh;
                     h2 {
-                        font-size: 2.5rem;
+                        font-size: 2.2rem;
                     }
                 }
                 #skillsDescText {
@@ -1341,293 +1555,82 @@ body
     //*contact content*//
 
     #cont_content {
-        // position: absolute;
-        // width: 96vw;
-        // height: 96vh;
-        // margin: 2vh 2vw 2vh 2vw;
-        // border-radius: 8px;
-        // opacity: 0;
-        // pointer-events: 'none';
-        // z-index: 2;
-        // top: 0vh !important;
-        // transition-duration: 0.5s;
-        // background:rgba(26, 35, 41, 0.8);
-        // border: 3px solid rgb(76, 219, 255);
-        // backdrop-filter: blur(6px);
-        // display: flex;
-        // justify-content: flex-end;
-        // align-items: center;
-        // flex-direction: column;
-    
-        // .runAnimation {
-        //     animation: success 8s ease-in-out;
-        // }
-    
         #success_snackBar {
-            // position: absolute;
-            // top: 5vh;
-            // right: 5vh;
-            // width: 20vw;
-            // height: 8vh;
-            // background: rgb(120, 226, 106);
-            // border-radius: 4px;
-            // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-            // display: flex;
-            // justify-content: center;
-            // align-items: center;
-            // opacity: 0;
-    
-    
+            top: 24vh;
+            left: 6vw;
+            width: 83vw;
             h2 {
-                // width: 14vw;
-                // height: 8vh;
-                // font-family: 'Roboto';
-                // color: rgb(44, 44, 44);
-                // font-size: 1.3rem;
-                // display: flex;
-                // justify-content: center;
-                // align-items: center;
+                width: 30vw;
+                font-size: 1rem;
             }
-    
             #snackIcon {
-                // width: 6vw;
-                // height: 8vh;
-                // display: flex;
-                // justify-content: center;
-                // align-items: center;
+                width: 15vw;
             }
         }
-    
         #contact_text {
-            // width: 50vw;
-            // height: 20vh;
-            // display: flex;
-            // justify-content: center;
-            // align-items: center;
-    
+            width: 90vw;
+            height: 20vh;
             #contact_welcome {
-                // width: 40vw;
-                // height: 20vh;
-                // display: flex;
-                // justify-content: center;
-                // align-items: center;
-                // flex-direction: column;
+                width: 90vw;
+                height: 20vh;
                 h1 {
-                    // font-family: 'Roboto', sans-serif;
-                    // color: rgb(236, 236, 236);
-                    // font-size: 3rem;
-                    // font-weight: 100;
-                    // padding: 5px 0px 5px 0px;
+                    font-size: 2.4rem;
                 }
-        
                 h4 {
-                    // text-align: center;
-                    // line-height: 24px;
-                    // font-family: 'Roboto', sans-serif;
-                    // color: rgb(76, 219, 255);
-                    // font-size: 1rem;
-                    // font-weight: 100;
-                    // padding: 5px 0px 5px 0px;
-    
-                    // span {
-                    //     // color: #FAFE46;
-                    //     // border-bottom: 2px solid transparent;
-                    //     // transition-duration: 0.2s;
-                    // }
-                    // span:hover {
-                    //     // color: #FAFE46;
-                    //     // border-bottom: 2px solid #FAFE46;
-                    //     // cursor: pointer;
-                    // }
+                    font-size: 0.9rem;
+                    span {
+                        font-size: 1rem;
+                    }
                 }
             }
         }
-    
         #contact_email {
-            // width: 70vw;
-            // height: 70vh;
-            // display: flex;
-            // justify-content: center;
-            // align-items: center;
-    
-    
-            
+            width: 90vw;
+            height: 60vh;
+            margin-bottom: 3vh;
             #contact_form {
-                // height: 70vh;
-                // width: 60vw;
-                // display: flex;
-                // flex-direction: column;
-                // justify-content: space-around;
-                // align-items: center;
-    
+                height: 60vh;
+                width: 90vw;
                 #messageInput {
-                    // width: 40vw;
-                    // height: 25vh;
-                    // display: flex;
-                    // justify-content: center;
-                    // align-items: center;
-    
+                    width: 80vw;
+                    height: 20vh;
                     textarea {
-                        // outline: none;
-                        // border: none;
-                        // width: 40vw;
-                        // height: 22vh;
-                        // padding: 12px;
-                        // border-bottom: 3px solid rgb(76, 219, 255);
-                        // background: transparent;
-                        // font-family: 'Roboto';
-                        // font-weight: 100;
-                        // font-size: 1.1rem;
-                        // color: #fff;
-                        // border-radius: 4px;
-                        // background: rgba(0,0,0,0.2);
+                        width: 80vw;
+                        height: 17vh;
                     }
-    
-                    // textarea::-webkit-input-placeholder {
-                    //     color: rgb(243, 243, 243);
-                    // }
-    
                     #messageError {
-                        // position: absolute;
-                        // font-size: 0.65rem;
-                        // color: rgb(194, 61, 0);
-                        // font-family: 'Roboto';
-                        // font-weight: 300;
-                        // margin-top: 29vh;
-                        // opacity: 0;
-                        // transition-duration: 0.2s;
+                        margin-top: 26vh;
                     }
                     
                 }
                 .contactInput {
-                    // width: 40vw;
-                    // height: 9vh;
-                    // display: flex;
-                    // justify-content: center;
-                    // align-items: center;
-    
+                    width: 80vw;
+                    height: 7vh;
                     input {
-                        // outline: none;
-                        // border: none;
-                        // width: 40vw;
-                        // padding: 12px;
-                        // border-bottom: 3px solid rgb(76, 219, 255);
-                        // border-radius: 4px;
-                        // background: transparent;
-                        // font-family: 'Roboto';
-                        // font-weight: 100;
-                        // font-size: 1.1rem;
-                        // color: #fff;
-                        // background: rgba(0,0,0,0.2);
+                        width: 80vw;
                     }
-    
-                    // input::-webkit-input-placeholder {
-                    //     color: rgb(243, 243, 243);
-                    // }
-    
-                    #nameError {
-                        // font-size: 0.65rem;
-                        // color: rgb(194, 61, 0);
-                        // font-family: 'Roboto';
-                        // font-weight: 300;
-                        // position: absolute;
-                        // margin-top: 9.5vh;
-                        // opacity: 0;
-                        // transition-duration: 0.2s;
-                    }
-    
-    
-                    #emailError {
-                        // position: absolute;
-                        // font-size: 0.65rem;
-                        // color: rgb(194, 61, 0);
-                        // font-family: 'Roboto';
-                        // font-weight: 300;
-                        // margin-top: 9.5vh;
-                        // opacity: 0;
-                        // transition-duration: 0.2s;
-                    }
-    
                 }
-    
                 #submit {
-                    // width: 90vw;
-                    // height: 20vh;
-                    // display: flex;
-                    // justify-content: center;
-                    // align-items: center;
-                    
+                    height: 10vh;
                     #submitBtn {
-                        // width: 10vw;
-                        // height: 3vw;
-                        // border-radius: 50px;
-                        // display: flex;
-                        // justify-content: center;
-                        // align-items: center;
-                        // background: transparent;
-                        // border: 2px solid rgb(76, 219, 255);
-                        // color: rgb(76, 219, 255);
-                        // font-family: 'Roboto';
-                        // font-weight: 100;
-                        // font-size: 1rem;
-                        // cursor: pointer;
-                        // transition-duration: 0.25s;
-                    }
-    
-                    #submitBtn:hover {
-                        // background: #fff;
-                        // border: 2px solid #fff;
-                        // color: #333;
+                        width: 20vw;
+                        height: 8vw;
                     }
                 }
             }
         }
-    
         #cont_icons {
-            // position: absolute;
-            // bottom: 1vw;
-            // right: 2vw;
-            // width: 8vw;
-            // height: 4vw;
-            // display: flex;
-            // justify-content: space-around;
-            // align-items: center;
-    
-            // a {
-            //     text-decoration: none;
-            // }
-    
+            width: 22vw;
+            height: 10vw;
             #githubIcon {
-                // width: 2vw;
-                // height: 2vw;
-                // background-size: contain;
-                // background-repeat: no-repeat;
-                // background-image: url('../static/github.png');
-                // cursor: pointer;
+                width: 4vh;
+                height: 4vh;
             }
-    
-            // #githubIcon:hover {
-            //     animation: shake .5s;
-            //     animation-iteration-count: initial;
-            // }
-    
             #linkedinIcon {
-                // width: 2vw;
-                // height: 2vw;
-                // background-size: contain;
-                // background-repeat: no-repeat;
-                // background-image: url('../static/linkedin.png');
-                // cursor: pointer;
+                width: 4vh;
+                height: 4vh;
             }
-    
-            // #linkedinIcon:hover {
-            //     animation: shake .5s;
-            //     animation-iteration-count: initial;
-            // }
         }
-        
-       
     }
-
     //**//
 }
