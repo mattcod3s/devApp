@@ -1529,7 +1529,7 @@ body {
           animation-iteration-count: initial;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 650px) {
   #sidebar {
     top: 25vh;
     width: 100vw;
@@ -1891,9 +1891,117 @@ body {
   }
 }
 
+@media screen and (min-width: 2500px) {
+  #skillsText #skillsTopText {
+    -webkit-box-pack: start !important;
+        -ms-flex-pack: start !important;
+            justify-content: flex-start !important;
+  }
+  #skillsText #skillsTopText h2 {
+    font-size: 4rem;
+  }
+  #skillsText #skillsDescText p {
+    line-height: 26px;
+    font-size: 1.6rem;
+  }
+}
+
 @media screen and (max-height: 500px) {
   #sidebar {
     display: none;
+  }
+  #returnBtn h3 {
+    font-size: 1rem;
+  }
+  #exitBtn h3 {
+    font-size: 1rem;
+  }
+  #enterBtn h3 {
+    font-size: 1rem;
+  }
+  #projectClickable {
+    width: 27vw;
+    height: 6vw;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    margin-bottom: 12.5vw;
+  }
+  #projectClickable h3 {
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 0.5rem;
+  }
+  #aboutClickable {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    width: 30vw;
+    height: 6vw;
+    margin-bottom: -12.5vw;
+  }
+  #aboutClickable h3 {
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 0.5rem;
+  }
+  #contactClickable {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    width: 30vw;
+    height: 6vw;
+    margin-bottom: 0.2vw;
+    margin-right: 0.15vw;
+  }
+  #contactClickable h3 {
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 0.5rem;
+  }
+  #skillsText #skillsTopText h2 {
+    font-size: 1.4rem !important;
+    width: 35vw !important;
+  }
+  #skillsText #skillsDescText p {
+    width: 40vw !important;
+    line-height: 15px !important;
+    font-size: 0.6rem !important;
+  }
+  #contact_text #contact_welcome h1 {
+    font-size: 2rem !important;
+  }
+  #contact_text #contact_welcome h4 {
+    width: 80vw;
+    font-size: 0.8rem !important;
+  }
+  #contact_text #contact_welcome h4 span {
+    font-size: 0.8rem;
+  }
+  #messageInput textarea {
+    padding: 5px !important;
+    font-size: 0.8rem !important;
+  }
+  .contactInput input {
+    padding: 5px !important;
+    font-size: 0.8rem !important;
+  }
+  #project_content #project_stageArea #stagedInfo #stagedTitle {
+    font-size: 0.75rem !important;
+  }
+  #project_content #project_stageArea #stagedInfo #stagedDesc {
+    font-size: 0.5rem !important;
+    max-height: 16vh !important;
+    overflow-y: scroll !important;
+  }
+  #project_content #project_stageArea #stagedInfo #stagedButtons .stagedBtn {
+    font-size: 0.45rem !important;
+  }
+  #project_content #project_stageArea #stagedInfo #stagedTechTags #techTitle {
+    font-size: 0.7rem !important;
+  }
+  #project_content #project_stageArea #stagedInfo #stagedTechTags #techTags .tag .tagContent h3 {
+    font-size: 0.4rem !important;
   }
 }
 /*# sourceMappingURL=style.css.map */
