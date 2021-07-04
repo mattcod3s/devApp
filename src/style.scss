@@ -1112,215 +1112,66 @@ body
     //**//
 
     #sidebar {
-        // right: 0vw;
         top: 25vh;
-        width: 50vw;
-        // height: 40vh;
-        // position: absolute;
-        // display: flex;
-        // flex-direction: column;
-        // justify-content: center;
-        // align-items: flex-end;
-        // z-index: 2;
-    
-        #emailOption {
-            // border-radius: 10px 0px 0px 0px;
-        }
-    
+        width: 100vw;
         #emailOption:hover {
-    
             #emailCircle {
-                // background: rgba(255,255,255,0.25);
-    
                 #emailIcon {
                     width: 2vh;
                     height: 2vh;
-                    // background-image: url('../static/copyIcon.png');
-    
-                }
-            }
-    
-            #emailCircle:hover {
-                #emailIcon {
-                    #copyTootTip {
-                        // display: flex;
-                    }
                 }
             }
         }
-    
         .sidebarOption {
             width: 8vw;
-            // height: 5vh;
-            // transition-duration: 0.5s;
-            // background: rgb(26, 26, 26);
-            // cursor: pointer;
-            // display: flex;
-            // justify-content: space-around;
-            // align-items: center;
-    
             #gitIcon {
-                // background-image: url('../static/github.png');
-                // background-size: contain;
-                // background-repeat: no-repeat;
                 width: 1.5vh;
                 height: 1.5vh;
             }
-    
             #phoneIcon {
-                // background-image: url('../static/smartIcon.png');
-                // background-size: contain;
-                // background-repeat: no-repeat;
                 width: 1.5vh;
                 height: 1.5vh;
             }
-    
             #linkedIcon {
-                // background-image: url('../static/linkedin.png');
-                // background-size: contain;
-                // background-repeat: no-repeat;
                 width: 1.5vh;
                 height: 1.5vh;
             }
-    
             #emailCircle {
-                // display: flex;
-                // justify-content: center;
-                // align-items: center;
                 width: 1.5vh;
                 height: 1.5vh;
-                // border-radius: 50%;
-                // background: rgba(255,255,255,0);
-                // transition-duration: 0.2s;
-    
                 #emailIcon {
-                    // background-image: url('../static/emailIcon.png');
-                    // background-size: contain;
-                    // background-repeat: no-repeat;
                     width: 1.5vh;
                     height: 1.5vh;
-    
                     #copyTootTip {
-                        // position: absolute;
                         width: 25vw;
                         height: 4vh;
-                        // background: #333;
-                        // border-radius: 3px;
-                        // display: none;
-                        // justify-content: center;
-                        // align-items: center;
-                        // font-family: 'Roboto';
-                        // font-size: 0.8rem;
-                        // color: #fff;
-                        // top: -3vh;
-                        // right: 13.5vw;
-                        // transition-duration: 0.3s;
-    
-                        #checkIcon {
-                            // display: none;
-                            // width: 2vh;
-                            // height: 2vh;
-                            // background-image: url('../static/checked.png');
-                            // background-size: contain;
-                            // background-repeat: no-repeat;
-                        }
                     }
                 }
             }
-    
-    
             .sidebarText {
-                // display: flex;
-                // color: #fff;
-                // font-family: 'Roboto';
-                // font-weight: 100;
-                // position: absolute;
                 right: -100vw;
-                // transition-duration: 0.5s;
-    
                 span {
-                    // border-bottom: 2px solid transparent;
                     font-size: 0.75rem;
                 }
             }
         }
         .sidebarOption:hover {
             width: 50vw;
-            // border-radius: 4px 0px 0px 4px !important;
-    
-            .sidebarText {
-                // position: relative;
-                // right: 0vw;
-    
-                span {
-                    // border-bottom: 2px solid #fff;
-                }
-            }
-            
         }
-    
         #resumeSidebar {
             width: 8vw;
-            // height: 20vh;
-            // background: rgb(26, 26, 26);
-            // border-radius: 0px 0px 0px 10px;
-            // transition-duration: 0.5s;
-            // display: flex;
-            // justify-content: center;
-            // align-items: center;
-    
             h2 {
-                // transform: rotate(-90deg);
-                // color: #fff;
-                // font-family: 'Roboto';
-                // font-weight: 100;
                 height: 6vw;
-                // display: flex;
-                // justify-content: center;
-                // align-items: center;
                 font-size: 1.3rem;
             }
-    
             #donwloadCont {
                 width: 44vw;
-                // height: 20vh;
-                // display: flex;
-                // justify-content: center;
-                // align-items: center;
-                // position: absolute;
                 right: -100vw;
-                // transition-duration: 0.5s;
-    
-                #downloadCircle {
-                    // width: 15vh;
-                    // height: 15vh;
-                    // border-radius: 50%;
-                    // background-color: rgba(255,255,255,0.25);
-                    // display: flex;
-                    // justify-content: center;
-                    // align-items: center;
-                    // cursor: pointer;
-    
-                    #downloadIcon {
-                        // width: 8vh;
-                        // height: 8vh;
-                        // background-image: url('../static/fileDownload.png');
-                        // background-size: contain;
-                        // background-repeat: no-repeat;
-                    }
-                }
             }
         }
         #resumeSidebar:hover {
             width: 50vw;
-            #donwloadCont{
-                // position: relative;
-                // right: 0vw;
-                // transition-duration: 0.5s;
-            }
         }
-    
-    
     }
 
     //**//
@@ -1633,4 +1484,11 @@ body
         }
     }
     //**//
+}
+
+
+@media screen and (max-height: 500px) {
+    #sidebar {
+        display: none;
+    }
 }

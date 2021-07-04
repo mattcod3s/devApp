@@ -1532,7 +1532,7 @@ body {
 @media screen and (max-width: 700px) {
   #sidebar {
     top: 25vh;
-    width: 50vw;
+    width: 100vw;
   }
   #sidebar #emailOption:hover #emailCircle #emailIcon {
     width: 2vh;
@@ -1888,6 +1888,12 @@ body {
   #cont_content #cont_icons #linkedinIcon {
     width: 4vh;
     height: 4vh;
+  }
+}
+
+@media screen and (max-height: 500px) {
+  #sidebar {
+    display: none;
   }
 }
 /*# sourceMappingURL=style.css.map */
