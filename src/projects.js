@@ -2,8 +2,8 @@ const stagedTitle = document.getElementById('stagedTitle')
 const stagedDesc = document.getElementById('stagedDesc')
 const tagArea = document.getElementById('techTags')
 
-const stagedLink = document.getElementById('stagedLink')
-const stagedGithub = document.getElementById('stagedGithub')
+let stagedLink = document.getElementById('stagedLink')
+let stagedGithub = document.getElementById('stagedGithub')
 
 const project1 = document.getElementById('project-1')
 const project2 = document.getElementById('project-2')
@@ -122,6 +122,8 @@ project1.addEventListener('click', () => {
 
     stagedLink.href = "https://adoring-pasteur-26cb54.netlify.app/"
 
+    stagedGithub.href = "https://github.com/mattcod3s/cosmocoinPWA"
+
     changeProject()
 })
 
@@ -134,6 +136,8 @@ project2.addEventListener('click', () => {
     project6.classList.remove('activeProject')
 
     stagedLink.href = "https://suspicious-visvesvaraya-06e9fd.netlify.app/"
+
+    stagedGithub.href = "https://github.com/mattcod3s/FinalBreffniWebsite"
 
     changeProject()
 })
@@ -148,6 +152,8 @@ project3.addEventListener('click', () => {
 
     stagedLink.href = "https://practical-hodgkin-456093.netlify.app/"
 
+    stagedGithub.href = "https://github.com/mattcod3s/mountaineerFullstack"
+
     changeProject()
 })
 
@@ -160,6 +166,8 @@ project4.addEventListener('click', () => {
     project6.classList.remove('activeProject')
 
     stagedLink.href = "https://www.kostek.pl/"
+
+    stagedGithub.href = "https://github.com/mattcod3s/kostekpl"
 
     changeProject()
 })
@@ -174,6 +182,8 @@ project5.addEventListener('click', () => {
 
     stagedLink.href = "https://hopeful-ritchie-338cf0.netlify.app/"
 
+    stagedGithub.href = "https://github.com/mattcod3s/disneyplus-clone-react"
+
     changeProject()
 })
 
@@ -185,7 +195,10 @@ project6.addEventListener('click', () => {
     project5.classList.remove('activeProject')
     project1.classList.remove('activeProject')
 
-    stagedLink.href = "https://agitated-curie-c6fc45.netlify.app/"
+    stagedLink.href = "#"
+
+    stagedGithub = "https://github.com/mattcod3s/devApp"
+    
 
     changeProject()
 })
@@ -201,7 +214,7 @@ const changeProject = () => {
                     stagedImage.style.backgroundImage = "url('/assets/cosmocoin.png')"
                     stagedTitle.textContent = 'Cosmocoin Cryptocurrency Watchlist'
                     stagedDesc.textContent = 
-                    'Full Stack Cryptocurrency Tracker, built with React.js, Node.js/Express.js & MongoDB. Login and Registration functionality included, along with OAuth2 Google log-in. Users can choose cryptocurrencies to include in their watchlist. The app uses the CoinMarketCap API to fetch and present users with real-time data. Chart.js implemented to create accurate price charts.'
+                    'Full Stack Cryptocurrency Tracker Progressive-Web-App (PWA), built with React.js, Node.js/Express.js & MongoDB. Login & Reg included, along with OAuth2 Google log-in. Users can choose cryptocurrencies to include in their watchlist. The app uses the CoinMarketCap API to fetch and present users with real-time data. Chart.js implemented to create accurate price charts. Uses localStorage.'
 
                     tagArea.innerHTML = `${reactTag} ${scssTag} ${nodeTag} ${expressTag} ${mongoTag}`
 
@@ -247,9 +260,9 @@ const changeProject = () => {
                     stagedImage.style.backgroundImage = "url('/assets/mountaineerV1.png')"
                     stagedTitle.textContent = 'Mountaineer V1.0'
                     stagedDesc.textContent = 
-                    "Front-end Mountaineering Progressive-Web-App (PWA) for tracking conquered mountains and planned adventures. Built with React.js and MaterialUI and uses Chart.js, React-Context-API & 3rd Party Weather API. Implements the use of Local Storage to keep track of Trips."
+                    "This Portfolio website, created using HTML, CSS, JS and Three.JS"
 
-                    tagArea.innerHTML = `${reactTag}`
+                    tagArea.innerHTML = `${htmlTag} ${scssTag} ${jsTag}`
 
                     break;
                 default:

@@ -26,7 +26,7 @@
     transition-duration: 0.5s;
     transition-delay: 0.5s;
     flex-direction: column;
-    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition-timing-function: ease-in-out;
 
     /* SOLAR SYSTEM */
 
@@ -175,6 +175,7 @@ body
         }
     }
 
+
     .sidebarOption {
         width: 3vw;
         height: 5vh;
@@ -184,6 +185,7 @@ body
         display: flex;
         justify-content: space-around;
         align-items: center;
+        
 
         #gitIcon {
             background-image: url('../static/github.png');
@@ -263,6 +265,11 @@ body
             position: absolute;
             right: -20vw;
             transition-duration: 0.5s;
+
+            a {
+                text-decoration: none;
+                color: #fff;
+            }
 
             span {
                 border-bottom: 2px solid transparent;
