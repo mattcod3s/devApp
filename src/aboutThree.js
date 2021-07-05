@@ -60,38 +60,6 @@ for ( let i = 5, l = position.count; i < l; i ++ ){
     vector.applyMatrix4( mesh.matrixWorld )
     let tempVec = vector.clone()
     vecArray.push(tempVec)
-    // console.log(vecArray)
-    // console.log(vector)
-
-
-    // fontLoader.load(
-    //     '/fonts/helvetiker_regular.typeface.json',
-    //     (font) => {
-    //         const textGeometry = new THREE.TextGeometry(
-    //             'JavaScript',
-    //             {
-    //                 font: font,
-    //                 size: 0.15,
-    //                 height: 0.0025,
-    //                 curveSegments: 8,
-    //                 bevelEnabled: true,
-    //                 bevelThickness: 0.03,
-    //                 bevelSize: 0.02,
-    //                 bevelOffset: 0,
-    //                 bevelSegments: 4,
-    //             }
-    //         )
-            
-    //         const textMaterial = new THREE.MeshMatcapMaterial({ color: 0x00ff00 })
-
-    //         const text = new THREE.Mesh(textGeometry, textMaterial)
-    //         text.position.set(vector.x, vector.y, vector.z)
-    //         text.lookAt(camera.position)
-    
-    
-    //         scene.add(text)
-    //     }
-    // )
 
 }
 
@@ -213,7 +181,8 @@ scene.add(camera)
  */
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
-    alpha: true
+    alpha: true,
+    powerPreference: 'high-performance'
 })
 renderer.setClearColor( 0x000000, 0 );
 
@@ -239,9 +208,6 @@ controls.enableDamping = true
             tag.lookAt(camera.position)
         })
     }
-    // let rotSpeed = 0.002
-    // camera.position.x = camera.position.x * Math.cos(rotSpeed) + camera.position.z * Math.sin(rotSpeed)
-    // camera.position.z = camera.position.z * Math.cos(rotSpeed) - camera.position.x * Math.sin(rotSpeed)
    
     controls.update()
 
@@ -254,69 +220,3 @@ controls.enableDamping = true
  }
 
 tick()
-
-// // Scene
-// const scene = new THREE.Scene()
-
-// const sizes = {
-//     width: container.style.width,
-//     height: container.style.height
-// }
-
-// window.addEventListener('resize', () =>
-// {
-//     // Update sizes
-//     sizes.width = container.style.width
-//     sizes.height = container.style.height
-
-//     // Update camera
-//     camera.aspect = sizes.width / sizes.height
-//     camera.updateProjectionMatrix()
-
-//     // Update renderer
-//     renderer.setSize(sizes.width, sizes.height)
-//     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-// })
-
-
-// const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-// camera.position.x = 0
-// camera.position.y = 12
-// camera.position.z = 16
-// scene.add(camera)
-
-// // Controls
-// const controls = new OrbitControls(camera, canvas)
-// controls.enableDamping = true
-
-
-// /**
-//  * Renderer
-//  */
-// const renderer = new THREE.WebGLRenderer({
-//     canvas: canvas
-// })
-// renderer.setSize(sizes.width, sizes.height)
-// renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-
-
-// /**
-//  * Animate
-//  */
-//  const clock = new THREE.Clock()
-
-//  const tick = () =>
-//  {
-//     const elapsedTime = clock.getElapsedTime()
-
-//     controls.update()
-
-//     // Render
-//     renderer.render(scene, camera)
-
-//     // Call tick again on the next frame
-//     window.requestAnimationFrame(tick)
-
-//  }
-
-// tick()

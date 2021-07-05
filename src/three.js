@@ -166,9 +166,6 @@ loadingManager.onProgress = () => {
 const textureLoader = new THREE.TextureLoader(loadingManager)
 const matcapTexture = textureLoader.load('/textures/matcaps/13.png')
 const miniMatCapTexture = textureLoader.load('/textures/matcaps/23.png')
-//23
-//27
-//26
 
 const planet1ColorTexture = textureLoader.load('/textures/planet1/COLOR.jpg')
 const planet1DispTexture = textureLoader.load('/textures/planet1/DISP.png')
@@ -176,16 +173,21 @@ const planet1NormTexture = textureLoader.load('/textures/planet1/NORM.jpg')
 const planet1OccTexture = textureLoader.load('/textures/planet1/OCC.jpg')
 const planet1RoughTexture = textureLoader.load('/textures/planet1/ROUGH.jpg')
 
-const planet2ColorTexture = textureLoader.load('/textures/planet2/COLOR.jpg')
-const planet2DispTexture = textureLoader.load('/textures/planet2/DISP.png')
-const planet2NormTexture = textureLoader.load('/textures/planet2/NORM.jpg')
-const planet2OccTexture = textureLoader.load('/textures/planet2/OCC.jpg')
-const planet2RoughTexture = textureLoader.load('/textures/planet2/ROUGH.jpg')
+//Planet380
+const planet2ColorTexture = textureLoader.load('/textures/planet380/COLOR.jpg')
+const planet2DispTexture = textureLoader.load('/textures/planet380/DISP.png')
+const planet2NormTexture = textureLoader.load('/textures/planet380/NORM.jpg')
+const planet2OccTexture = textureLoader.load('/textures/planet380/OCC.jpg')
+const planet2MetalTexture = textureLoader.load('/textures/planet380/METAL.jpg')
+const planet2RoughTexture = textureLoader.load('/textures/planet380/ROUGH.jpg')
 
-const planet3ColorTexture = textureLoader.load('/textures/planet32/COLOR.jpg')
-const planet3DispTexture = textureLoader.load('/textures/planet32/DISP.png')
-const planet3NormTexture = textureLoader.load('/textures/planet32/NORM.jpg')
-const planet3OccTexture = textureLoader.load('/textures/planet32/OCC.jpg')
+//Planet381
+const planet3ColorTexture = textureLoader.load('/textures/planet381/COLOR.jpg')
+const planet3DispTexture = textureLoader.load('/textures/planet381/DISP.png')
+const planet3NormTexture = textureLoader.load('/textures/planet381/NORM.jpg')
+const planet3OccTexture = textureLoader.load('/textures/planet381/OCC.jpg')
+const planet3MetalTexture = textureLoader.load('/textures/planet381/METAL.jpg')
+const planet3RoughTexture = textureLoader.load('/textures/planet381/ROUGH.jpg')
 
 
 /**
@@ -279,6 +281,7 @@ const generateGalaxy = () =>
     resumePlanetMaterial.displacementScale = 0.05
     resumePlanetMaterial.roughnessMap = planet2RoughTexture
     resumePlanetMaterial.normalMap = planet2NormTexture
+    resumePlanetMaterial.metalnessMap = planet2MetalTexture
 
     resumePlanet = new THREE.Mesh( resumePlanetGeometry, resumePlanetMaterial )
     resumePlanet.geometry.setAttribute('uv2', new THREE.BufferAttribute(resumePlanet.geometry.attributes.uv.array, 2))
@@ -294,6 +297,8 @@ const generateGalaxy = () =>
     aboutPlanetMaterial.displacementMap = planet3DispTexture
     aboutPlanetMaterial.displacementScale = 0.02
     aboutPlanetMaterial.normalMap = planet3NormTexture
+    aboutPlanetMaterial.metalnessMap = planet3MetalTexture
+    aboutPlanetMaterial.roughnessMap = planet3RoughTexture
 
     aboutPlanet = new THREE.Mesh( aboutPlanetGeometry, aboutPlanetMaterial )
     aboutPlanet.geometry.setAttribute('uv2', new THREE.BufferAttribute(aboutPlanet.geometry.attributes.uv.array, 2))
@@ -493,7 +498,8 @@ controls.enabled = false
  * Renderer
  */
 const renderer = new THREE.WebGLRenderer({
-    canvas: canvas
+    canvas: canvas,
+    powerPreference: 'high-performance'
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
