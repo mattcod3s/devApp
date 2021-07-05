@@ -107,7 +107,7 @@ const fillTags = () => {
             const htmlGeometry = new THREE.TextGeometry('HTML5', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
             const cssGeometry = new THREE.TextGeometry('CSS3', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
             const sassGeometry = new THREE.TextGeometry('SASS', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
-            const lessGeometry = new THREE.TextGeometry('LESS', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
+            const lessGeometry = new THREE.TextGeometry('Testing', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
             const reactGeometry = new THREE.TextGeometry('React', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
             const angularGeometry = new THREE.TextGeometry('ThreeJS', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})
             const nodeGeometry = new THREE.TextGeometry('NodeJS', {font: font, size: 0.15, height: 0.0025, curveSegments: 8, bevelEnabled: true,bevelThickness: 0.02,bevelSize: 0.01,bevelOffset: 0,bevelSegments: 6,})

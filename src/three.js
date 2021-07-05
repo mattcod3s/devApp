@@ -39,27 +39,21 @@ if(window.innerWidth < 600)  {
 const projectCont = document.getElementById('projectCont')
 const aboutCont = document.getElementById('aboutCont')
 const contactCont = document.getElementById('contactCont')
-// Cursor
-// const cursor = {
-//     x: 0,
-//     y: 0
-// }
 
-window.addEventListener('load', (event) => {
-    // cursor.x = event.clientX / sizes.width - 0.5
-    // cursor.y = event.clientY / sizes.height - 0.5
 
-projectContent.style.opacity = '0'
-projectContent.style.pointerEvents = 'none'
-projectContent.style.transitionDelay = '0s'
+window.addEventListener('load', () => {
+    projectContent.style.opacity = '0'
+    projectContent.style.pointerEvents = 'none'
+    projectContent.style.transitionDelay = '0s'
 
-aboutContent.style.opacity = '0'
-aboutContent.style.pointerEvents = 'none'
-aboutContent.style.transitionDelay = '0s'
+    aboutContent.style.opacity = '0'
+    aboutContent.style.pointerEvents = 'none'
+    aboutContent.style.transitionDelay = '0s'
 
-contactContent.style.opacity = '0'
-contactContent.style.pointerEvents = 'none'
-contactContent.style.transitionDelay = '0s'
+    contactContent.style.opacity = '0'
+    contactContent.style.pointerEvents = 'none'
+    contactContent.style.transitionDelay = '0s'
+
 })
 
 
@@ -140,15 +134,33 @@ fontLoader.load(
 //Texture Loader
 const loadingManager = new THREE.LoadingManager()
 loadingManager.onStart = () => {
-    console.log('satrted')
 }
+
+let tempAdd = 0
 loadingManager.onLoad = () => {
-    console.log('finished')
-    gsap.to(text.material, 1, {opacity:1})
-    gsap.to(miniText.material, 1, {opacity:1})
+
+    document.getElementById('loading').style.transform = 'translateY(120vh)'
+
+    let progressBar = document.getElementById('progressBar')
+    
+    progressBar.value = 100
+
+    setTimeout(function(){ 
+        gsap.to(text.material, 1, {opacity:1})
+        gsap.to(miniText.material, 1, {opacity:1})
+    }, 1500);
+    
 }
 loadingManager.onProgress = () => {
-    console.log('progress')
+
+    if(tempAdd < 90) {
+        tempAdd += 10
+    } else {
+        tempAdd = tempAdd
+    }
+
+    progressBar.value = tempAdd
+
 }
 
 const textureLoader = new THREE.TextureLoader(loadingManager)
@@ -175,10 +187,6 @@ const planet3DispTexture = textureLoader.load('/textures/planet32/DISP.png')
 const planet3NormTexture = textureLoader.load('/textures/planet32/NORM.jpg')
 const planet3OccTexture = textureLoader.load('/textures/planet32/OCC.jpg')
 
-// const planet4ColorTexture = textureLoader.load('/textures/planet4/COLOR.jpg')
-// const planet4DispTexture = textureLoader.load('/textures/planet4/DISP.png')
-// const planet4NormTexture = textureLoader.load('/textures/planet4/NORM.jpg')
-// const planet4OccTexture = textureLoader.load('/textures/planet4/OCC.jpg')
 
 /**
  * Galaxy
@@ -213,10 +221,6 @@ let resumePlanet = null
 let aboutPlanetGeometry = null
 let aboutPlanetMaterial = null
 let aboutPlanet = null
-
-let contactPlanetGeometry = null
-let contactPlanetMaterial = null
-let contactPlanet = null
 
 const generateGalaxy = () =>
 {
@@ -294,23 +298,6 @@ const generateGalaxy = () =>
     aboutPlanet = new THREE.Mesh( aboutPlanetGeometry, aboutPlanetMaterial )
     aboutPlanet.geometry.setAttribute('uv2', new THREE.BufferAttribute(aboutPlanet.geometry.attributes.uv.array, 2))
     aboutPlanet.position.set(4, 0.3, 5)
-
-
-    // // Planet 4
-    // contactPlanetGeometry = new THREE.SphereGeometry(0.07, 64, 64)
-    // contactPlanetMaterial = new THREE.MeshStandardMaterial()
-
-    // contactPlanetMaterial.map = planet4ColorTexture
-    // contactPlanetMaterial.aoMap = planet4OccTexture
-    // contactPlanetMaterial.aoMapIntensity = 1
-    // contactPlanetMaterial.displacementMap = planet4DispTexture
-    // contactPlanetMaterial.displacementScale = 0.05
-    // contactPlanetMaterial.normalMap = planet4NormTexture
-
-    // contactPlanet = new THREE.Mesh( contactPlanetGeometry, contactPlanetMaterial )
-    // contactPlanet.geometry.setAttribute('uv2', new THREE.BufferAttribute(contactPlanet.geometry.attributes.uv.array, 2))
-    // contactPlanet.position.set(0, 0, -2)
-
 
     scene.add(projectPlanet, resumePlanet, aboutPlanet/*, contactPlanet*/)
 
@@ -401,28 +388,6 @@ const generateGalaxy = () =>
     points = new THREE.Points(geometry, material)
     scene.add(points)
 }
-
-/**
- * RayCaster
- */
-// let rayToCast = false
-// const raycaster = new THREE.Raycaster()
-// const rayCast = () => {
-//     rayToCast = true
-// }
-
-// const rayUncast = () => {
-//     rayToCast = false
-// }
-
-
-// gui.add(parameters, 'count').min(100).max(1000000).step(100).onFinishChange(generateGalaxy)
-// gui.add(parameters, 'radius').min(0.01).max(20).step(0.01).onFinishChange(generateGalaxy)
-// gui.add(parameters, 'branches').min(2).max(20).step(1).onFinishChange(generateGalaxy)
-// gui.add(parameters, 'randomness').min(0).max(2).step(0.001).onFinishChange(generateGalaxy)
-// gui.add(parameters, 'randomnessPower').min(1).max(10).step(0.001).onFinishChange(generateGalaxy)
-// gui.addColor(parameters, 'insideColor').onFinishChange(generateGalaxy)
-// gui.addColor(parameters, 'outsideColor').onFinishChange(generateGalaxy)
 
 
 /**
@@ -560,10 +525,8 @@ exitButton.addEventListener('click', () => {
 
     const tween = new TWEEN.Tween(camera.position)
     .to({x : cameraResValueX, y : cameraResValueY, z : cameraResValueZ}, 1200)
-    .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
+    .easing(TWEEN.Easing.Quadratic.Out)
 	.onUpdate(() => {
-		// Called after tween.js updates 'coords'.
-		// Move 'box' to the position described by 'coords' with a CSS translation.
 	})
     .onComplete(()=> {
         gsap.to(text.material, 1, {opacity:1})
@@ -675,8 +638,6 @@ enterButton.addEventListener('click', () => {
         updateHexagons()
     })
         .start();
-
-    //rayCast()
 
     enterButton.style.opacity = '0'
     enterButton.style.transitionDuration = '0.5s'
@@ -836,65 +797,7 @@ const tick = () =>
 
     aboutPlanet === null ? false : aboutPlanet.rotation.y += 0.008
     aboutPlanet === null ? false : aboutPlanet.rotation.x += 0.004
-    
-    // OLD
-    // if(rayToCast === true) {
-    //     const rayOrigin = new THREE.Vector3(-3, 0, 0)
-    //     const rayDirection = new THREE.Vector3(10, 0, 0)
-    //     rayDirection.normalize()
-    //     raycaster.set(rayOrigin, rayDirection)
 
-    //     const objectsToTest = [projectPlanet, resumePlanet, aboutPlanet]
-    //     const intersect = raycaster.intersectObject(projectPlanet)
-    //     //console.log(intersect)
-    //     const intersects = raycaster.intersectObjects(objectsToTest)
-    //     //console.log(intersects)
-
-    //     for(const obj of objectsToTest) {
-    //         obj.material.color.set(0xffffff)
-    //     }
-
-    //     for(const int of intersects) {
-    //         int.object.material.color.set(0x0f00dc)
-    //     }
-    // }
-
-    // NEW - MOUSE
-    // if(rayToCast === true) {
-    //     raycaster.setFromCamera(mouse, camera)
-
-    //     const objectsToTest = [projectPlanet, resumePlanet, aboutPlanet]
-    //     const intersects = raycaster.intersectObjects(objectsToTest)
-
-    //     for(const obj of objectsToTest) {
-    //         obj.material.color.set(0xffffff)
-    //         planetToLook = null
-
-            
-    //     }
-
-    //     for(const int of intersects) {
-            
-    //         int.object.material.color.set('#29F500')
-
-    //         // if(int.object.position.x == -1 && int.object.position.z == 1.6) {
-    //         //     // console.log('contact planet')
-    //         //     document.addEventListener('click', contactTween)
-    //         // }
-
-    //         // if(int.object.position.x == -2.15 && int.object.position.z == 0) {
-    //         //     // console.log('project planet')
-    //         //     document.addEventListener('click', projectTween)
-    //         // }
-
-    //         // if(int.object.position.x == 1.78 && int.object.position.z == 0) {
-    //         //     // console.log('about planet')
-    //         //    document.addEventListener('click', aboutTween)
-    //         // }
-
-           
-    //     }
-    // }
 
     TWEEN.update();
 

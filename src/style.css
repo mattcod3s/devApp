@@ -1,6 +1,125 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap");
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+#loading {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #0c0c0c;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+          transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  /* SOLAR SYSTEM */
+}
+
+#loading #system {
+  width: 250px;
+  height: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#loading #system .orbit {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+#loading #system .orbit .planet {
+  position: absolute;
+  top: -5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #3fc4f9;
+}
+
+#loading #system .orbit .sun {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+#loading #system .orbitOne {
+  width: 165px;
+  height: 165px;
+  -webkit-animation: spin 9s linear 0s infinite;
+          animation: spin 9s linear 0s infinite;
+}
+
+#loading #system .orbitTwo {
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 6s linear 0s infinite;
+          animation: spin 6s linear 0s infinite;
+}
+
+#loading #system .orbitThree {
+  width: 90px;
+  height: 90px;
+  -webkit-animation: spin 3s linear 0s infinite;
+          animation: spin 3s linear 0s infinite;
+}
+
 @-webkit-keyframes shake {
   0% {
     -webkit-transform: translate(1px, 1px) rotate(0deg);
@@ -47,6 +166,7 @@
             transform: translate(0px, 0px) rotate(0deg);
   }
 }
+
 @keyframes shake {
   0% {
     -webkit-transform: translate(1px, 1px) rotate(0deg);
@@ -502,6 +622,7 @@ body {
           align-items: center;
   border-radius: 100px;
   cursor: pointer;
+  opacity: 1;
 }
 
 #enterBtn h3 {
