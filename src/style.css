@@ -1655,6 +1655,14 @@ body {
           animation-iteration-count: initial;
 }
 
+#cont_content #screenSaver {
+  position: absolute;
+  width: 90vw;
+  height: 80vh;
+  top: 90vh;
+  display: none;
+}
+
 @media screen and (max-width: 650px) {
   #sidebar {
     top: 25vh;
@@ -1827,14 +1835,18 @@ body {
   }
   #project_content {
     -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
-    overflow-y: scroll;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    overflow-y: scroll !important;
   }
   #project_content #project_selectionArea {
+    margin-bottom: -350vh;
     width: 90vw;
     height: 330vh;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
   }
   #project_content #project_selectionArea #project_selection {
     width: 90vw;
@@ -1856,8 +1868,9 @@ body {
     height: 89%;
   }
   #project_content #project_stageArea {
-    margin-top: 13vh;
-    margin-bottom: 5vh;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
     width: 90vw;
     height: 100vh;
   }
@@ -1940,6 +1953,9 @@ body {
     line-height: 22px;
     font-size: 0.9rem;
   }
+  #cont_content {
+    overflow-y: scroll !important;
+  }
   #cont_content #success_snackBar {
     top: 24vh;
     left: 6vw;
@@ -2014,6 +2030,11 @@ body {
   #cont_content #cont_icons #linkedinIcon {
     width: 4vh;
     height: 4vh;
+  }
+  #cont_content #screenSaver {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 
@@ -2128,6 +2149,12 @@ body {
   }
   #project_content #project_stageArea #stagedInfo #stagedTechTags #techTags .tag .tagContent h3 {
     font-size: 0.4rem !important;
+  }
+}
+
+@media screen and (max-width: 500px) and (min-width: 380px) {
+  #skillsContainer {
+    top: 75vh !important;
   }
 }
 /*# sourceMappingURL=style.css.map */

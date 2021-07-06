@@ -1192,6 +1192,14 @@ body
             animation-iteration-count: initial;
         }
     }
+
+    #screenSaver {
+        position: absolute;
+        width: 90vw;
+        height: 80vh;
+        top: 90vh;
+        display: none;
+    }
     
    
 }
@@ -1378,11 +1386,13 @@ body
 
     //*projects contrent*//
     #project_content {
-        flex-direction: column-reverse;
-        overflow-y: scroll;
+        flex-direction: column;
+        overflow-y: scroll !important; 
         #project_selectionArea {
+            margin-bottom: -350vh;
             width: 90vw;
             height: 330vh;
+            order: 2;
             #project_selection {
                 width: 90vw;
                 height: 330vh;
@@ -1401,8 +1411,9 @@ body
             }
         }
         #project_stageArea {
-            margin-top: 13vh;
-            margin-bottom: 5vh;
+            // margin-top: 13vh;
+            // margin-bottom: 5vh;
+            order: 1;
             width: 90vw;
             height: 100vh;
             #stagedImage {
@@ -1494,6 +1505,7 @@ body
     //*contact content*//
 
     #cont_content {
+        overflow-y: scroll !important;
         #success_snackBar {
             top: 24vh;
             left: 6vw;
@@ -1569,6 +1581,10 @@ body
                 width: 4vh;
                 height: 4vh;
             }
+        }
+
+        #screenSaver {
+            display: flex;
         }
     }
     //**//
@@ -1737,5 +1753,11 @@ body
                 }
             }
         }
+    }
+}
+
+@media screen and (max-width: 500px) and (min-width: 380px) {
+    #skillsContainer {
+        top: 75vh !important;
     }
 }

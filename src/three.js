@@ -17,6 +17,8 @@ let cameraResValueZ = 16
 let textPositionY = 10.6
 let miniTextPositionY = 9.6
 
+let particleCount = 800000
+
 if(window.innerWidth > 1920) {
     sizeResValue = 80
 } else if(window.innerWidth > 1440) {
@@ -24,7 +26,8 @@ if(window.innerWidth > 1920) {
 } else if(window.innerWidth > 800) {
     sizeResValue = 50
 } else {
-    sizeResValue = 40
+    sizeResValue = 75
+    particleCount = 400000
 }
 
 if(window.innerWidth < 600)  {
@@ -53,6 +56,17 @@ window.addEventListener('load', () => {
     contactContent.style.opacity = '0'
     contactContent.style.pointerEvents = 'none'
     contactContent.style.transitionDelay = '0s'
+
+    document.getElementById('loading').style.transform = 'translateY(120vh)'
+
+    let progressBar = document.getElementById('progressBar')
+    
+    progressBar.value = 100
+
+    setTimeout(function(){ 
+        gsap.to(text.material, 1, {opacity:1})
+        gsap.to(miniText.material, 1, {opacity:1})
+    }, 1500);
 
 })
 
@@ -138,17 +152,6 @@ loadingManager.onStart = () => {
 
 let tempAdd = 0
 loadingManager.onLoad = () => {
-
-    document.getElementById('loading').style.transform = 'translateY(120vh)'
-
-    let progressBar = document.getElementById('progressBar')
-    
-    progressBar.value = 100
-
-    setTimeout(function(){ 
-        gsap.to(text.material, 1, {opacity:1})
-        gsap.to(miniText.material, 1, {opacity:1})
-    }, 1500);
     
 }
 loadingManager.onProgress = () => {
@@ -194,7 +197,7 @@ const planet3RoughTexture = textureLoader.load('/textures/planet381/ROUGH.jpg')
  * Galaxy
  */
 const parameters = {}
-parameters.count = 1000000
+parameters.count = particleCount
 parameters.size = 0.003
 parameters.radius = 20
 parameters.branches = 5
@@ -791,7 +794,7 @@ const tick = () =>
     const elapsedTime = clock.getElapsedTime()
 
     //Update text
-    if(text !== null) {
+    if(text !== null && window.innerWidth > 800) {
         render();
     }
 
